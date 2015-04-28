@@ -27,6 +27,6 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:treelinehq/machinepack-arrays.git"
   }
 }
