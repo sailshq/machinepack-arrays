@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Get index of...',
+  friendlyName: 'Get index of item',
 
 
   description: 'Look up the first occurrence of the specified item and return its array index.',
@@ -19,9 +19,9 @@ module.exports = {
   inputs: {
 
     array: {
-      typeclass: 'array',
       friendlyName: 'In array',
       description: 'The array to search in (i.e. "haystack")',
+      typeclass: 'array',
       required: true
     },
 
@@ -30,7 +30,7 @@ module.exports = {
       friendlyName: 'Search for',
       description: 'The value to search for (i.e. "needle")',
       required: true
-    },
+    }
 
   },
 
