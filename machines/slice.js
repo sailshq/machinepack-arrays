@@ -27,15 +27,15 @@ module.exports = {
 
     start: {
       friendlyName: 'Start from (index)',
-      description: 'The index to start the slice from.',
+      description: 'The index of the first item to include in the new array.',
       example: 2,
       required: true
     },
 
     end: {
       friendlyName: 'End with (index)',
-      description: 'The index to end the slice with.',
-      extendedDescription: 'A negative value will result in a slice built from wrapping around.',
+      description: 'The index of the last item to include in the new array.',
+      extendedDescription: 'Omitting this value will include the rest of the original array.  Specifying a negative value will cause the slice to "wrap around" to the beginning; including the items with array indices of 0, 1, 2, etc.',
       example: 5
     }
 
