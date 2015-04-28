@@ -1,0 +1,69 @@
+module.exports = {
+
+
+  friendlyName: 'Get index of...',
+
+
+  description: 'Look up the first occurence of the item and return its array index.',
+
+
+  extendedDescription: '',
+
+
+  sync: true,
+
+
+  cacheable: true,
+
+
+  inputs: {
+
+    array: {
+      typeclass: 'array',
+      friendlyName: 'In array',
+      description: 'The array to search in (i.e. "haystack")',
+      required: true
+    },
+
+    item: {
+      typeclass: '*',
+      friendlyName: 'Search for',
+      description: 'The value to search for (i.e. "needle")',
+      required: true
+    },
+
+  },
+
+
+  defaultExit: 'success',
+
+
+  exits: {
+    error: {
+      description: 'Unexpected error occurred.'
+    },
+    notFound: {
+      friendlyName: 'not found',
+      description: 'Array does not contain specified item.'
+    },
+    success: {
+      friendlyName: 'found',
+      variableName: 'foundAtIndex',
+      description: 'Returns the array index where the item is located (starting with 0)',
+      example: 8
+    }
+  },
+
+
+  fn: function(inputs, exits) {
+    var _ = require('lodash');
+    var index = _.indexOf(inputs.array, inputs.item);
+    if (index === -1 ) {
+      return exits.notFound();
+    }
+    return exits.success(index);
+  }
+
+
+};
+

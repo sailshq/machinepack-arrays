@@ -22,7 +22,12 @@
   "machinepack": {
     "friendlyName": "Arrays",
     "machineDir": "machines/",
-    "machines": [],
+    "machines": [
+      "build-array",
+      "reverse",
+      "index-of",
+      "random-item"
+    ],
     "testsUrl": "https://travis-ci.org/"
   },
   "repository": {
