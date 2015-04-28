@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'Get index of...',
 
 
-  description: 'Look up the first occurence of the item and return its array index.',
+  description: 'Look up the first occurrence of the specified item and return its array index.',
 
 
   extendedDescription: '',

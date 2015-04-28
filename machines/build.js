@@ -4,7 +4,10 @@ module.exports = {
   friendlyName: 'Build array',
 
 
-  description: 'Build an array using the specified values.',
+  description: 'Build the specified array.',
+
+
+  extendedDescription: 'This machine is not designed for everyday use-- it is an identity operator for the Array type.',
 
 
   sync: true,
@@ -34,7 +37,7 @@ module.exports = {
     },
 
     success: {
-      description: 'Returns created array.',
+      description: 'Returns new array.',
       friendlyName: 'then',
       getExample: function(inputs, exits) {
         return inputs.array;

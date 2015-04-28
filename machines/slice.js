@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'Slice',
 
 
-  description: 'Create a slice of the provided array from `start` to `end` (inclusive)',
+  description: 'Build a new array from consecutive items of an existing array.',
 
 
   extendedDescription: '',

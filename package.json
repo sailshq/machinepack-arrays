@@ -29,7 +29,8 @@
       "slice",
       "length",
       "build",
-      "concat"
+      "concat",
+      "sort"
     ],
     "testsUrl": "https://travis-ci.org/"
   },

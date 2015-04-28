@@ -13,8 +13,9 @@ module.exports = {
   inputs: {
 
     array: {
+      friendlyName: 'Array to count',
       typeclass: 'array',
-      description: 'The array of items to pick from',
+      description: 'The array of items to count',
       required: true
     }
 
@@ -41,7 +42,6 @@ module.exports = {
   fn: function (inputs,exits) {
     return exits.success(inputs.array.length);
   },
-
 
 
 };

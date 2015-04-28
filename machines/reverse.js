@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'Reverse',
 
 
-  description: 'Build a new array which is an exact clone of `array`, but in reverse order.',
+  description: 'Build a new array which is an exact clone of an existing array, but in reverse order.',
 
 
   extendedDescription: '',

@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'Pick random item',
 
 
-  description: 'Randomly select an item from an array',
+  description: 'Randomly select one item from an array',
 
 
   sync: true,
