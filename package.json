@@ -30,7 +30,8 @@
       "length",
       "build",
       "concat",
-      "sort"
+      "sort",
+      "get-nth-item"
     ],
     "testsUrl": "https://travis-ci.org/"
   },
