@@ -33,13 +33,13 @@ module.exports = {
     success: {
       description: 'Done.',
       example: 32
-    },
+    }
 
   },
 
 
   fn: function (inputs,exits) {
-    return exits.success();
+    return exits.success(inputs.array.length);
   },
 
 
