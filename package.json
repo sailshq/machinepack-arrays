@@ -31,8 +31,8 @@
       "build",
       "concat",
       "sort",
-      "get-nth-item",
-      "last"
+      "last",
+      "nth"
     ],
     "testsUrl": "https://travis-ci.org/"
   },
