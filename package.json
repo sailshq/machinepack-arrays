@@ -23,12 +23,12 @@
     "friendlyName": "Arrays",
     "machineDir": "machines/",
     "machines": [
-      "build-array",
       "reverse",
       "index-of",
       "random-item",
       "slice",
-      "length"
+      "length",
+      "build"
     ],
     "testsUrl": "https://travis-ci.org/"
   },
