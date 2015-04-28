@@ -10,6 +10,12 @@ module.exports = {
   extendedDescription: '',
 
 
+  sync: true,
+
+
+  cacheable: true,
+
+
   inputs: {
 
     array: {

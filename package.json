@@ -26,7 +26,9 @@
       "build-array",
       "reverse",
       "index-of",
-      "random-item"
+      "random-item",
+      "slice",
+      "length"
     ],
     "testsUrl": "https://travis-ci.org/"
   },
