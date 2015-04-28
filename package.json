@@ -28,7 +28,8 @@
       "random-item",
       "slice",
       "length",
-      "build"
+      "build",
+      "concat"
     ],
     "testsUrl": "https://travis-ci.org/"
   },
