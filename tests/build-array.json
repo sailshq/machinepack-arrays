@@ -1,0 +1,10 @@
+{
+  "machine": "build-array",
+  "expectations": [
+    {
+      "todo": true,
+      "using": {},
+      "outcome": "success"
+    }
+  ]
+}

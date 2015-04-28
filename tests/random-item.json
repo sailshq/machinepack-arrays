@@ -1,0 +1,10 @@
+{
+  "machine": "random-item",
+  "expectations": [
+    {
+      "todo": true,
+      "using": {},
+      "outcome": "success"
+    }
+  ]
+}

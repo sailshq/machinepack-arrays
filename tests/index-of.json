@@ -1,0 +1,10 @@
+{
+  "machine": "index-of",
+  "expectations": [
+    {
+      "todo": true,
+      "using": {},
+      "outcome": "success"
+    }
+  ]
+}
