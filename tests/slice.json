@@ -5,6 +5,64 @@
       "todo": true,
       "using": {},
       "outcome": "success"
+    },
+    {
+      "using": {
+        "array": "[{\"name\": \"Lucy\"}, {\"name\": \"Ricky\"}, {\"name\": \"Louise\" }, { \"name\": \"Estelle\" }]",
+        "start": "1"
+      },
+      "outcome": "success",
+      "returns": [
+        {
+          "name": "Ricky"
+        },
+        {
+          "name": "Louise"
+        },
+        {
+          "name": "Estelle"
+        }
+      ]
+    },
+    {
+      "using": {
+        "array": "[{\"name\": \"Lucy\"}, {\"name\": \"Ricky\"}, {\"name\": \"Louise\" }, { \"name\": \"Estelle\" }]",
+        "start": "0"
+      },
+      "outcome": "success",
+      "returns": [
+        {
+          "name": "Lucy"
+        },
+        {
+          "name": "Ricky"
+        },
+        {
+          "name": "Louise"
+        },
+        {
+          "name": "Estelle"
+        }
+      ]
+    },
+    {
+      "using": {
+        "array": "[{\"name\": \"Lucy\"}, {\"name\": \"Ricky\"}, {\"name\": \"Louise\" }, { \"name\": \"Estelle\" }]",
+        "start": "3"
+      },
+      "outcome": "success",
+      "returns": [
+        {
+          "name": "Estelle"
+        }
+      ]
+    },
+    {
+      "using": {
+        "array": "[{\"name\": \"Lucy\"}, {\"name\": \"Ricky\"}, {\"name\": \"Louise\" }, { \"name\": \"Estelle\" }]",
+        "start": "5"
+      },
+      "outcome": "success"
     }
   ]
 }

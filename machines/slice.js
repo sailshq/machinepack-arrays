@@ -66,7 +66,7 @@ module.exports = {
     if (typeof inputs.end === 'undefined') {
       return exits.success(_.slice(inputs.array, inputs.start));
     }
-    return exits.success(_.slice(inputs.array, inputs.start, inputs.end-1));
+    return exits.success(_.slice(inputs.array, inputs.start, inputs.end+1));
   },
 
 
