@@ -48,6 +48,7 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+    var _ = require('lodash');
     return exits.success(_.uniq(inputs.array));
   }
 

@@ -1,5 +1,5 @@
 {
-  "machine": "uniq",
+  "machine": "uniq-by",
   "expectations": [
     {
       "todo": true,
@@ -8,7 +8,8 @@
     },
     {
       "using": {
-        "array": "[{\"name\":\"Lucy\"},{\"name\":\"Ricky\"}, {\"name\": \"Louise\"}, {\"name\": \"Estelle\" }]"
+        "array": "[{\"name\":\"Lucy\"},{\"name\":\"Ricky\"},{\"name\":\"Louise\"},{\"name\":\"Louise\"}]",
+        "key": "name"
       },
       "outcome": "success",
       "returns": [
@@ -20,9 +21,6 @@
         },
         {
           "name": "Louise"
-        },
-        {
-          "name": "Estelle"
         }
       ]
     }

@@ -5,6 +5,34 @@
       "todo": true,
       "using": {},
       "outcome": "success"
+    },
+    {
+      "using": {
+        "firstArray": "[{\"name\":\"Louise\"},{\"name\":\"Estelle\"}]",
+        "secondArray": "[{\"name\":\"Lucy\"},{\"name\":\"Ricky\"}]"
+      },
+      "outcome": "success",
+      "returns": [
+        {
+          "name": "Louise"
+        },
+        {
+          "name": "Estelle"
+        },
+        {
+          "name": "Lucy"
+        },
+        {
+          "name": "Ricky"
+        }
+      ]
+    },
+    {
+      "using": {
+        "firstArray": "[]",
+        "secondArray": "[]"
+      },
+      "outcome": "success"
     }
   ]
 }

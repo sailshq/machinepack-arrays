@@ -5,6 +5,30 @@
       "todo": true,
       "using": {},
       "outcome": "success"
+    },
+    {
+      "using": {
+        "array": "[{\"name\":\"Lucy\"},{\"name\":\"Ricky\"}, {\"name\": \"Louise\"}, {\"name\": \"Estelle\" }]",
+        "index": "1"
+      },
+      "outcome": "success",
+      "returns": {
+        "name": "Ricky"
+      }
+    },
+    {
+      "using": {
+        "array": "[{\"name\":\"Lucy\"},{\"name\":\"Ricky\"}, {\"name\": \"Louise\"}, {\"name\": \"Estelle\" }]",
+        "index": "10"
+      },
+      "outcome": "notFound"
+    },
+    {
+      "using": {
+        "array": "[{\"name\":\"Lucy\"},{\"name\":\"Ricky\"}, {\"name\": \"Louise\"}, {\"name\": \"Estelle\" }]",
+        "index": "-1"
+      },
+      "outcome": "notFound"
     }
   ]
 }

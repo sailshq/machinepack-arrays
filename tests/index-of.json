@@ -9,7 +9,7 @@
     {
       "using": {
         "array": "[\"Lucy\", \"Ricky\"]",
-        "item": "\"Ricky\""
+        "item": "Ricky"
       },
       "outcome": "success",
       "returns": "1"
@@ -17,9 +17,17 @@
     {
       "using": {
         "array": "[\"Lucy\", \"Ricky\"]",
-        "item": "\"Sticky\""
+        "item": "Sticky"
       },
       "outcome": "notFound"
+    },
+    {
+      "using": {
+        "array": "[\"lucy\",\"rick\"]",
+        "item": "rick"
+      },
+      "outcome": "success",
+      "returns": "1"
     }
   ]
 }

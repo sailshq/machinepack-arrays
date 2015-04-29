@@ -5,6 +5,15 @@
       "todo": true,
       "using": {},
       "outcome": "success"
+    },
+    {
+      "using": {
+        "array": "[{\"name\":\"Lucy\"},{\"name\":\"Ricky\"}]"
+      },
+      "outcome": "success",
+      "returns": {
+        "name": "Ricky"
+      }
     }
   ]
 }

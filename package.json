@@ -37,7 +37,8 @@
       "sort-numbers",
       "sort-dictionaries",
       "uniq",
-      "sample"
+      "sample",
+      "uniq-by"
     ],
     "testsUrl": "https://travis-ci.org/"
   },
