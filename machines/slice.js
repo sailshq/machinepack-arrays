@@ -1,10 +1,10 @@
 module.exports = {
 
 
-  friendlyName: 'Slice',
+  friendlyName: 'Slice array',
 
 
-  description: 'Build a new array from consecutive items of an existing array.',
+  description: 'Copy a sub-array of consecutive items from the specified array.',
 
 
   extendedDescription: '',
