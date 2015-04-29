@@ -32,7 +32,8 @@
       "sort",
       "last",
       "nth",
-      "construct"
+      "construct",
+      "pluck"
     ],
     "testsUrl": "https://travis-ci.org/"
   },
