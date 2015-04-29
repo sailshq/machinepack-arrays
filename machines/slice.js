@@ -62,6 +62,7 @@ module.exports = {
 
 
   fn: function (inputs,exits) {
+    var _ = require('lodash');
     if (typeof inputs.end === 'undefined') {
       return exits.success(_.slice(inputs.array, inputs.start));
     }
