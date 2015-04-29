@@ -1,10 +1,10 @@
 module.exports = {
 
 
-  friendlyName: 'Build array',
+  friendlyName: 'Construct array',
 
 
-  description: 'Build the specified array.',
+  description: 'Construct an array.',
 
 
   extendedDescription: 'This machine is not designed for everyday use-- it is an identity operator for the Array type.',

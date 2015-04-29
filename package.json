@@ -28,11 +28,11 @@
       "random-item",
       "slice",
       "length",
-      "build",
       "concat",
       "sort",
       "last",
-      "nth"
+      "nth",
+      "construct"
     ],
     "testsUrl": "https://travis-ci.org/"
   },
