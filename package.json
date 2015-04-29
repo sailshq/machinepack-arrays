@@ -35,7 +35,8 @@
       "pluck",
       "sort-strings",
       "sort-numbers",
-      "sort-dictionaries"
+      "sort-dictionaries",
+      "uniq"
     ],
     "testsUrl": "https://travis-ci.org/"
   },
