@@ -29,11 +29,13 @@
       "slice",
       "length",
       "concat",
-      "sort",
       "last",
       "nth",
       "construct",
-      "pluck"
+      "pluck",
+      "sort-strings",
+      "sort-numbers",
+      "sort-dictionaries"
     ],
     "testsUrl": "https://travis-ci.org/"
   },
