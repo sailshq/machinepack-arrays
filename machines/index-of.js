@@ -7,7 +7,7 @@ module.exports = {
   description: 'Look up the first occurrence of the specified item and return its array index.',
 
 
-  extendedDescription: '',
+  extendedDescription: 'If item is a dictionary or array, this machine will PROBABLY not work as expected-- it does NOT use deep equality for comparison.',
 
 
   sync: true,
