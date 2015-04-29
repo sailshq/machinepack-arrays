@@ -1,0 +1,10 @@
+{
+  "machine": "sort-strings",
+  "expectations": [
+    {
+      "todo": true,
+      "using": {},
+      "outcome": "success"
+    }
+  ]
+}

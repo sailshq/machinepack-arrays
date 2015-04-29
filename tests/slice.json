@@ -1,0 +1,10 @@
+{
+  "machine": "slice",
+  "expectations": [
+    {
+      "todo": true,
+      "using": {},
+      "outcome": "success"
+    }
+  ]
+}

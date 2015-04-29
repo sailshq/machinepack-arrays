@@ -1,0 +1,10 @@
+{
+  "machine": "concat",
+  "expectations": [
+    {
+      "todo": true,
+      "using": {},
+      "outcome": "success"
+    }
+  ]
+}
