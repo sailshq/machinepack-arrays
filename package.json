@@ -14,11 +14,10 @@
   "license": "MIT",
   "dependencies": {
     "lodash": "^3.7.0",
-    "machine": "^4.0.5",
-    "test-machinepack-mocha": "^0.2.3"
+    "machine": "^4.0.5"
   },
   "devDependencies": {
-    "test-machinepack-mocha": "^0.2.2"
+    "test-machinepack-mocha": "^0.2.3"
   },
   "machinepack": {
     "friendlyName": "Arrays",
