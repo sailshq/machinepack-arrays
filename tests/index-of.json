@@ -5,6 +5,21 @@
       "todo": true,
       "using": {},
       "outcome": "success"
+    },
+    {
+      "using": {
+        "array": "[\"Lucy\", \"Ricky\"]",
+        "item": "\"Ricky\""
+      },
+      "outcome": "success",
+      "returns": "1"
+    },
+    {
+      "using": {
+        "array": "[\"Lucy\", \"Ricky\"]",
+        "item": "\"Sticky\""
+      },
+      "outcome": "notFound"
     }
   ]
 }

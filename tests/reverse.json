@@ -5,6 +5,67 @@
       "todo": true,
       "using": {},
       "outcome": "success"
+    },
+    {
+      "using": {
+        "array": "[]"
+      },
+      "outcome": "success"
+    },
+    {
+      "using": {
+        "array": "[\"a\", \"b\"]"
+      },
+      "outcome": "success",
+      "returns": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "using": {
+        "array": "[\"a\", \"b\", \"c\"]"
+      },
+      "outcome": "success",
+      "returns": [
+        "c",
+        "b",
+        "a"
+      ]
+    },
+    {
+      "using": {
+        "array": "[1, 2, 3]"
+      },
+      "outcome": "success",
+      "returns": [
+        "3",
+        "2",
+        "1"
+      ]
+    },
+    {
+      "using": {
+        "array": "[\"stuff\"]"
+      },
+      "outcome": "success",
+      "returns": [
+        "stuff"
+      ]
+    },
+    {
+      "using": {
+        "array": "[{\"name\": \"Lucy\" }, {\"name\":\"Ricky\"}]"
+      },
+      "outcome": "success",
+      "returns": [
+        {
+          "name": "Ricky"
+        },
+        {
+          "name": "Lucy"
+        }
+      ]
     }
   ]
 }
