@@ -5,6 +5,20 @@
       "todo": true,
       "using": {},
       "outcome": "success"
+    },
+    {
+      "using": {
+        "array": "[\"z\",\"a\",\"A\",\"2323\",\"m\",\"J\"]"
+      },
+      "outcome": "success",
+      "returns": [
+        "2323",
+        "A",
+        "J",
+        "a",
+        "m",
+        "z"
+      ]
     }
   ]
 }

@@ -5,6 +5,19 @@
       "todo": true,
       "using": {},
       "outcome": "success"
+    },
+    {
+      "using": {
+        "array": "[{\"name\":\"Lucy\"},{\"name\":\"Ricky\"},{\"name\":\"Louise\"},{\"name\":\"Estelle\"}]",
+        "key": "name"
+      },
+      "outcome": "success",
+      "returns": [
+        "Lucy",
+        "Ricky",
+        "Louise",
+        "Estelle"
+      ]
     }
   ]
 }

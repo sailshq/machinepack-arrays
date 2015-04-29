@@ -10,6 +10,12 @@ module.exports = {
   extendedDescription: '',
 
 
+  sync: true,
+
+
+  cacheable: true,
+
+
   inputs: {
 
     array: {
@@ -39,8 +45,10 @@ module.exports = {
   },
 
 
-  fn: function (inputs,exits) {
-    return exits.success(inputs.array.sort());
+  fn: function(inputs, exits) {
+    return exits.success(inputs.array.sort(function compareNumbers(a, b) {
+      return a - b;
+    }));
   },
 
 
