@@ -28,6 +28,7 @@ module.exports = {
     start: {
       friendlyName: 'Start from (index)',
       description: 'The index of the first item to include in the new array.',
+      extendedDescription: 'This index should be zero or a positive number.',
       example: 2,
       required: true
     },
@@ -35,8 +36,9 @@ module.exports = {
     end: {
       friendlyName: 'End with (index)',
       description: 'The index of the last item to include in the new array.',
-      extendedDescription: 'Omitting this value will include the rest of the original array.  Specifying a negative value will cause the slice to "wrap around" to the beginning; including the items with array indices of 0, 1, 2, etc.',
-      example: 5
+      extendedDescription: 'This index should be zero or a positive number. Omitting this input value will include the rest of the array.',
+      example: 5,
+      min: 0
     }
 
   },
@@ -63,9 +65,18 @@ module.exports = {
 
   fn: function (inputs,exits) {
     var _ = require('lodash');
+
+    if (inputs.start < 0) {
+      return exits.error('`start` index must be least zero.');
+    }
     if (typeof inputs.end === 'undefined') {
       return exits.success(_.slice(inputs.array, inputs.start));
     }
+
+    if (inputs.end < 0) {
+      return exits.error('`end` index must be least zero.');
+    }
+    // Increment `end` by 1 (since the third arg to `_.slice` is exclusive)
     return exits.success(_.slice(inputs.array, inputs.start, inputs.end+1));
   },
 
