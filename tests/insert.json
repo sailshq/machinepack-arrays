@@ -1,0 +1,69 @@
+{
+  "machine": "insert",
+  "expectations": [
+    {
+      "using": {
+        "array": "[\"a\",\"b\",\"c\"]",
+        "index": "1",
+        "value": "x"
+      },
+      "outcome": "success",
+      "returns": [
+        "a",
+        "x",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "using": {
+        "array": "[\"a\",\"b\",\"c\"]",
+        "index": "0",
+        "value": "x"
+      },
+      "outcome": "success",
+      "returns": [
+        "x",
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "using": {
+        "array": "[\"a\",\"b\",\"c\"]",
+        "index": "2",
+        "value": "x"
+      },
+      "outcome": "success",
+      "returns": [
+        "a",
+        "b",
+        "x",
+        "c"
+      ]
+    },
+    {
+      "using": {
+        "array": "[\"a\",\"b\",\"c\"]",
+        "index": "3",
+        "value": "x"
+      },
+      "outcome": "success",
+      "returns": [
+        "a",
+        "b",
+        "c",
+        "x"
+      ]
+    },
+    {
+      "using": {
+        "array": "[\"a\",\"b\",\"c\"]",
+        "index": "4",
+        "value": "x"
+      },
+      "outcome": "notFound"
+    }
+  ]
+}
