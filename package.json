@@ -10,7 +10,7 @@
     "machines",
     "machinepack"
   ],
-  "author": "",
+  "author": "Mike McNeil",
   "license": "MIT",
   "dependencies": {
     "lodash": "^3.7.0",
