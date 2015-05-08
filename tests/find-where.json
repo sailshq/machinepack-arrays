@@ -1,0 +1,39 @@
+{
+  "machine": "find-where",
+  "expectations": [
+    {
+      "using": {
+        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}]",
+        "criteria": "{\"name\":\"rachael\"}"
+      },
+      "outcome": "success",
+      "returns": [
+        {
+          "id": "3"
+        }
+      ]
+    },
+    {
+      "using": {
+        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}]",
+        "criteria": "{\"name\":\"rob\"}"
+      },
+      "outcome": "success"
+    },
+    {
+      "using": {
+        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}, {\"name\": \"mike\", \"id\": 6}]",
+        "criteria": "{\"name\":\"mike\"}"
+      },
+      "outcome": "success",
+      "returns": [
+        {
+          "id": "1"
+        },
+        {
+          "id": "6"
+        }
+      ]
+    }
+  ]
+}

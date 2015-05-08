@@ -38,7 +38,9 @@
       "uniq",
       "sample",
       "uniq-by",
-      "insert"
+      "insert",
+      "find-one",
+      "find-where"
     ],
     "testsUrl": "https://travis-ci.org/"
   },

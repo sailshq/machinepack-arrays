@@ -1,0 +1,67 @@
+{
+  "machine": "find-one",
+  "expectations": [
+    {
+      "using": {
+        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}]",
+        "criteria": "{\"name\":\"rob\"}"
+      },
+      "outcome": "notFound"
+    },
+    {
+      "using": {
+        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}]",
+        "criteria": "{\"name\":\"mike\"}"
+      },
+      "outcome": "success",
+      "returns": {
+        "name": "mike",
+        "id": "1"
+      }
+    },
+    {
+      "using": {
+        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}]",
+        "criteria": "{\"name\":\"rachael\"}"
+      },
+      "outcome": "success",
+      "returns": {
+        "name": "rachael",
+        "id": "3"
+      }
+    },
+    {
+      "using": {
+        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}]",
+        "criteria": "{\"name\":\"scott\"}"
+      },
+      "outcome": "success",
+      "returns": {
+        "name": "scott",
+        "id": "5"
+      }
+    },
+    {
+      "using": {
+        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}]",
+        "criteria": "{\"name\":\"irl\"}"
+      },
+      "outcome": "success",
+      "returns": {
+        "name": "irl",
+        "id": "2"
+      }
+    },
+    {
+      "using": {
+        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}]",
+        "criteria": "{\"name\":\"cody\"}"
+      },
+      "outcome": "success",
+      "returns": {
+        "name": "cody",
+        "id": "4"
+      }
+    }
+  ]
+}
