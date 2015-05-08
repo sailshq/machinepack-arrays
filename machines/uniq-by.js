@@ -22,6 +22,7 @@ module.exports = {
       friendlyName: 'Array of dictionaries',
       description: 'The array of dictionaries to remove duplicates from.',
       typeclass: 'array',
+      // example: [{}],
       required: true
     },
 
