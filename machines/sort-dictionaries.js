@@ -21,7 +21,7 @@ module.exports = {
     array: {
       friendlyName: 'Array of dictionaries',
       description: 'The array to sort.',
-      example: [{}],
+      typeclass: 'array',
       required: true
     },
 

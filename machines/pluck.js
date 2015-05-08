@@ -21,7 +21,7 @@ module.exports = {
     array: {
       friendlyName: 'Array of dictionaries',
       description: 'The array of dictionaries to iterate over.',
-      example: [{}],
+      typeclass: 'array',
       required: true
     },
 
