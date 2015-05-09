@@ -18,6 +18,10 @@ module.exports = {
       required: true
     },
 
+    //  ----------------------------------------------------------------------------
+    // |  Really, just passing in an implementation here-- the usage should be set  |
+    //  ----------------------------------------------------------------------------
+    //
     // iteratee: {
     //   description: 'The machine to run on each item in the array.',
     //   extendedDescription: 'Expects machine to have a single (typeclass: "*") input called "value", and two exits: "success" and "error".',
