@@ -26,14 +26,23 @@ module.exports = {
     // },
 
 
-    initialValue: {
-      friendlyName: 'Initial value',
-      description: 'The initial value for the accumulated result (final result must have a compatible type!)',
-      extendedDescription: 'Note that the final accumulated result must have a compatible type!',
+    resultExample: {
+      friendlyName: 'Example result',
+      description: 'An example of what the final accumulated result will look like.',
+      extendedDescription: 'The type of the final result must be compatible with the initial value, as well as the partial result provided to the iteratee during each iteration.',
       typeclass: '*',
       required: true
     },
 
+    initialValue: {
+      friendlyName: 'Initial value',
+      description: 'The initial value for the accumulated result (defaults to the empty version of the provided "Result example")',
+      extendedDescription: 'Note that the final accumulated result must have a compatible type!',
+      typeclass: '*'
+    },
+
+    // Series should pretty much always be enabled...
+    // (consider removing this option)
     series: {
       description: 'Whether to run iteratee on all items in series (one at a time) vs. in parallel (all at the same time)',
       extendedDescription: 'Be careful if you disable this input-- make sure you are actually OK with your iteratee being run on each item of the array in a completely arbitrary order. Also release that consequently, the order that your result will accumulate in is impossible to predict.',
@@ -50,7 +59,7 @@ module.exports = {
       friendlyName: 'then',
       description: 'Done.',
       getExample: function (inputs){
-        return inputs.initialValue;
+        return inputs.resultExample;
       }
     }
 
@@ -58,7 +67,9 @@ module.exports = {
 
 
   fn: function (inputs,exits) {
+    var _ = require('lodash');
     var async = require('async');
+    var Machine = require('machine');
 
     // // Get the name of the first input to the iteratee
     // // TODO: replace this with "typeclass: machine" type checking
@@ -70,7 +81,14 @@ module.exports = {
     //   return exits.error('Iteratee misconfigured: inputs object empty');
     // }
 
-    var Machine = require('machine');
+    var initialValue;
+    if (!_.isUndefined(inputs.initialValue)) {
+      initialValue = inputs.initialValue;
+    }
+    else {
+      // TODO: determine empty value for `inputs.exampleResult` and use that for `initialValue`.
+      return exits.error(new Error('`initialValue` is currently required (will eventually be optional)'));
+    }
 
     // Use either `async.each` (parallel) or `async.eachSeries` (series)
     var iteratorFn = inputs.series ? async.eachSeries : async.each;
@@ -89,7 +107,7 @@ module.exports = {
 
     // `resultSoFar` will hold the result accumulated across
     // multiple calls to `inputs.iteratee`.
-    var resultSoFar = inputs.initialValue;
+    var resultSoFar = initialValue;
 
     // A quick ad-hoc iteratee for development purposes
     // (actual input is disabled)
@@ -106,7 +124,7 @@ module.exports = {
           example: 3
         },
         resultSoFar: {
-          example: inputs.initialValue
+          example: initialValue
         }
       },
       exits: {
@@ -148,16 +166,13 @@ module.exports = {
         return next();
       }
 
-      // Build up input configuration for iteratee
-      var iterateeInputVals = {};
-      iterateeInputVals['index'] = currentIndex;
-      iterateeInputVals['lastIndex'] = inputs.array.length-1;
-      iterateeInputVals['item'] = item;
-      iterateeInputVals['resultSoFar'] = resultSoFar;
-
-
-      // Execute iteratee machine
-      iteratee(iterateeInputVals).exec({
+      // Execute iteratee machine using generic input configuration
+      iteratee({
+        index: currentIndex,
+        lastIndex: inputs.array.length-1,
+        item: item,
+        resultSoFar: resultSoFar
+      }).exec({
 
         // Catchall (error) exit
         // (implies that we should stop early and consider
