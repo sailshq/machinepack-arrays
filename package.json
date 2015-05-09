@@ -13,6 +13,7 @@
   "author": "Mike McNeil",
   "license": "MIT",
   "dependencies": {
+    "async": "^0.9.0",
     "lodash": "^3.7.0",
     "machine": "^4.0.5"
   },
@@ -40,7 +41,8 @@
       "uniq-by",
       "insert",
       "find-one",
-      "find-where"
+      "find-where",
+      "reduce"
     ],
     "testsUrl": "https://travis-ci.org/"
   },
