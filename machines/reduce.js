@@ -118,15 +118,17 @@ module.exports = {
           }
         }
       },
-      fn: function starkify(iterateeInputs, iterateeExits){
-        // TODO: do something important
-        return iterateeExits.success(
-          iterateeInputs.resultSoFar +
-          (
-            (iterateeInputs.index===iterateeInputs.lastIndex) ?
-              'and ' + iterateeInputs.item :
-              iterateeInputs.item + ', '
-          ));
+      fn: function (iterateeInputs, iterateeExits){
+
+        // For now, this is hard-coded to just `starkify()` stuff.
+        //
+        // Given an array something like this:
+        // [{"name": "arya"}, {"name": "rob"}, {"name": "jon"}, {"name": "sansa"}]
+        var starks = iterateeInputs.resultSoFar;
+        var thisStark = iterateeInputs.item;
+        thisStark.name = thisStark.name.slice(0,1).toUpperCase() + thisStark.name.slice(1) + ' Stark';
+        starks.push(thisStark);
+        return iterateeExits.success(starks);
       }
     };
 
