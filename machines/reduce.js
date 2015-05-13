@@ -14,27 +14,44 @@ module.exports = {
 
     array: {
       description: 'The array to loop over',
-      typeclass: 'array',
+      example: ['*'],
       required: true
     },
 
-    //  ----------------------------------------------------------------------------
-    // |  Really, just passing in an implementation here-- the usage should be set  |
-    //  ----------------------------------------------------------------------------
-    //
-    // iteratee: {
-    //   description: 'The machine to run on each item in the array.',
-    //   extendedDescription: 'Expects machine to have a single (typeclass: "*") input called "value", and two exits: "success" and "error".',
-    //   typeclass: 'machine',
-    //   required: true
-    // },
-
+    iteratee: {
+      description: 'The logic to run on each item in the array.',
+      example: '*',
+      contract: { // the interface
+        provides: {
+          item: {
+            itemOf: 'array' // same type as the items of the `array` input of the calling machine
+          },
+          index: {
+            example: 3
+          },
+          lastIndex: {
+            example: 3
+          },
+          resultSoFar: {
+            like: 'exampleResult' // same type as the `exampleResult` input of the calling machine
+          },
+        },
+        expects: {
+          error: {},
+          halt: {},
+          success: {
+            like: 'exampleResult' // same type as the `exampleResult` input of the calling machine
+          },
+        },
+      },
+      required: true
+    },
 
     resultExample: {
       friendlyName: 'Example result',
       description: 'An example of what the final accumulated result will look like.',
       extendedDescription: 'The type of the final result must be compatible with the initial value, as well as the partial result provided to the iteratee during each iteration.',
-      typeclass: '*',
+      example: '*',
       required: true
     },
 
@@ -42,7 +59,7 @@ module.exports = {
       friendlyName: 'Initial value',
       description: 'The initial value for the accumulated result (defaults to the empty version of the provided "Result example")',
       extendedDescription: 'Note that the final accumulated result must have a compatible type!',
-      typeclass: '*'
+      example: '*'
     },
 
     // Series should pretty much always be enabled...
@@ -75,23 +92,15 @@ module.exports = {
     var async = require('async');
     var Machine = require('machine');
 
-    // // Get the name of the first input to the iteratee
-    // // TODO: replace this with "typeclass: machine" type checking
-    // if (!inputs.iteratee.inputs || typeof inputs.iteratee.inputs !== 'object') {
-    //   return exits.error('Iteratee misconfigured: no inputs object found');
-    // }
-    // var iterateeInputs = Object.keys(inputs.iteratee.inputs);
-    // if (iterateeInputs.length === 0) {
-    //   return exits.error('Iteratee misconfigured: inputs object empty');
-    // }
 
     var initialValue;
     if (!_.isUndefined(inputs.initialValue)) {
       initialValue = inputs.initialValue;
     }
     else {
-      // TODO: determine empty value for `inputs.exampleResult` and use that for `initialValue`.
-      return exits.error(new Error('`initialValue` is currently required (will eventually be optional)'));
+      // Determine base/empty value for `inputs.exampleResult` and use that for `initialValue`.
+      var baseVal = Machine.build({sync: true, inputs: {}, exits: {success: {example: inputs.resultExample}}, fn: function (inputs,exits){exits.success();} }).execSync();
+      initialValue = baseVal;
     }
 
     // Use either `async.each` (parallel) or `async.eachSeries` (series)
@@ -115,20 +124,26 @@ module.exports = {
 
     // A quick ad-hoc iteratee for development purposes
     // (actual input is disabled)
-    // var iteratee = inputs.iteratee;
+    //
+    // To test:
+    // machinepack exec reduce --resultExample='[]' --iteratee='function (){}' --array='[{"name":"arya"}, {"name":"rob"}]'
     var iterateeDef = {
       inputs: {
         item: {
-          typeclass: '*'
+          example: '*',
+          required: true
         },
         index: {
-          example: 3
+          example: 3,
+          required: true
         },
         lastIndex: {
-          example: 3
+          example: 3,
+          required: true
         },
         resultSoFar: {
-          example: initialValue
+          example: initialValue,
+          required: true
         }
       },
       exits: {
@@ -219,3 +234,4 @@ module.exports = {
 
 
 };
+
