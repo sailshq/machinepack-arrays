@@ -1,7 +1,6 @@
 module.exports = {
 
   //
-  // Under active development.
   //
   // To test:
   // machinepack exec reduce --initialValue='""' --resultExample='"aryarob"' --iteratee='function (inputs,exits){return exits.success(inputs.resultSoFar+(inputs.index>0?" ":"")+inputs.item.name);}' --array='[{"name":"arya"}, {"name":"rob"}]'
@@ -26,9 +25,9 @@ module.exports = {
     },
 
     iteratee: {
-      description: 'The logic to run on each item in the array.',
-      example: '*',
-      contract: { // the interface
+      description: 'The function to run on each item in the array.',
+      example: '->',
+      contract: {
         provides: {
           item: {
             itemOf: 'array' // same type as the items of the `array` input of the calling machine
@@ -99,9 +98,6 @@ module.exports = {
     var async = require('async');
     var Machine = require('machine');
 
-    // Get the instantiated machine (todo: pull into core)
-    var iteratee = buildLambdaMachine(inputs.iteratee, {inputs: inputs});
-
     // `initialValue` is the initial value that will be accumulated into
     var initialValue;
     if (!_.isUndefined(inputs.initialValue)) {
@@ -147,7 +143,7 @@ module.exports = {
       }
 
       // Execute iteratee machine using generic input configuration
-      iteratee({
+      inputs.iteratee({
         index: currentIndex,
         lastIndex: inputs.array.length-1,
         item: item,
@@ -193,68 +189,5 @@ module.exports = {
     });
   }
 
-
 };
 
-
-
-
-
-function buildLambdaMachine(lambda, parentMachine){
-
-  var _ = require('lodash');
-  var Machine = require('machine');
-
-  // Parse the provided lambda input value
-  var fn;
-  if (_.isFunction(lambda)){
-    fn = lambda;
-  }
-  else if (_.isString(lambda)){
-    try {
-      eval('fn='+lambda);
-    }
-    catch (e){
-      return exits.error('Could not parse usable function from provided `iteratee` string. Details:\n'+e.stack);
-    }
-  }
-  else {
-    return exits.error(new Error('invalid lambda (`->`) - must be a function'));
-  }
-
-  // Build up the machine definition
-  var lambdaDef = {
-    inputs: {
-      item: {
-        example: parentMachine.inputs.array.length>0 ? parentMachine.inputs.array[0] : '*',
-        required: true
-      },
-      index: {
-        example: 3,
-        required: true
-      },
-      lastIndex: {
-        example: 3,
-        required: true
-      },
-      resultSoFar: {
-        example: parentMachine.inputs.resultExample,
-        required: true
-      }
-    },
-    exits: {
-      error: {},
-      halt: {},
-      success: {
-        getExample: function (iterateeInputs){
-          return resultSoFar;
-        }
-      }
-    },
-    fn: fn
-  };
-
-  // Construct and return the machine instance
-  return Machine.build(lambdaDef);
-
-}
