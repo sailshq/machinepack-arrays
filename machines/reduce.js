@@ -1,5 +1,12 @@
 module.exports = {
 
+  //
+  // Under active development.
+  //
+  // To test:
+  // machinepack exec reduce --initialValue='""' --resultExample='"aryarob"' --iteratee='function (inputs,exits){return exits.success(inputs.resultSoFar+(inputs.index>0?" ":"")+inputs.item.name);}' --array='[{"name":"arya"}, {"name":"rob"}]'
+  //
+
 
   friendlyName: 'Reduce',
 
@@ -122,15 +129,30 @@ module.exports = {
     // multiple calls to `inputs.iteratee`.
     var resultSoFar = initialValue;
 
-    // A quick ad-hoc iteratee for development purposes
-    // (actual input is disabled)
-    //
-    // To test:
-    // machinepack exec reduce --resultExample='[]' --iteratee='function (){}' --array='[{"name":"arya"}, {"name":"rob"}]'
+
+
+    // Parse the provided iteratee input
+    var iterateeFn;
+    if (_.isFunction(inputs.iteratee)){
+      iterateeFn = inputs.iteratee;
+    }
+    else if (_.isString(inputs.iteratee)){
+      try {
+        eval('iterateeFn='+inputs.iteratee);
+      }
+      catch (e){
+        return exits.error('Could not parse usable function from provided `iteratee` string. Details:\n'+e.stack);
+      }
+    }
+    else {
+      return exits.error(new Error('invalid logic (`->`)'));
+    }
+
+    // Build up the machine interface that will be used as the iteratee
     var iterateeDef = {
       inputs: {
         item: {
-          example: '*',
+          example: inputs.array.length>0 ? inputs.array[0] : '*',
           required: true
         },
         index: {
@@ -155,22 +177,12 @@ module.exports = {
           }
         }
       },
-      fn: function (iterateeInputs, iterateeExits){
-
-        // For now, this is hard-coded to just `starkify()` stuff.
-        //
-        // Given an array something like this:
-        // [{"name": "arya"}, {"name": "rob"}, {"name": "jon"}, {"name": "sansa"}]
-        var starks = iterateeInputs.resultSoFar;
-        var thisStark = iterateeInputs.item;
-        thisStark.name = thisStark.name.slice(0,1).toUpperCase() + thisStark.name.slice(1) + ' Stark';
-        starks.push(thisStark);
-        return iterateeExits.success(starks);
-      }
+      fn: iterateeFn
     };
 
     // Construct the iteratee machine instance from the def
     var iteratee = Machine.build(iterateeDef);
+
 
     // Start iterating...
     iteratorFn(inputs.array, function enumerator(item, next) {
