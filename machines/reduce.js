@@ -1,11 +1,5 @@
 module.exports = {
 
-  //
-  //
-  // To test:
-  // machinepack exec reduce --initialValue='""' --resultExample='"aryarob"' --iteratee='function (inputs,exits){return exits.success(inputs.resultSoFar+(inputs.index>0?" ":"")+inputs.item.name);}' --array='[{"name":"arya"}, {"name":"rob"}]'
-  //
-
 
   friendlyName: 'Reduce',
 
