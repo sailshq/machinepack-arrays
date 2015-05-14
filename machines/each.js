@@ -22,14 +22,17 @@ module.exports = {
       contract: {
         provides: {
           item: {
+            friendlyName: 'Current item',
             description: 'The current item in the array.',
             itemOf: 'array' // same type as the items of the `array` input of the calling machine
           },
           index: {
+            friendlyName: 'Current index',
             description: 'The index of the current item in the array.',
             example: 3
           },
           lastIndex: {
+            friendlyName: 'Last index',
             description: 'The index of the last item in the array.',
             example: 3
           }
