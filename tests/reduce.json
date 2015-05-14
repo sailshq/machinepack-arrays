@@ -4,7 +4,7 @@
     {
       "using": {
         "array": "[{\"name\":\"arya\"}, {\"name\":\"rob\"}]",
-        "iteratee": "function (inputs,exits){return exits.success(inputs.resultSoFar+(inputs.index>0?\" \":\"\")+inputs.item.name);}",
+        "iteratee": "return exits.success(inputs.resultSoFar+(inputs.index>0?\" \":\"\")+inputs.item.name);",
         "resultExample": "bob rob"
       },
       "outcome": "success",
@@ -13,7 +13,7 @@
     {
       "using": {
         "array": "[{\"name\": \"jon\", \"wolf\": \"Ghost\" }, {\"name\":\"arya\"}, {\"name\":\"rob\"}]",
-        "iteratee": "function (inputs,exits){return exits.success(inputs.resultSoFar+(inputs.index>0?\" \":\"\")+inputs.item.name);}",
+        "iteratee": "return exits.success(inputs.resultSoFar+(inputs.index>0?\" \":\"\")+inputs.item.name);",
         "resultExample": "bob rob"
       },
       "outcome": "success",

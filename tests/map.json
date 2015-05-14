@@ -5,7 +5,7 @@
       "using": {
         "array": "[1,2,3,4]",
         "itemExample": "1",
-        "iteratee": "function (inputs, exits){ return exits.success(inputs.item + 1); }"
+        "iteratee": "return exits.success(inputs.item + 1);"
       },
       "outcome": "success",
       "returns": [
@@ -19,7 +19,7 @@
       "using": {
         "array": "[1,2,3,4]",
         "itemExample": "{ \"id\": \"4\" }",
-        "iteratee": "function (inputs, exits){ return exits.success({id: inputs.item + 1}); }"
+        "iteratee": "return exits.success({id: inputs.item + 1});"
       },
       "outcome": "success",
       "returns": [
