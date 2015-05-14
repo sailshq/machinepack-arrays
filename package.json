@@ -43,7 +43,8 @@
       "find-one",
       "find-where",
       "reduce",
-      "each"
+      "each",
+      "map"
     ],
     "testsUrl": "https://travis-ci.org/"
   },

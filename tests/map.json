@@ -1,0 +1,41 @@
+{
+  "machine": "map",
+  "expectations": [
+    {
+      "using": {
+        "array": "[1,2,3,4]",
+        "itemExample": "1",
+        "iteratee": "function (inputs, exits){ return exits.success(inputs.item + 1); }"
+      },
+      "outcome": "success",
+      "returns": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ]
+    },
+    {
+      "using": {
+        "array": "[1,2,3,4]",
+        "itemExample": "{ \"id\": \"4\" }",
+        "iteratee": "function (inputs, exits){ return exits.success({id: inputs.item + 1}); }"
+      },
+      "outcome": "success",
+      "returns": [
+        {
+          "id": "2"
+        },
+        {
+          "id": "3"
+        },
+        {
+          "id": "4"
+        },
+        {
+          "id": "5"
+        }
+      ]
+    }
+  ]
+}
