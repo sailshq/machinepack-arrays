@@ -1,5 +1,5 @@
 {
-  "machine": "sort-dictionaries",
+  "machine": "sort-by",
   "expectations": [
     {
       "todo": true,

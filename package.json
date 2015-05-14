@@ -35,7 +35,6 @@
       "pluck",
       "sort-strings",
       "sort-numbers",
-      "sort-dictionaries",
       "uniq",
       "sample",
       "uniq-by",
@@ -44,7 +43,8 @@
       "find-where",
       "reduce",
       "each",
-      "map"
+      "map",
+      "sort-by"
     ],
     "testsUrl": "https://travis-ci.org/"
   },
