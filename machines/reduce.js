@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'Reduce',
 
 
-  description: 'Run each item of an array through a given machine (the "iteratee") and accumulate a result.',
+  description: 'Run some logic (the "iteratee") once for each item of an array, accumulating a single result.',
 
 
   extendedDescription: '',
@@ -19,7 +19,8 @@ module.exports = {
     },
 
     iteratee: {
-      description: 'The function to run on each item in the array.',
+      friendlyName: 'Iteratee',
+      description: 'The function to run for each item in the array.',
       example: '->',
       contract: {
         provides: {

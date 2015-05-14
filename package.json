@@ -42,7 +42,8 @@
       "insert",
       "find-one",
       "find-where",
-      "reduce"
+      "reduce",
+      "each"
     ],
     "testsUrl": "https://travis-ci.org/"
   },
