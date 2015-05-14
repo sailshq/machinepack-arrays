@@ -112,7 +112,7 @@ module.exports = {
         // Catchall (error) exit
         // (implies that we should stop early and consider
         //  the entire operation a failure, including all iterations
-        //  so far. `reduce` will call its error exit.)
+        //  so far. `each` will call its error exit.)
         error: function (err){
           return next(err);
         },
@@ -120,7 +120,7 @@ module.exports = {
         // Halt exit
         // (implies that we should stop, performing no further
         //  iterations; but that past iterations are ok.
-        //  `reduce` will call its success exit)
+        //  `each` will call its success exit)
         halt: function (){
           haltEarly = true;
           return next();
