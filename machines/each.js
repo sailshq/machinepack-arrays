@@ -22,19 +22,31 @@ module.exports = {
       contract: {
         provides: {
           item: {
+            description: 'The current item in the array.',
             itemOf: 'array' // same type as the items of the `array` input of the calling machine
           },
           index: {
+            description: 'The index of the current item in the array.',
             example: 3
           },
           lastIndex: {
+            description: 'The index of the last item in the array.',
             example: 3
           }
         },
         expects: {
-          error: {},
-          halt: {},
-          success: {}
+          error: {
+            friendlyName: 'break with error',
+            description: 'Something went wrong- stop iterating and skip over all remaining items.'
+          },
+          halt: {
+            friendlyName: 'break',
+            description: 'Everything is ok, but stop iterating and skip over all remaining items.'
+          },
+          success: {
+            friendlyName: 'next item',
+            description: 'Continue to next item, or if there are no more items, stop.'
+          }
         },
       },
       required: true
