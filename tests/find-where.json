@@ -9,7 +9,8 @@
       "outcome": "success",
       "returns": [
         {
-          "id": "3"
+          "name": "rachael",
+          "id": 3
         }
       ]
     },
@@ -28,10 +29,12 @@
       "outcome": "success",
       "returns": [
         {
-          "id": "1"
+          "id": 1,
+          "name": "mike"
         },
         {
-          "id": "6"
+          "id": 6,
+          "name": "mike"
         }
       ]
     }

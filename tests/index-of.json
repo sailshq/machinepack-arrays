@@ -2,17 +2,12 @@
   "machine": "index-of",
   "expectations": [
     {
-      "todo": true,
-      "using": {},
-      "outcome": "success"
-    },
-    {
       "using": {
         "array": "[\"Lucy\", \"Ricky\"]",
         "item": "Ricky"
       },
       "outcome": "success",
-      "returns": "1"
+      "returns": 1
     },
     {
       "using": {
@@ -27,7 +22,7 @@
         "item": "rick"
       },
       "outcome": "success",
-      "returns": "1"
+      "returns": 1
     }
   ]
 }
