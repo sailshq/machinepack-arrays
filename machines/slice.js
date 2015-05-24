@@ -21,7 +21,7 @@ module.exports = {
     array: {
       friendlyName: 'Array',
       description: 'The array to slice.',
-      typeclass: 'array',
+      example: ['*'],
       required: true
     },
 
@@ -44,9 +44,6 @@ module.exports = {
   },
 
 
-  defaultExit: 'success',
-
-
   exits: {
 
     error: {
@@ -56,6 +53,17 @@ module.exports = {
     success: {
       description: 'Done.',
       getExample: function (inputs) {
+        var _ = env._;
+
+        // If the array is not available yet, or none of its items are, the best we
+        // can do is guarantee that this result will be some sort of homogeneous array
+        // of JSON-compatible values.
+        if (_.isUndefined(inputs.array) || inputs.array.length < 1) {
+          return ['*'];
+        }
+
+        // If the array is available and has at least one item, we can just borrow that
+        // first item to build our example.
         return [inputs.array[0]];
       }
     },

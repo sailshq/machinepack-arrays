@@ -21,21 +21,18 @@ module.exports = {
     array: {
       friendlyName: 'In array',
       description: 'The array to search in (i.e. "haystack")',
-      typeclass: 'array',
+      example: ['*'],
       required: true
     },
 
     item: {
-      typeclass: '*',
+      example: '*',
       friendlyName: 'Search for',
       description: 'The value to search for (i.e. "needle")',
       required: true
     }
 
   },
-
-
-  defaultExit: 'success',
 
 
   exits: {

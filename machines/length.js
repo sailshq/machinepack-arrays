@@ -20,15 +20,12 @@ module.exports = {
 
     array: {
       friendlyName: 'Array to count',
-      typeclass: 'array',
+      example: ['*'],
       description: 'The array of items to count',
       required: true
     }
 
   },
-
-
-  defaultExit: 'success',
 
 
   exits: {

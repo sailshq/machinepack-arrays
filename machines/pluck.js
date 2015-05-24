@@ -7,9 +7,6 @@ module.exports = {
   description: 'List the values of a particular key from an array of dictionaries.',
 
 
-  extendedDescription: '',
-
-
   sync: true,
 
 
@@ -21,8 +18,7 @@ module.exports = {
     array: {
       friendlyName: 'Array of dictionaries',
       description: 'The array of dictionaries to iterate over.',
-      typeclass: 'array',
-      // example: [{}],
+      example: [{}],
       required: true
     },
 
@@ -36,9 +32,6 @@ module.exports = {
   },
 
 
-  defaultExit: 'success',
-
-
   exits: {
 
     error: {
@@ -48,10 +41,30 @@ module.exports = {
     success: {
       description: 'Done.',
       getExample: function(inputs, env) {
-        if (Array.isArray(inputs.array) && inputs.array.length) {
-          return [inputs.array[0][inputs.key]];
+        var _ = env._;
+
+        // If the array is not available yet, or none of its items are, the best we
+        // can do is guarantee that this result will be some sort of homogeneous array
+        // of JSON-compatible values.
+        if (_.isUndefined(inputs.array) || inputs.array.length < 1) {
+          return ['*'];
         }
-        return;
+
+        // If the name of the key is not available yet, we can't use it to figure out which
+        // item to grab, so the best we can do is send back ['*']
+        if (_.isUndefined(inputs.key)) {
+          return ['*'];
+        }
+
+        // But if we have the key name, and the array is available with at least one item,
+        // we can just borrow that first item, grab the value of the `key`, and if that exists,
+        // use that to build our example.
+        if (!_.isUndefined(inputs.array[0][inputs.key])) {
+          return inputs.array[0][inputs.key];
+        }
+        // Otherwise, if it doesn't exist, we'll fall back to the same generic guarantee we
+        // used above.
+        return ['*'];
       }
     }
 

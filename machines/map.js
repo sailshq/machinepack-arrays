@@ -73,7 +73,7 @@ module.exports = {
 
     success: {
       description: 'Done.',
-      getExample: function (inputs){
+      getExample: function (inputs, env){
         return [inputs.itemExample];
       }
     }

@@ -21,8 +21,7 @@ module.exports = {
     array: {
       friendlyName: 'Array of dictionaries',
       description: 'The array of dictionaries to remove duplicates from.',
-      typeclass: 'array',
-      // example: [{}],
+      example: [{}],
       required: true
     },
 
@@ -36,9 +35,6 @@ module.exports = {
   },
 
 
-  defaultExit: 'success',
-
-
   exits: {
 
     error: {
@@ -49,7 +45,22 @@ module.exports = {
       description: 'Returns a duplicate-free version of the array.',
       friendlyName: 'then',
       getExample: function(inputs, exits) {
-        return inputs.array;
+        var _ = env._;
+
+        // If the array is not available yet, the best we can do is guarantee
+        // that this result will be some sort of homogeneous array of dictionaries.
+        if (_.isUndefined(inputs.array)) {
+          return [{}];
+        }
+
+        // If the array is available and has one item, we can just borrow that first item
+        // to build our example.
+        if (inputs.array.length > 0) {
+          return [inputs.array[0]];
+        }
+
+        // Otherwise, the best we can do is send back [{}].
+        return [{}];
       }
     }
 

@@ -96,7 +96,7 @@ module.exports = {
     success: {
       friendlyName: 'then',
       description: 'Done.',
-      getExample: function (inputs){
+      getExample: function (inputs, env){
         return inputs.resultExample;
       }
     }

@@ -21,7 +21,7 @@ module.exports = {
     array: {
       friendlyName: 'Array',
       description: 'The array where the new item should be inserted.',
-      typeclass: 'array',
+      example: ['*'],
       required: true
     },
 
@@ -35,7 +35,7 @@ module.exports = {
     value: {
       friendlyName: 'New item',
       description: 'The new item to insert into the array.',
-      typeclass: '*',
+      example: '*',
       required: true
     }
 
@@ -57,14 +57,28 @@ module.exports = {
 
     success: {
       description: 'Returns the last item in the array.',
-      getExample: function (inputs) {
-        if (inputs.index < 0) {
-          return;
+      getExample: function (inputs, env) {
+        var _ = env._;
+
+        // If neither the array nor the value to add are not available yet, the best we
+        // can do is guarantee that this result will be some sort of homogeneous array.
+        if (_.isUndefined(inputs.array) && _.isUndefined(inputs.value)) {
+          return ['*'];
         }
-        if (inputs.array.length <= inputs.index) {
-          return;
+
+        // If the array is available and has at least one item, we can just borrow
+        // that first item to build our example.
+        if (inputs.array.length > 0) {
+          return [inputs.array[0]];
         }
-        return [inputs.value];
+
+        // If the new vlue is available, we can borrow that to build our example
+        if (_.isUndefined(inputs.value)) {
+          return [inputs.value];
+        }
+
+        // Otherwise, the best we can do is send back ['*'].
+        return ['*'];
       }
     },
 
