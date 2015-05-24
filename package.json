@@ -34,17 +34,7 @@
       "construct",
       "pluck",
       "sort-strings",
-      "sort-numbers",
-      "uniq",
-      "sample",
-      "uniq-by",
-      "insert",
-      "find-one",
-      "find-where",
-      "reduce",
-      "each",
-      "map",
-      "sort-by"
+      "sort-numbers"
     ],
     "testsUrl": "https://travis-ci.org/"
   },
