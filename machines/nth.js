@@ -50,7 +50,7 @@ module.exports = {
 
     success: {
       description: 'Returns the item at the specified index within the array.',
-      getExample: function (inputs) {
+      getExample: function (inputs, env) {
         var _ = env._;
 
         // If the array is not available yet, or none of its items are, then

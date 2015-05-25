@@ -60,7 +60,7 @@ module.exports = {
         // we can just borrow that first item, grab the value of the `key`, and if that exists,
         // use that to build our example.
         if (!_.isUndefined(inputs.array[0][inputs.key])) {
-          return inputs.array[0][inputs.key];
+          return [inputs.array[0][inputs.key]];
         }
         // Otherwise, if it doesn't exist, we'll fall back to the same generic guarantee we
         // used above.
@@ -74,6 +74,7 @@ module.exports = {
   fn: function (inputs,exits) {
     var _ = require('lodash');
 
+    console.log('IN THERE:','ARRAY:', inputs.array, 'RESULT',_.pluck(inputs.array, inputs.key));
     return exits.success(_.pluck(inputs.array, inputs.key));
   }
 

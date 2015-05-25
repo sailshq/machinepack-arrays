@@ -52,7 +52,7 @@ module.exports = {
 
     success: {
       description: 'Done.',
-      getExample: function (inputs) {
+      getExample: function (inputs,env) {
         var _ = env._;
 
         // If the array is not available yet, or none of its items are, the best we

@@ -37,7 +37,7 @@ module.exports = {
       description: 'Returns new array.',
       variableName: 'newArray',
       friendlyName: 'then',
-      getExample: function(inputs, exits) {
+      getExample: function(inputs, env) {
         var _ = env._;
 
         // If the array is not available yet, the best we can do is guarantee
