@@ -44,7 +44,7 @@ module.exports = {
     success: {
       description: 'Returns a duplicate-free version of the array.',
       friendlyName: 'then',
-      getExample: function(inputs, exits) {
+      getExample: function(inputs, env) {
         var _ = env._;
 
         // If the array is not available yet, the best we can do is guarantee
