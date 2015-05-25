@@ -73,8 +73,6 @@ module.exports = {
 
   fn: function (inputs,exits) {
     var _ = require('lodash');
-
-    console.log('IN THERE:','ARRAY:', inputs.array, 'RESULT',_.pluck(inputs.array, inputs.key));
     return exits.success(_.pluck(inputs.array, inputs.key));
   }
 
