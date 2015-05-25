@@ -24,6 +24,9 @@
     "friendlyName": "Arrays",
     "machineDir": "machines/",
     "machines": [
+      "each",
+      "map",
+      "reduce",
       "find-one",
       "find-where",
       "reverse",
