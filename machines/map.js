@@ -74,7 +74,17 @@ module.exports = {
     success: {
       description: 'Done.',
       getExample: function (inputs, env){
-        return [inputs.itemExample];
+        var _ = env._;
+
+        // If this exit is traversed, its output type will always be
+        // equivalent to a homogeneous array with items like `inputs.itemExample`
+        if (!_.isUndefined(inputs.itemExample)) {
+          return [inputs.itemExample];
+        }
+
+        // But if `itemExample` is not available yet, the best we can
+        // do is fall back to an array of JSON-serializable values.
+        return ['*'];
       }
     }
 

@@ -7,9 +7,6 @@ module.exports = {
   description: 'Run some logic (the "iteratee") once for each item of an array, accumulating a single result.',
 
 
-  extendedDescription: '',
-
-
   inputs: {
 
     array: {
@@ -97,7 +94,17 @@ module.exports = {
       friendlyName: 'then',
       description: 'Done.',
       getExample: function (inputs, env){
-        return inputs.resultExample;
+        var _ = env._;
+
+        // If this exit is traversed, its output type will always be
+        // equivalent to `inputs.resultExample`
+        if (!_.isUndefined(inputs.resultExample)) {
+          return inputs.resultExample;
+        }
+
+        // But if `resultExample` is not available yet, the best we can
+        // do is fall back to some kind of JSON-serializable value.
+        return '*';
       }
     }
 
