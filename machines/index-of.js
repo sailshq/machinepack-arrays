@@ -7,7 +7,7 @@ module.exports = {
   description: 'Look up the first occurrence of the specified item and return its array index.',
 
 
-  extendedDescription: 'If item is a dictionary or array, this machine will PROBABLY not work as expected-- it does NOT use deep equality for comparison.',
+  extendedDescription: 'This machine uses deep equality (`_.isEqual()`) for comparison.',
 
 
   sync: true,
@@ -54,11 +54,20 @@ module.exports = {
 
   fn: function(inputs, exits) {
     var _ = require('lodash');
-    var index = _.indexOf(inputs.array, inputs.item);
-    if (index === -1 ) {
+
+    var foundAtIndex;
+    _.each(inputs.array, function (item, i){
+      if (!_.isUndefined(foundAtIndex)) {
+        return;
+      }
+      if (_.isEqual(item, inputs.item)) {
+        foundAtIndex = i;
+      }
+    });
+    if (_.isUndefined(foundAtIndex)) {
       return exits.notFound();
     }
-    return exits.success(index);
+    return exits.success(foundAtIndex);
   }
 
 

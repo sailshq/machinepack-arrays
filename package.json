@@ -30,11 +30,9 @@
       "find-one",
       "find-where",
       "reverse",
-      "index-of",
       "insert",
       "slice",
       "length",
-      "reverse",
       "sample",
       "concat",
       "last",
@@ -45,7 +43,9 @@
       "uniq-by",
       "uniq",
       "sort-strings",
-      "sort-numbers"
+      "sort-numbers",
+      "index-of",
+      "find-index-of"
     ],
     "testsUrl": "https://travis-ci.org/"
   },

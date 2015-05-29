@@ -25,7 +25,7 @@ module.exports = {
     criteria: {
       friendlyName: 'Criteria',
       example: {},
-      description: 'The Lodash/Waterline-style criteria to use (i.e. "metal detector")',
+      description: 'The Lodash-style criteria to use (i.e. "metal detector")',
       required: true
     }
 
