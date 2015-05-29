@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'Find index of...',
 
 
-  description: 'Look up the first occurrence of an item matching the specified criteria and return its array index.',
+  description: 'Look up the first occurrence of the dictionary matching the specified criteria and return its array index.',
 
 
   sync: true,
