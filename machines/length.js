@@ -7,9 +7,6 @@ module.exports = {
   description: 'Get the length of the provided array.',
 
 
-  extendedDescription: '',
-
-
   sync: true,
 
 
@@ -30,12 +27,8 @@ module.exports = {
 
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.',
-    },
-
     success: {
-      description: 'Done.',
+      description: 'Returns the number of items in the array.',
       example: 32
     }
 

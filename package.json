@@ -45,7 +45,8 @@
       "sort-strings",
       "sort-numbers",
       "index-of",
-      "find-index-of"
+      "find-index-of",
+      "replace"
     ],
     "testsUrl": "https://travis-ci.org/"
   },

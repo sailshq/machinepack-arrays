@@ -1,13 +1,10 @@
 module.exports = {
 
 
-  friendlyName: 'Insert item in array',
+  friendlyName: 'Replace item',
 
 
-  description: 'Insert or append an item and return the result (a new array).',
-
-
-  extendedDescription: '',
+  description: 'Replace the item located at the specified index and return the result (a new array).',
 
 
   sync: true,
@@ -26,15 +23,15 @@ module.exports = {
     },
 
     index: {
-      friendlyName: 'Insert at (index)',
-      description: 'The index to insert the new item at.',
+      friendlyName: 'Replace at (index)',
+      description: 'The index of the item to replace.',
       example: 1,
       required: true
     },
 
     value: {
-      friendlyName: 'New item',
-      description: 'The new item to insert into the array.',
+      friendlyName: 'New value',
+      description: 'The new value to replace the old one with.',
       example: '*',
       required: true
     }
@@ -42,14 +39,7 @@ module.exports = {
   },
 
 
-  defaultExit: 'success',
-
-
   exits: {
-
-    error: {
-      description: 'Unexpected error occurred.',
-    },
 
     notFound: {
       description: 'The array does not have enough items for anything to exist at the specified index.',
@@ -60,21 +50,21 @@ module.exports = {
       getExample: function (inputs, env) {
         var _ = env._;
 
-        // If neither the array nor the value to add are not available yet, the best we
+        // If neither the array nor the new value are available yet, the best we
         // can do is guarantee that this result will be some sort of homogeneous array.
         if (_.isUndefined(inputs.array) && _.isUndefined(inputs.value)) {
           return ['*'];
+        }
+
+        // If the new vlue is available, we can borrow that to build our example
+        if (_.isUndefined(inputs.value)) {
+          return [inputs.value];
         }
 
         // If the array is available and has at least one item, we can just borrow
         // that first item to build our example.
         if (inputs.array.length > 0) {
           return [inputs.array[0]];
-        }
-
-        // If the new vlue is available, we can borrow that to build our example
-        if (_.isUndefined(inputs.value)) {
-          return [inputs.value];
         }
 
         // Otherwise, the best we can do is send back ['*'].
@@ -94,8 +84,8 @@ module.exports = {
       return exits.notFound();
     }
 
-    // Insert item
-    inputs.array.splice(inputs.index, 0, inputs.value);
+    // Replace item
+    inputs.array.splice(inputs.index, 1, inputs.value);
 
     return exits.success(inputs.array);
 
