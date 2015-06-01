@@ -18,7 +18,7 @@
     "machine": "^9.0.1"
   },
   "devDependencies": {
-    "test-machinepack-mocha": "^1.0.0"
+    "test-machinepack-mocha": "^2.0.0"
   },
   "machinepack": {
     "friendlyName": "Arrays",
