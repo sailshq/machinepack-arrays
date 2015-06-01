@@ -7,11 +7,11 @@ var Machines = require('machinepack-machines');
 var Paths = require('machinepack-paths');
 
 
-var pack = require('./');
+var packRoot = process.env.PACK_PATH || process.cwd();
 
-
+var pack = require(Paths.resolve({paths: [packRoot]}).execSync());
 Filesystem.ls({
-  dir: Paths.resolve({paths: ['./tests']}).execSync(),
+  dir: Paths.resolve({paths: [packRoot, './tests']}).execSync(),
   depth: 1
 }).exec({
   error: function (err) {},
