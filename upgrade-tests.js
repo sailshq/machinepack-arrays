@@ -48,7 +48,7 @@ Filesystem.ls({
 
             jsonData.expectations = _.map(jsonData.expectations, function (expectation){
 
-              expectation.using = _.map(expectation.using, function (inputVal, inputName) {
+              expectation.using = _.reduce(expectation.using, function (memo, inputVal, inputName) {
 
                 var inputDef = machineDef.inputs[inputName];
                 if (!inputDef) {
@@ -56,28 +56,74 @@ Filesystem.ls({
                 }
 
                 // If this input of the machine is NOT expecting a string specifically,
-                // and the provided thing here is a string, attempt to JSON.parse() it
+                // but the provided thing here is a string, attempt to JSON.parse() it
                 // and if it works, swap in that parsed data instead of the original JSON
                 // string.
-                var isExpectingString = (rttc.infer(inputDef.example) === 'string');
-                if (isExpectingString && _.isString(inputVal)) {
+                var typeSchema = rttc.infer(inputDef.example);
+                var isExpectingString = (typeSchema === 'string');
+                // console.log('%s...%s -> ISEXPECTINGSTRING: ',machineDef.identity, inputName, isExpectingString);
+                if (!isExpectingString && _.isString(inputVal)) {
                   try {
-                    expectation.using[inputName] = JSON.parse(inputVal);
+                    memo[inputName] = JSON.parse(inputVal);
+                    // console.log('parsed %s!', inputName);
                   }
                   catch (e) {
                     // This is weird that we cannot parse this JSON-- it must be encoded
                     // as a normal JS string.  But since the machine is not expecting a
                     // string, we should stringify this.
-                    expectation.using[inputName] = JSON.stringify(inputVal);
+                    memo[inputName] = JSON.stringify(inputVal);
+                  }
+                }
+                else {
+                  memo[inputName] = inputVal;
+                }
+
+
+                return memo;
+              }, {});
+
+                // Validate outcome
+                var exitDef = machineDef.exits[expectation.outcome];
+                if (!exitDef) {
+                  throw new Error('Test referneces unknown exit ('+expectation.outcome+')!');
+                }
+
+                // Do the same thing we did for `using` for `returns`.
+                if (!_.isUndefined(exitDef.example)) {
+                  var outputTypeSchema = rttc.infer(exitDef.example);
+
+                  var expectsStringOutput = (outputTypeSchema === 'string');
+                  if (!expectsStringOutput && _.isString(expectation.returns)) {
+                    try {
+                      expectation.returns = JSON.parse(expectation.returns);
+                      // console.log('parsed %s!', inputName);
+                    }
+                    catch (e) {
+                      // This is weird that we cannot parse this JSON-- it must be encoded
+                      // as a normal JS string.  But since the machine is not expecting a
+                      // string, we should stringify this.
+                      expectation.returns = JSON.stringify(expectation.returns);
+                    }
                   }
                 }
 
-              });
+              // Prune out null and undefined properties
+              if (_.isUndefined(expectation.returns) || _.isNull(expectation.returns)) {
+                delete expectation.returns;
+              }
+              if (_.isUndefined(expectation.using)) {
+                delete expectation.using;
+              }
+
+              return expectation;
             });
           }
           catch (e) {
             return next(e);
           }
+
+          console.log('For %s, would write:',path, util.inspect(jsonData, false, null));
+          return next();
 
           Filesystem.writeJson({
             destination: path,
