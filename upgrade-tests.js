@@ -37,7 +37,7 @@ Filesystem.ls({
         },
         success: function (jsonData){
 
-          var machineDef = _.find(pack[jsonData.machine], {identity: jsonData.machine});
+          var machineDef = _.find(pack, {identity: jsonData.machine});
           if (!machineDef) {
             console.error('TEST REFERENCED UNKNOWN MACHINE (`%s`)',jsonData.machine);
             console.error('Skipping test...');
@@ -81,7 +81,8 @@ Filesystem.ls({
 
           Filesystem.writeJson({
             destination: path,
-            json: jsonData
+            json: jsonData,
+            force: true
           }).exec({
             error: function (err) {
               console.error('ERROR WRITING JSON FOR TEST (@`%s`):\n',path,err);
@@ -104,4 +105,4 @@ Filesystem.ls({
     });
 
   },
-})
+});
