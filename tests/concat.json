@@ -2,11 +2,6 @@
   "machine": "concat",
   "expectations": [
     {
-      "todo": true,
-      "using": {},
-      "outcome": "success"
-    },
-    {
       "using": {
         "firstArray": "[{\"name\":\"Louise\"},{\"name\":\"Estelle\"}]",
         "secondArray": "[{\"name\":\"Lucy\"},{\"name\":\"Ricky\"}]"
