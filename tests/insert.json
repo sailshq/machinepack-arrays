@@ -3,9 +3,13 @@
   "expectations": [
     {
       "using": {
-        "array": "[\"a\",\"b\",\"c\"]",
-        "index": "1",
-        "value": "x"
+        "array": [
+          "a",
+          "b",
+          "c"
+        ],
+        "index": 1,
+        "value": "\"x\""
       },
       "outcome": "success",
       "returns": [
@@ -17,9 +21,13 @@
     },
     {
       "using": {
-        "array": "[\"a\",\"b\",\"c\"]",
-        "index": "0",
-        "value": "x"
+        "array": [
+          "a",
+          "b",
+          "c"
+        ],
+        "index": 0,
+        "value": "\"x\""
       },
       "outcome": "success",
       "returns": [
@@ -31,9 +39,13 @@
     },
     {
       "using": {
-        "array": "[\"a\",\"b\",\"c\"]",
-        "index": "2",
-        "value": "x"
+        "array": [
+          "a",
+          "b",
+          "c"
+        ],
+        "index": 2,
+        "value": "\"x\""
       },
       "outcome": "success",
       "returns": [
@@ -45,9 +57,13 @@
     },
     {
       "using": {
-        "array": "[\"a\",\"b\",\"c\"]",
-        "index": "3",
-        "value": "x"
+        "array": [
+          "a",
+          "b",
+          "c"
+        ],
+        "index": 3,
+        "value": "\"x\""
       },
       "outcome": "success",
       "returns": [
@@ -59,9 +75,13 @@
     },
     {
       "using": {
-        "array": "[\"a\",\"b\",\"c\"]",
-        "index": "4",
-        "value": "x"
+        "array": [
+          "a",
+          "b",
+          "c"
+        ],
+        "index": 4,
+        "value": "\"x\""
       },
       "outcome": "notFound"
     }

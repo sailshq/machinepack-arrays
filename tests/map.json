@@ -3,9 +3,14 @@
   "expectations": [
     {
       "using": {
-        "array": "[1,2,3,4]",
-        "itemExample": "1",
-        "iteratee": "\"return exits.success(inputs.item + 1);\""
+        "array": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "itemExample": 1,
+        "iteratee": "return exits.success(inputs.item + 1);"
       },
       "outcome": "success",
       "returns": [
@@ -17,9 +22,16 @@
     },
     {
       "using": {
-        "array": "[1,2,3,4]",
-        "itemExample": "{ \"id\": 4 }",
-        "iteratee": "\"return exits.success({id: inputs.item + 1});\""
+        "array": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "itemExample": {
+          "id": 4
+        },
+        "iteratee": "return exits.success({id: inputs.item + 1});"
       },
       "outcome": "success",
       "returns": [
@@ -39,9 +51,13 @@
     },
     {
       "using": {
-        "array": "[10,20,30]",
-        "itemExample": "1",
-        "iteratee": "\"return exits.success(inputs.item+inputs.index);\""
+        "array": [
+          10,
+          20,
+          30
+        ],
+        "itemExample": 1,
+        "iteratee": "return exits.success(inputs.item+inputs.index);"
       },
       "outcome": "success",
       "returns": [
@@ -52,9 +68,13 @@
     },
     {
       "using": {
-        "array": "[10,20,30]",
-        "itemExample": "1",
-        "iteratee": "\"return exits.success(inputs.item+inputs.index);\""
+        "array": [
+          10,
+          20,
+          30
+        ],
+        "itemExample": 1,
+        "iteratee": "return exits.success(inputs.item+inputs.index);"
       },
       "outcome": "success",
       "returns": [

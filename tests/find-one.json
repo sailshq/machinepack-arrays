@@ -3,15 +3,61 @@
   "expectations": [
     {
       "using": {
-        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}]",
-        "criteria": "{\"name\":\"rob\"}"
+        "array": [
+          {
+            "name": "mike",
+            "id": 1
+          },
+          {
+            "name": "rachael",
+            "id": 3
+          },
+          {
+            "name": "cody",
+            "id": 4
+          },
+          {
+            "id": 5,
+            "name": "scott"
+          },
+          {
+            "name": "irl",
+            "id": 2
+          }
+        ],
+        "criteria": {
+          "name": "rob"
+        }
       },
       "outcome": "notFound"
     },
     {
       "using": {
-        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}]",
-        "criteria": "{\"name\":\"mike\"}"
+        "array": [
+          {
+            "name": "mike",
+            "id": 1
+          },
+          {
+            "name": "rachael",
+            "id": 3
+          },
+          {
+            "name": "cody",
+            "id": 4
+          },
+          {
+            "id": 5,
+            "name": "scott"
+          },
+          {
+            "name": "irl",
+            "id": 2
+          }
+        ],
+        "criteria": {
+          "name": "mike"
+        }
       },
       "outcome": "success",
       "returns": {
@@ -21,8 +67,31 @@
     },
     {
       "using": {
-        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}]",
-        "criteria": "{\"name\":\"rachael\"}"
+        "array": [
+          {
+            "name": "mike",
+            "id": 1
+          },
+          {
+            "name": "rachael",
+            "id": 3
+          },
+          {
+            "name": "cody",
+            "id": 4
+          },
+          {
+            "id": 5,
+            "name": "scott"
+          },
+          {
+            "name": "irl",
+            "id": 2
+          }
+        ],
+        "criteria": {
+          "name": "rachael"
+        }
       },
       "outcome": "success",
       "returns": {
@@ -32,8 +101,31 @@
     },
     {
       "using": {
-        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}]",
-        "criteria": "{\"name\":\"scott\"}"
+        "array": [
+          {
+            "name": "mike",
+            "id": 1
+          },
+          {
+            "name": "rachael",
+            "id": 3
+          },
+          {
+            "name": "cody",
+            "id": 4
+          },
+          {
+            "id": 5,
+            "name": "scott"
+          },
+          {
+            "name": "irl",
+            "id": 2
+          }
+        ],
+        "criteria": {
+          "name": "scott"
+        }
       },
       "outcome": "success",
       "returns": {
@@ -43,8 +135,31 @@
     },
     {
       "using": {
-        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}]",
-        "criteria": "{\"name\":\"irl\"}"
+        "array": [
+          {
+            "name": "mike",
+            "id": 1
+          },
+          {
+            "name": "rachael",
+            "id": 3
+          },
+          {
+            "name": "cody",
+            "id": 4
+          },
+          {
+            "id": 5,
+            "name": "scott"
+          },
+          {
+            "name": "irl",
+            "id": 2
+          }
+        ],
+        "criteria": {
+          "name": "irl"
+        }
       },
       "outcome": "success",
       "returns": {
@@ -54,8 +169,31 @@
     },
     {
       "using": {
-        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}]",
-        "criteria": "{\"name\":\"cody\"}"
+        "array": [
+          {
+            "name": "mike",
+            "id": 1
+          },
+          {
+            "name": "rachael",
+            "id": 3
+          },
+          {
+            "name": "cody",
+            "id": 4
+          },
+          {
+            "id": 5,
+            "name": "scott"
+          },
+          {
+            "name": "irl",
+            "id": 2
+          }
+        ],
+        "criteria": {
+          "name": "cody"
+        }
       },
       "outcome": "success",
       "returns": {

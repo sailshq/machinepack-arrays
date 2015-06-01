@@ -3,8 +3,31 @@
   "expectations": [
     {
       "using": {
-        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}]",
-        "criteria": "{\"name\":\"rachael\"}"
+        "array": [
+          {
+            "name": "mike",
+            "id": 1
+          },
+          {
+            "name": "rachael",
+            "id": 3
+          },
+          {
+            "name": "cody",
+            "id": 4
+          },
+          {
+            "id": 5,
+            "name": "scott"
+          },
+          {
+            "name": "irl",
+            "id": 2
+          }
+        ],
+        "criteria": {
+          "name": "rachael"
+        }
       },
       "outcome": "success",
       "returns": [
@@ -16,15 +39,65 @@
     },
     {
       "using": {
-        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}]",
-        "criteria": "{\"name\":\"rob\"}"
+        "array": [
+          {
+            "name": "mike",
+            "id": 1
+          },
+          {
+            "name": "rachael",
+            "id": 3
+          },
+          {
+            "name": "cody",
+            "id": 4
+          },
+          {
+            "id": 5,
+            "name": "scott"
+          },
+          {
+            "name": "irl",
+            "id": 2
+          }
+        ],
+        "criteria": {
+          "name": "rob"
+        }
       },
       "outcome": "success"
     },
     {
       "using": {
-        "array": "[{\"name\": \"mike\", \"id\": 1}, {\"name\": \"rachael\", \"id\": 3}, {\"name\": \"cody\", \"id\": 4}, {\"id\": 5, \"name\": \"scott\"}, {\"name\": \"irl\", \"id\": 2}, {\"name\": \"mike\", \"id\": 6}]",
-        "criteria": "{\"name\":\"mike\"}"
+        "array": [
+          {
+            "name": "mike",
+            "id": 1
+          },
+          {
+            "name": "rachael",
+            "id": 3
+          },
+          {
+            "name": "cody",
+            "id": 4
+          },
+          {
+            "id": 5,
+            "name": "scott"
+          },
+          {
+            "name": "irl",
+            "id": 2
+          },
+          {
+            "name": "mike",
+            "id": 6
+          }
+        ],
+        "criteria": {
+          "name": "mike"
+        }
       },
       "outcome": "success",
       "returns": [

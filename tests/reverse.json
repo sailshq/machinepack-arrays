@@ -2,19 +2,17 @@
   "machine": "reverse",
   "expectations": [
     {
-      "todo": true,
-      "using": {},
-      "outcome": "success"
-    },
-    {
       "using": {
-        "array": "[]"
+        "array": []
       },
       "outcome": "success"
     },
     {
       "using": {
-        "array": "[\"a\", \"b\"]"
+        "array": [
+          "a",
+          "b"
+        ]
       },
       "outcome": "success",
       "returns": [
@@ -24,7 +22,11 @@
     },
     {
       "using": {
-        "array": "[\"a\", \"b\", \"c\"]"
+        "array": [
+          "a",
+          "b",
+          "c"
+        ]
       },
       "outcome": "success",
       "returns": [
@@ -35,7 +37,11 @@
     },
     {
       "using": {
-        "array": "[1, 2, 3]"
+        "array": [
+          1,
+          2,
+          3
+        ]
       },
       "outcome": "success",
       "returns": [
@@ -46,7 +52,9 @@
     },
     {
       "using": {
-        "array": "[\"stuff\"]"
+        "array": [
+          "stuff"
+        ]
       },
       "outcome": "success",
       "returns": [
@@ -55,7 +63,14 @@
     },
     {
       "using": {
-        "array": "[{\"name\": \"Lucy\" }, {\"name\":\"Ricky\"}]"
+        "array": [
+          {
+            "name": "Lucy"
+          },
+          {
+            "name": "Ricky"
+          }
+        ]
       },
       "outcome": "success",
       "returns": [

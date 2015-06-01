@@ -3,8 +3,22 @@
   "expectations": [
     {
       "using": {
-        "firstArray": "[{\"name\":\"Louise\"},{\"name\":\"Estelle\"}]",
-        "secondArray": "[{\"name\":\"Lucy\"},{\"name\":\"Ricky\"}]"
+        "firstArray": [
+          {
+            "name": "Louise"
+          },
+          {
+            "name": "Estelle"
+          }
+        ],
+        "secondArray": [
+          {
+            "name": "Lucy"
+          },
+          {
+            "name": "Ricky"
+          }
+        ]
       },
       "outcome": "success",
       "returns": [
@@ -24,8 +38,8 @@
     },
     {
       "using": {
-        "firstArray": "[]",
-        "secondArray": "[]"
+        "firstArray": [],
+        "secondArray": []
       },
       "outcome": "success"
     }

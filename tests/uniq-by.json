@@ -3,7 +3,20 @@
   "expectations": [
     {
       "using": {
-        "array": "[{\"name\":\"Lucy\"},{\"name\":\"Ricky\"},{\"name\":\"Louise\"},{\"name\":\"Louise\"}]",
+        "array": [
+          {
+            "name": "Lucy"
+          },
+          {
+            "name": "Ricky"
+          },
+          {
+            "name": "Louise"
+          },
+          {
+            "name": "Louise"
+          }
+        ],
         "key": "name"
       },
       "outcome": "success",

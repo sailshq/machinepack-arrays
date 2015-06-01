@@ -24,6 +24,7 @@ Filesystem.ls({
         schema: {
           machine: 'some-machine',
           expectations: [{
+            todo: true,
             using: {},
             outcome: 'someoutcome',
             returns: '*',
@@ -47,7 +48,15 @@ Filesystem.ls({
           try {
 
               // Remove `todo` tests.
-            _.remove(jsonData.expectations, {todo: true});
+            jsonData.expectations = _.reduce(jsonData.expectations, function (memo, expectation){
+              if (expectation.todo){
+                return memo;
+              }
+              delete expectation.todo;
+              memo.push(expectation);
+              return memo;
+            }, []);
+
 
             jsonData.expectations = _.map(jsonData.expectations, function (expectation){
 

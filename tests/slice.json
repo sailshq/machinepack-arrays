@@ -2,32 +2,188 @@
   "machine": "slice",
   "expectations": [
     {
-      "todo": true,
-      "using": {},
+      "using": {
+        "array": [
+          {
+            "name": "Lucy"
+          },
+          {
+            "name": "Ricky"
+          },
+          {
+            "name": "Louise"
+          },
+          {
+            "name": "Estelle"
+          }
+        ],
+        "start": 1
+      },
+      "outcome": "success",
+      "returns": [
+        {
+          "name": "Ricky"
+        },
+        {
+          "name": "Louise"
+        },
+        {
+          "name": "Estelle"
+        }
+      ]
+    },
+    {
+      "using": {
+        "array": [
+          {
+            "name": "Lucy"
+          },
+          {
+            "name": "Ricky"
+          },
+          {
+            "name": "Louise"
+          },
+          {
+            "name": "Estelle"
+          }
+        ],
+        "start": 0
+      },
+      "outcome": "success",
+      "returns": [
+        {
+          "name": "Lucy"
+        },
+        {
+          "name": "Ricky"
+        },
+        {
+          "name": "Louise"
+        },
+        {
+          "name": "Estelle"
+        }
+      ]
+    },
+    {
+      "using": {
+        "array": [
+          {
+            "name": "Lucy"
+          },
+          {
+            "name": "Ricky"
+          },
+          {
+            "name": "Louise"
+          },
+          {
+            "name": "Estelle"
+          }
+        ],
+        "start": 3
+      },
+      "outcome": "success",
+      "returns": [
+        {
+          "name": "Estelle"
+        }
+      ]
+    },
+    {
+      "using": {
+        "array": [
+          {
+            "name": "Lucy"
+          },
+          {
+            "name": "Ricky"
+          },
+          {
+            "name": "Louise"
+          },
+          {
+            "name": "Estelle"
+          }
+        ],
+        "start": 5
+      },
       "outcome": "success"
     },
     {
       "using": {
-        "array": "[{\"name\": \"Lucy\"}, {\"name\": \"Ricky\"}, {\"name\": \"Louise\" }, { \"name\": \"Estelle\" }]",
-        "start": "1"
+        "array": [
+          {
+            "name": "Lucy"
+          },
+          {
+            "name": "Ricky"
+          },
+          {
+            "name": "Louise"
+          },
+          {
+            "name": "Estelle"
+          }
+        ],
+        "start": 0,
+        "end": 0
       },
       "outcome": "success",
       "returns": [
         {
-          "name": "Ricky"
-        },
-        {
-          "name": "Louise"
-        },
-        {
-          "name": "Estelle"
+          "name": "Lucy"
         }
       ]
     },
     {
       "using": {
-        "array": "[{\"name\": \"Lucy\"}, {\"name\": \"Ricky\"}, {\"name\": \"Louise\" }, { \"name\": \"Estelle\" }]",
-        "start": "0"
+        "array": [
+          {
+            "name": "Lucy"
+          },
+          {
+            "name": "Ricky"
+          },
+          {
+            "name": "Louise"
+          },
+          {
+            "name": "Estelle"
+          }
+        ],
+        "start": 0,
+        "end": 1
+      },
+      "outcome": "success",
+      "returns": [
+        {
+          "name": "Lucy"
+        },
+        {
+          "name": "Ricky"
+        }
+      ]
+    },
+    {
+      "using": {
+        "array": [
+          {
+            "name": "Lucy"
+          },
+          {
+            "name": "Ricky"
+          },
+          {
+            "name": "Louise"
+          },
+          {
+            "name": "Estelle"
+          }
+        ],
+        "start": 0,
+        "end": 3
       },
       "outcome": "success",
       "returns": [
@@ -47,79 +203,22 @@
     },
     {
       "using": {
-        "array": "[{\"name\": \"Lucy\"}, {\"name\": \"Ricky\"}, {\"name\": \"Louise\" }, { \"name\": \"Estelle\" }]",
-        "start": "3"
-      },
-      "outcome": "success",
-      "returns": [
-        {
-          "name": "Estelle"
-        }
-      ]
-    },
-    {
-      "using": {
-        "array": "[{\"name\": \"Lucy\"}, {\"name\": \"Ricky\"}, {\"name\": \"Louise\" }, { \"name\": \"Estelle\" }]",
-        "start": "5"
-      },
-      "outcome": "success"
-    },
-    {
-      "using": {
-        "array": "[{\"name\":\"Lucy\"},{\"name\":\"Ricky\"},{\"name\":\"Louise\"},{\"name\":\"Estelle\"}]",
-        "start": "0",
-        "end": "0"
-      },
-      "outcome": "success",
-      "returns": [
-        {
-          "name": "Lucy"
-        }
-      ]
-    },
-    {
-      "using": {
-        "array": "[{\"name\":\"Lucy\"},{\"name\":\"Ricky\"},{\"name\":\"Louise\"},{\"name\":\"Estelle\"}]",
-        "start": "0",
-        "end": "1"
-      },
-      "outcome": "success",
-      "returns": [
-        {
-          "name": "Lucy"
-        },
-        {
-          "name": "Ricky"
-        }
-      ]
-    },
-    {
-      "using": {
-        "array": "[{\"name\":\"Lucy\"},{\"name\":\"Ricky\"},{\"name\":\"Louise\"},{\"name\":\"Estelle\"}]",
-        "start": "0",
-        "end": "3"
-      },
-      "outcome": "success",
-      "returns": [
-        {
-          "name": "Lucy"
-        },
-        {
-          "name": "Ricky"
-        },
-        {
-          "name": "Louise"
-        },
-        {
-          "name": "Estelle"
-        }
-      ]
-    },
-    {
-      "using": {
-        "array": "[{\"name\":\"Lucy\"},{\"name\":\"Ricky\"},{\"name\":\"Louise\"},{\"name\":\"Estelle\"}]",
-        "start": "0",
-        "end": "1000"
+        "array": [
+          {
+            "name": "Lucy"
+          },
+          {
+            "name": "Ricky"
+          },
+          {
+            "name": "Louise"
+          },
+          {
+            "name": "Estelle"
+          }
+        ],
+        "start": 0,
+        "end": 1000
       },
       "outcome": "success",
       "returns": [

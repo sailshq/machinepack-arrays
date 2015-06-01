@@ -2,13 +2,21 @@
   "machine": "construct",
   "expectations": [
     {
-      "todo": true,
-      "using": {},
-      "outcome": "success"
-    },
-    {
       "using": {
-        "array": "[{\"name\":\"Lucy\"},{\"name\":\"Ricky\"},{\"name\":\"Louise\"},{\"name\":\"Estelle\"}]"
+        "array": [
+          {
+            "name": "Lucy"
+          },
+          {
+            "name": "Ricky"
+          },
+          {
+            "name": "Louise"
+          },
+          {
+            "name": "Estelle"
+          }
+        ]
       },
       "outcome": "success",
       "returns": [
