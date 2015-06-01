@@ -111,9 +111,9 @@ Filesystem.ls({
                       // console.log('parsed %s!', inputName);
                     }
                     catch (e) {
-                      // This is weird that we cannot parse this JSON-- it must be encoded
-                      // as a normal JS string.  But since the machine is not expecting a
-                      // string, we should stringify this.
+                      // This JSON-- it must be encoded as a normal JS string.
+                      // But since the machine is not expecting a string specifically,
+                      // we should stringify this.
                       expectation.returns = JSON.stringify(expectation.returns);
                     }
                   }
