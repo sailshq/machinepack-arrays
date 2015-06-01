@@ -122,8 +122,11 @@ Filesystem.ls({
             return next(e);
           }
 
-          console.log('For %s, would write:',path, util.inspect(jsonData, false, null));
-          return next();
+          // Remove `todo` tests.
+          _.remove(jsonData.expectations, {todo: true});
+
+          // console.log('For %s, would write:',path, util.inspect(jsonData, false, null));
+          // return next();
 
           Filesystem.writeJson({
             destination: path,
