@@ -46,6 +46,9 @@ Filesystem.ls({
 
           try {
 
+              // Remove `todo` tests.
+            _.remove(jsonData.expectations, {todo: true});
+
             jsonData.expectations = _.map(jsonData.expectations, function (expectation){
 
               expectation.using = _.reduce(expectation.using, function (memo, inputVal, inputName) {
@@ -121,9 +124,6 @@ Filesystem.ls({
           catch (e) {
             return next(e);
           }
-
-          // Remove `todo` tests.
-          _.remove(jsonData.expectations, {todo: true});
 
           // console.log('For %s, would write:',path, util.inspect(jsonData, false, null));
           // return next();
