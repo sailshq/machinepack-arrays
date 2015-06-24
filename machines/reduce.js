@@ -20,7 +20,7 @@ module.exports = {
       description: 'The function to run for each item in the array.',
       example: '->',
       contract: {
-        provides: {
+        inputs: {
           item: {
             friendlyName: 'Current item',
             description: 'The current item in the array.',
@@ -42,7 +42,7 @@ module.exports = {
             like: 'resultExample' // same type as the `resultExample` input of the calling machine
           },
         },
-        expects: {
+        exits: {
           error: {
             friendlyName: 'break with error',
             description: 'Something went wrong- stop iterating and skip over all remaining items.'
