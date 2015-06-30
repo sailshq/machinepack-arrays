@@ -49,6 +49,9 @@ module.exports = {
             friendlyName: 'break with error',
             description: 'Something went wrong- stop iterating and skip over all remaining items.'
           },
+          skip: {
+            friendlyName: 'skip item'
+          },
           success: {
             friendlyName: 'next item',
             description: 'Continue to next item, or if there are no more items, stop.',
@@ -102,11 +105,18 @@ module.exports = {
     // which have been at least started being processed by the iteratee.
     var numIterationsStarted = 0;
 
-    // Start iterating...
-    iteratorFn(inputs.array, function enumerator(item, next) {
+    // Track the index of all iterations which trigger the `skip` exit.
+    var skippedIndices = [];
 
-      // Increment iterations counter and track current index
-      var currentIndex = numIterationsStarted;
+    // Start iterating...
+    var indices = _.keys(inputs.array);
+    iteratorFn(indices, function enumerator(currentIndex, next) {
+
+      // We iterate over indices instead of the items themselves to avoid
+      // parallel execution throwing us off.
+      var item = inputs.array[currentIndex];
+
+      // Increment iterations counter
       numIterationsStarted++;
 
       // Execute iteratee machine using generic input configuration
@@ -124,6 +134,13 @@ module.exports = {
           return next(err);
         },
 
+        // Skip exit
+        // (implies that we should exclude this item from the result set)
+        skip: function (){
+          skippedIndices.push(currentIndex);
+          next();
+        },
+
         // Default (success) exit
         // (implies that we should continue iterating)
         success: function enumeratee(output){
@@ -134,6 +151,13 @@ module.exports = {
       if (err) {
         return exits.error(err);
       }
+
+      // Remove items that were skipped above.
+      if (skippedIndices.length > 0) {
+        var retainedIndices = _.difference(indices, skippedIndices);
+        transformedArray = _.at(transformedArray, retainedIndices);
+      }
+
       return exits.success(transformedArray);
     });
   },
