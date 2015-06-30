@@ -82,6 +82,21 @@
         21,
         32
       ]
+    },
+    {
+      "using": {
+        "array": [
+          10,
+          20,
+          30
+        ],
+        "itemExample": 1,
+        "iteratee": "if (inputs.index % 2 === 0) { /* exclude even-numbered indices */ return exits.exclude(); } return exits.success(inputs.item+inputs.index);"
+      },
+      "outcome": "success",
+      "returns": [
+        21
+      ]
     }
   ]
 }
