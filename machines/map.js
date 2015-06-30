@@ -105,8 +105,8 @@ module.exports = {
     // which have been at least started being processed by the iteratee.
     var numIterationsStarted = 0;
 
-    // Track the index of all iterations which trigger the `skip` exit.
-    var skippedIndices = [];
+    // Track the index of all iterations which trigger the `exclude` exit.
+    var excludedIndices = [];
 
     // Start iterating...
     var indices = _.keys(inputs.array);
@@ -134,10 +134,10 @@ module.exports = {
           return next(err);
         },
 
-        // Skip exit
+        // Exclude (skip item) exit
         // (implies that we should exclude this item from the result set)
-        skip: function (){
-          skippedIndices.push(currentIndex);
+        exclude: function (){
+          excludedIndices.push(currentIndex);
           next();
         },
 
@@ -153,8 +153,8 @@ module.exports = {
       }
 
       // Remove items that were skipped above.
-      if (skippedIndices.length > 0) {
-        var retainedIndices = _.difference(indices, skippedIndices);
+      if (excludedIndices.length > 0) {
+        var retainedIndices = _.difference(indices, excludedIndices);
         transformedArray = _.at(transformedArray, retainedIndices);
       }
 
