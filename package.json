@@ -1,6 +1,6 @@
 {
   "name": "machinepack-arrays",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Work with arrays.",
   "scripts": {
     "test": "node ./node_modules/test-machinepack-mocha/bin/testmachinepack-mocha.js"
