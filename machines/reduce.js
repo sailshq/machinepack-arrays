@@ -65,7 +65,8 @@ module.exports = {
       friendlyName: 'Example result',
       description: 'An example of what the final accumulated result will look like.',
       extendedDescription: 'The type of the final result must be compatible with the initial value, as well as the partial result provided to the iteratee during each iteration.',
-      like: 'initialValue'
+      like: 'initialValue',
+      isExemplar: true
     },
 
     initialValue: {
