@@ -39,20 +39,7 @@ module.exports = {
 
     success: {
       description: 'Done.',
-      getExample: function(inputs, env) {
-        var _ = env._;
-
-        // If the array is not available yet, or none of its items are, then
-        // the best we can do is guarantee that this result will be some sort
-        // of homogeneous array.
-        if (_.isUndefined(inputs.array) || inputs.array.length < 1) {
-          return '*';
-        }
-
-        // If the array is available and has one item, we can just go ahead
-        // and actually reverse the array.
-        return inputs.array.reverse();
-      }
+      like: 'array'
     }
 
   },

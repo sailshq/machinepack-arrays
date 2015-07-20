@@ -47,29 +47,7 @@ module.exports = {
 
     success: {
       description: 'Returns the new array.',
-      getExample: function (inputs, env) {
-        var _ = env._;
-
-        // If neither the array nor the new value are available yet, the best we
-        // can do is guarantee that this result will be some sort of homogeneous array.
-        if (_.isUndefined(inputs.array) && _.isUndefined(inputs.value)) {
-          return ['*'];
-        }
-
-        // If the new vlue is available, we can borrow that to build our example
-        if (_.isUndefined(inputs.value)) {
-          return [inputs.value];
-        }
-
-        // If the array is available and has at least one item, we can just borrow
-        // that first item to build our example.
-        if (inputs.array.length > 0) {
-          return [inputs.array[0]];
-        }
-
-        // Otherwise, the best we can do is send back ['*'].
-        return ['*'];
-      }
+      like: 'array'
     },
 
   },

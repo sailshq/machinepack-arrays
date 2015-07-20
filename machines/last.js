@@ -37,20 +37,7 @@ module.exports = {
 
     success: {
       description: 'Returns the last item in the array.',
-      getExample: function (inputs,env) {
-        var _ = env._;
-
-        // If the array is not available yet, or none of its items are, then
-        // the best we can do is guarantee that this result will be some sort
-        // of JSON-compatible value.
-        if (_.isUndefined(inputs.array) || inputs.array.length < 1) {
-          return '*';
-        }
-
-        // If the array is available and has one item, we can just borrow the
-        // last item to build our example.
-        return inputs.array[inputs.array.length-1];
-      }
+      itemOf: 'array'
     },
 
   },
