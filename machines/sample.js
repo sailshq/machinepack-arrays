@@ -27,6 +27,10 @@ module.exports = {
       description: 'Unexpected error occurred.'
     },
 
+    emptyArray: {
+      description: 'The provided array has no items.'
+    },
+
     success: {
       friendlyName: 'then',
       description: 'Returns a randomly selected item.',
@@ -39,6 +43,9 @@ module.exports = {
 
   fn: function(inputs, exits) {
     var _ = require('lodash');
+    if (inputs.array) {
+      return exits.emptyArray();
+    }
     return exits.success(_.sample(inputs.array));
   }
 
