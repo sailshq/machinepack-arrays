@@ -87,9 +87,11 @@ module.exports = {
     var async = require('async');
     var rttc = require('rttc');
 
+
     // If `resultExemplar` is set, coerce it to make sure it's a proper exemplar.
+    // (but still allow '*', '===', and '->' to be used w/ their respective special meanings)
     if (!_.isUndefined(inputs.resultExemplar)) {
-      inputs.resultExemplar = rttc.coerceExemplar(inputs.resultExemplar);
+      inputs.resultExemplar = rttc.coerceExemplar(inputs.resultExemplar, true);
     }
 
     // Use either `async.map` (parallel) or `async.mapSeries` (series)

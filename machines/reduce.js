@@ -107,8 +107,9 @@ module.exports = {
     var Machine = require('machine');
 
     // If `resultExemplar` is set, coerce it to make sure it's a proper exemplar.
+    // (but still allow '*', '===', and '->' to be used w/ their respective special meanings)
     if (!_.isUndefined(inputs.resultExemplar)) {
-      inputs.resultExemplar = rttc.coerceExemplar(inputs.resultExemplar);
+      inputs.resultExemplar = rttc.coerceExemplar(inputs.resultExemplar, true);
     }
 
     // `initialValue` is the initial value that will be accumulated/folded "into".
