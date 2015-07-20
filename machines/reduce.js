@@ -39,7 +39,7 @@ module.exports = {
           resultSoFar: {
             friendlyName: 'Result so far',
             description: 'The result which has been accumulated so far',
-            like: 'resultExample' // same type as the `resultExample` input of the calling machine
+            like: 'initialValue' // same type as the `initialValue` input of the calling machine
           },
         },
         exits: {
@@ -54,19 +54,18 @@ module.exports = {
           success: {
             friendlyName: 'next item',
             description: 'Continue to next item, or if there are no more items, stop.',
-            like: 'resultExample' // same type as the `resultExample` input of the calling machine
+            like: 'initialValue' // same type as the `initialValue` input of the calling machine
           }
         },
       },
       required: true
     },
 
-    resultExample: {
+    resultExemplar: {
       friendlyName: 'Example result',
       description: 'An example of what the final accumulated result will look like.',
       extendedDescription: 'The type of the final result must be compatible with the initial value, as well as the partial result provided to the iteratee during each iteration.',
-      example: '*',
-      required: true
+      like: 'initialValue'
     },
 
     initialValue: {
@@ -79,6 +78,7 @@ module.exports = {
     // Series should pretty much always be enabled...
     // (consider removing this option)
     series: {
+      friendlyName: 'One item at a time?',
       description: 'Whether to run iteratee on all items in series (one at a time) vs. in parallel (all at the same time)',
       extendedDescription: 'Be careful if you disable this input-- make sure you are actually OK with your iteratee being run on each item of the array in a completely arbitrary order. Also release that consequently, the order that your result will accumulate in is impossible to predict.',
       example: true,
@@ -93,19 +93,8 @@ module.exports = {
     success: {
       friendlyName: 'then',
       description: 'Done.',
-      getExample: function (inputs, env){
-        var _ = env._;
-
-        // If this exit is traversed, its output type will always be
-        // equivalent to `inputs.resultExample`
-        if (!_.isUndefined(inputs.resultExample)) {
-          return inputs.resultExample;
-        }
-
-        // But if `resultExample` is not available yet, the best we can
-        // do is fall back to some kind of JSON-serializable value.
-        return '*';
-      }
+      outputDescription: 'The accumulated result value.',
+      like: 'initialValue'
     }
 
   },
@@ -114,17 +103,29 @@ module.exports = {
   fn: function (inputs,exits) {
     var _ = require('lodash');
     var async = require('async');
+    var rttc = require('rttc');
     var Machine = require('machine');
 
-    // `initialValue` is the initial value that will be accumulated into
+    // If `resultExemplar` is set, coerce it to make sure it's a proper exemplar.
+    if (!_.isUndefined(inputs.resultExemplar)) {
+      inputs.resultExemplar = rttc.coerceExemplar(inputs.resultExemplar);
+    }
+
+    // `initialValue` is the initial value that will be accumulated/folded "into".
     var initialValue;
     if (!_.isUndefined(inputs.initialValue)) {
       initialValue = inputs.initialValue;
     }
     else {
-      // Determine base/empty value for `inputs.resultExample` and use that for `initialValue`.
-      var baseVal = Machine.build({sync: true, inputs: {}, exits: {success: {example: inputs.resultExample}}, fn: function (inputs,exits){exits.success();} }).execSync();
-      initialValue = baseVal;
+      // If `resultExemplar` is set, determine base/empty value for its type
+      // and use that for `initialValue`.
+      if (!_.isUndefined(inputs.resultExemplar)) {
+        initialValue = rttc.getBaseVal(inputs.resultExemplar);
+      }
+      // Otherwise, use `null`.
+      else {
+        initialValue = null;
+      }
     }
 
     // `resultSoFar` will hold the result accumulated across

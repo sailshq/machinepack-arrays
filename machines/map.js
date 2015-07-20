@@ -15,11 +15,10 @@ module.exports = {
       required: true
     },
 
-    itemExample: {
-      friendlyName: 'Example item',
-      description: 'An example of what each item in the array will look like after the mapping.',
-      example: '*',
-      required: true
+    resultExemplar: {
+      friendlyName: 'Example result',
+      description: 'An example of what the final result array will look like.',
+      example: ['*']
     },
 
     iteratee: {
@@ -55,7 +54,7 @@ module.exports = {
           success: {
             friendlyName: 'next item',
             description: 'Continue to next item, or if there are no more items, stop.',
-            like: 'itemExample'
+            itemOf: 'resultExemplar'
           }
         },
       },
@@ -76,19 +75,8 @@ module.exports = {
 
     success: {
       description: 'Done.',
-      getExample: function (inputs, env){
-        var _ = env._;
-
-        // If this exit is traversed, its output type will always be
-        // equivalent to a homogeneous array with items like `inputs.itemExample`
-        if (!_.isUndefined(inputs.itemExample)) {
-          return [inputs.itemExample];
-        }
-
-        // But if `itemExample` is not available yet, the best we can
-        // do is fall back to an array of JSON-serializable values.
-        return ['*'];
-      }
+      outputDescription: 'A modified copy of the provided array.',
+      like: 'resultExemplar'
     }
 
   },

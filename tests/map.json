@@ -9,7 +9,7 @@
           3,
           4
         ],
-        "itemExample": 1,
+        "resultExemplar": [1],
         "iteratee": "return exits.success(inputs.item + 1);"
       },
       "outcome": "success",
@@ -28,9 +28,9 @@
           3,
           4
         ],
-        "itemExample": {
+        "resultExemplar": [{
           "id": 4
-        },
+        }],
         "iteratee": "return exits.success({id: inputs.item + 1});"
       },
       "outcome": "success",
@@ -56,7 +56,7 @@
           20,
           30
         ],
-        "itemExample": 1,
+        "resultExemplar": [1],
         "iteratee": "return exits.success(inputs.item+inputs.index);"
       },
       "outcome": "success",
@@ -73,7 +73,7 @@
           20,
           30
         ],
-        "itemExample": 1,
+        "resultExemplar": [1],
         "iteratee": "return exits.success(inputs.item+inputs.index);"
       },
       "outcome": "success",
@@ -90,7 +90,7 @@
           20,
           30
         ],
-        "itemExample": 1,
+        "resultExemplar": [1],
         "iteratee": "if (inputs.index % 2 === 0) { /* exclude even-numbered indices */ return exits.exclude(); } return exits.success(inputs.item+inputs.index);"
       },
       "outcome": "success",

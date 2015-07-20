@@ -12,10 +12,10 @@
           }
         ],
         "iteratee": "return exits.success(inputs.resultSoFar+(inputs.index>0?\" \":\"\")+inputs.item.name);",
-        "resultExample": "bob rob"
+        "initialValue": "bob rob"
       },
       "outcome": "success",
-      "returns": "\"arya rob\""
+      "returns": "bob robarya rob"
     },
     {
       "using": {
@@ -32,10 +32,51 @@
           }
         ],
         "iteratee": "return exits.success(inputs.resultSoFar+(inputs.index>0?\" \":\"\")+inputs.item.name);",
-        "resultExample": "bob rob"
+        "initialValue": "bob rob"
       },
       "outcome": "success",
-      "returns": "\"jon arya rob\""
+      "returns": "bob robjon arya rob"
+    },
+    {
+      "using": {
+        "array": [
+          {
+            "name": "jon",
+            "wolf": "Ghost"
+          },
+          {
+            "name": "arya"
+          },
+          {
+            "name": "rob"
+          }
+        ],
+        "iteratee": "return exits.success(inputs.resultSoFar+(inputs.index>0?\" \":\"\")+inputs.item.name);",
+        "resultExemplar": "bob rob"
+      },
+      "outcome": "success",
+      "returns": "jon arya rob"
+    },
+    {
+      "using": {
+        "array": [
+          {
+            "name": "jon",
+            "wolf": "Ghost"
+          },
+          {
+            "name": "arya"
+          },
+          {
+            "name": "rob"
+          }
+        ],
+        "iteratee": "return exits.success(inputs.resultSoFar+(inputs.index>0?\" \":\"\")+inputs.item.name);",
+        "initialValue": "louie ",
+        "resultExemplar": "bob rob"
+      },
+      "outcome": "success",
+      "returns": "louie jon arya rob"
     },
     {
       "using": {
@@ -51,10 +92,10 @@
           8
         ],
         "iteratee": "if (inputs.item < 0) { return exits.halt(); }  return exits.success('stopped at ---> '+inputs.item);",
-        "resultExample": "3a"
+        "initialValue": "3a"
       },
       "outcome": "success",
-      "returns": "\"stopped at ---> 5\""
+      "returns": "stopped at ---> 5"
     }
   ]
 }
