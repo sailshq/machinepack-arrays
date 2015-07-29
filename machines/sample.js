@@ -43,7 +43,7 @@ module.exports = {
 
   fn: function(inputs, exits) {
     var _ = require('lodash');
-    if (inputs.array) {
+    if (inputs.array.length === 0) {
       return exits.emptyArray();
     }
     return exits.success(_.sample(inputs.array));

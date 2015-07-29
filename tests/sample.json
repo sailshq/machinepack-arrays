@@ -1,4 +1,20 @@
 {
   "machine": "sample",
-  "expectations": []
+  "expectations": [
+    {
+      "using": {
+        "array": []
+      },
+      "outcome": "emptyArray"
+    },
+    {
+      "using": {
+        "array": [
+          "a"
+        ]
+      },
+      "outcome": "success",
+      "returns": "a"
+    }
+  ]
 }
