@@ -27,7 +27,7 @@ module.exports = {
       description: 'The transformation to run for each item in the array.',
       example: '->',
       contract: {
-        provides: {
+        inputs: {
           item: {
             friendlyName: 'Current item',
             description: 'The current item in the array.',
@@ -44,7 +44,7 @@ module.exports = {
             example: 3
           }
         },
-        expects: {
+        exits: {
           error: {
             friendlyName: 'break with error',
             description: 'Something went wrong- stop iterating and skip over all remaining items.'
