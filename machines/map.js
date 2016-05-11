@@ -6,6 +6,9 @@ module.exports = {
 
   description: 'Iterate over each item of an array to build a new transformed array.',
 
+  extendedDescription: 'Unlike the native Javascript `.map()` function, the Map machine is not guaranteed to return an array with the same length as the input.  This is due to the availability of the `skip` exit in the iteratee, which allows for skipping an array item completely.',
+
+  moreInfoUrl: 'http://node-machine.org/machinepack-arrays/map',
 
   inputs: {
 
@@ -50,12 +53,16 @@ module.exports = {
             description: 'Something went wrong- stop iterating and skip over all remaining items.'
           },
           skip: {
-            friendlyName: 'skip item'
+            friendlyName: 'skip item',
+            description: 'Skip to next item, or if there are no more items, stop.',
+            extendedDescription: 'If the `skip` exit is used, then the length of the Map machine\'s output array will be shorter than the length of the input array.'
           },
           success: {
             friendlyName: 'next item',
             description: 'Continue to next item, or if there are no more items, stop.',
-            itemOf: 'resultExemplar'
+            itemOf: 'resultExemplar',
+            outputFriendlyName: 'Transformed Item',
+            outputDescription: 'The result of running the current item through the iteratee machine'
           }
         },
       },
