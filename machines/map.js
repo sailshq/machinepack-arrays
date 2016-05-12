@@ -22,6 +22,7 @@ module.exports = {
       friendlyName: 'Example result',
       description: 'An example of what the final result array will look like.',
       example: ['*'],
+      constant: true,
       isExemplar: true
     },
 
