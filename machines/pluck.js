@@ -65,7 +65,9 @@ module.exports = {
         // Otherwise, if it doesn't exist, we'll fall back to the same generic guarantee we
         // used above.
         return ['*'];
-      }
+      },
+      outputName: 'Plucked array',
+      outputDescription: 'The array of values gathered by plucking the specified key out of each array item.'
     }
 
   },

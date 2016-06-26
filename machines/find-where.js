@@ -37,7 +37,8 @@ module.exports = {
       description: 'Unexpected error occurred.'
     },
     success: {
-      variableName: 'foundItems',
+      outputFriendlyName: 'Found items',
+      outputDescription: 'The array of items matching the criteria.',
       description: 'Returns the matching dictionaries.',
       like: 'array'
     }

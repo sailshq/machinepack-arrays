@@ -43,8 +43,10 @@ module.exports = {
 
     success: {
       description: 'Returns a duplicate-free version of the array.',
-      friendlyName: 'then',
-      like: 'array'
+      like: 'array',
+      outputFriendlyName: 'De-duplicated Array',
+      outputDescription: 'The resulting array after removing duplicate items.'
+
     }
 
   },

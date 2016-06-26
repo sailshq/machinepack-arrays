@@ -42,12 +42,15 @@ module.exports = {
     },
 
     notFound: {
+      friendlyName: 'Not found',
       description: 'The array doesn\'t have an item at the specified index.'
     },
 
     success: {
       description: 'Returns the item at the specified index within the array.',
-      itemOf: 'array'
+      itemOf: 'array',
+      outputFriendlyName: 'Nth array item',
+      outputDescription: 'The item of the array at the specified index.'
     },
 
   },

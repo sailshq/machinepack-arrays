@@ -10,6 +10,7 @@ module.exports = {
   inputs: {
 
     array: {
+      friendlyName: 'Array',
       description: 'The array to loop over',
       example: ['*'],
       required: true
@@ -44,17 +45,19 @@ module.exports = {
         },
         exits: {
           error: {
-            friendlyName: 'break with error',
+            friendlyName: 'Break with error',
             description: 'Something went wrong- stop iterating and skip over all remaining items.'
           },
           halt: {
-            friendlyName: 'break',
+            friendlyName: 'Break',
             description: 'Everything is ok, but stop iterating and skip over all remaining items.'
           },
           success: {
-            friendlyName: 'next item',
+            friendlyName: 'Next item',
             description: 'Continue to next item, or if there are no more items, stop.',
-            like: 'initialValue' // same type as the `initialValue` input of the calling machine
+            like: 'initialValue', // same type as the `initialValue` input of the calling machine
+            outputFriendlyName: 'Transformed result',
+            outputDescription: 'The accumulated result after running the current item through the iteratee machine.'
           }
         },
       },

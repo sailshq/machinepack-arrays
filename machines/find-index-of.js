@@ -37,12 +37,12 @@ module.exports = {
       description: 'Unexpected error occurred.'
     },
     notFound: {
-      friendlyName: 'not found',
+      friendlyName: 'Not found',
       description: 'Array does not contain specified item.'
     },
     success: {
-      friendlyName: 'found',
-      variableName: 'foundAtIndex',
+      outputFriendlyName: 'Found at index',
+      outputDescription: 'The index where the array item is located.',
       description: 'Returns the array index where the item is located (starting with 0)',
       example: 8
     }

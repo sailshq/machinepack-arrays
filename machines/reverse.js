@@ -39,7 +39,9 @@ module.exports = {
 
     success: {
       description: 'Done.',
-      like: 'array'
+      like: 'array',
+      outputFriendlyName: 'Reversed array',
+      outputDescription: 'The result of reversing the input array.'
     }
 
   },

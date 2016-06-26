@@ -40,7 +40,10 @@ module.exports = {
 
     success: {
       description: 'Done.',
-      like: 'array'
+      like: 'array',
+      outputFriendlyName: 'Sorted array',
+      outputDescription: 'The resulting array after sorting by the specified key.'
+
     }
 
   },

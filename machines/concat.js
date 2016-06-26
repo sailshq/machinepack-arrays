@@ -19,12 +19,14 @@ module.exports = {
   inputs: {
 
     firstArray: {
+      friendlyName: 'First array',
       description: 'The first array',
       example: ['*'],
       required: true
     },
 
     secondArray: {
+      friendlyName: 'Second array',
       description: 'The second array',
       example: ['*'],
       required: true
@@ -43,9 +45,9 @@ module.exports = {
     },
 
     success: {
-      friendlyName: 'then',
       description: 'Returns a new array consisting of the items of both arrays, in order.',
-      variableName: 'newArray',
+      outputFriendlyName: 'Concatenated Array',
+      outputDescription: 'The result of concatenating the input arrays.',
       getExample: function (inputs, env){
         var _ = env._;
 

@@ -13,6 +13,7 @@ module.exports = {
   inputs: {
 
     array: {
+      friendlyName: 'Array',
       description: 'The array to loop over',
       example: ['*'],
       required: true
@@ -49,19 +50,19 @@ module.exports = {
         },
         exits: {
           error: {
-            friendlyName: 'break with error',
+            friendlyName: 'Break with error',
             description: 'Something went wrong- stop iterating and skip over all remaining items.'
           },
           skip: {
-            friendlyName: 'skip item',
+            friendlyName: 'Skip item',
             description: 'Skip to next item, or if there are no more items, stop.',
             extendedDescription: 'If the `skip` exit is used, then the length of the Map machine\'s output array will be shorter than the length of the input array.'
           },
           success: {
-            friendlyName: 'next item',
+            friendlyName: 'Next item',
             description: 'Continue to next item, or if there are no more items, stop.',
             itemOf: 'resultExemplar',
-            outputFriendlyName: 'Transformed Item',
+            outputFriendlyName: 'Transformed item',
             outputDescription: 'The result of running the current item through the iteratee machine'
           }
         },
@@ -70,6 +71,7 @@ module.exports = {
     },
 
     series: {
+      friendlyName: 'One item at a time?',
       description: 'Whether to run iteratee on one item at a time (in series)',
       extendedDescription: 'By default, all items are run at the same time (in parallel)',
       example: false,
@@ -83,6 +85,7 @@ module.exports = {
 
     success: {
       description: 'Done.',
+      outputFriendlyName: 'Mapped array',
       outputDescription: 'A modified copy of the provided array.',
       like: 'resultExemplar'
     }

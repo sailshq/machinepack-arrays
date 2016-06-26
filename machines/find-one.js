@@ -37,12 +37,12 @@ module.exports = {
       description: 'Unexpected error occurred.'
     },
     notFound: {
-      friendlyName: 'not found',
+      friendlyName: 'Not found',
       description: 'Array does not contain an item matching the specified criteria.'
     },
     success: {
-      friendlyName: 'found',
-      variableName: 'foundItem',
+      outputFriendlyName: 'Found item',
+      outputDescription: 'The first item in the that matches the criteria.',
       description: 'Returns the matching dictionary.',
       itemOf: 'array'
     }

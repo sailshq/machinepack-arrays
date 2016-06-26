@@ -52,7 +52,10 @@ module.exports = {
 
     success: {
       description: 'Done.',
-      like: 'array'
+      like: 'array',
+      outputFriendlyName: 'Array slice',
+      outputDescription: 'The requested slice of the input array.'
+
     },
 
   },

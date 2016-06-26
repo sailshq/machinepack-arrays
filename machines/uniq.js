@@ -16,6 +16,7 @@ module.exports = {
   inputs: {
 
     array: {
+      friendlyName: 'Array',
       description: 'The array to remove duplicates from.',
       example: ['*'],
       required: true
@@ -32,8 +33,10 @@ module.exports = {
 
     success: {
       description: 'Returns duplicate-free version of array.',
-      friendlyName: 'then',
-      like: 'array'
+      like: 'array',
+      outputFriendlyName: 'De-duplicated Array',
+      outputDescription: 'The resulting array after removing duplicate items.'
+
     }
 
   },

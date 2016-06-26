@@ -49,11 +49,14 @@ module.exports = {
     },
 
     notFound: {
+      friendlyName: 'Not found',
       description: 'The array does not have enough items for anything to exist at the specified index.',
     },
 
     success: {
       description: 'Returns the new array.',
+      outputFriendlyName: 'Array with inserted item',
+      outputDescription: 'The resulting array after inserting the new item.',
       like: 'array'
     },
 

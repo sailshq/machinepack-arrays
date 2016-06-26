@@ -36,7 +36,10 @@ module.exports = {
 
     success: {
       description: 'Returns the sorted array.',
-      example: [2]
+      example: [2],
+      outputFriendlyName: 'Sorted array',
+      outputDescription: 'The resulting array after sorting by ascending value.'
+
     },
 
   },

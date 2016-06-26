@@ -42,12 +42,16 @@ module.exports = {
   exits: {
 
     notFound: {
+      friendlyName: 'Not found',
       description: 'The array does not have enough items for anything to exist at the specified index.',
     },
 
     success: {
       description: 'Returns the new array.',
-      like: 'array'
+      like: 'array',
+      outputFriendlyName: 'Array with replaced item',
+      outputDescription: 'The resulting array after replacing the specified item.'
+
     },
 
   },

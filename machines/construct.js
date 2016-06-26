@@ -19,6 +19,7 @@ module.exports = {
   inputs: {
 
     array: {
+      friendlyName: 'Array',
       description: 'The homogeneous array to build.',
       example: ['*'],
       required: true
@@ -35,8 +36,8 @@ module.exports = {
 
     success: {
       description: 'Returns new array.',
-      variableName: 'newArray',
-      friendlyName: 'then',
+      outputFriendlyName: 'New Array',
+      outputDescription: 'A new array.',
       like: 'array'
     }
 

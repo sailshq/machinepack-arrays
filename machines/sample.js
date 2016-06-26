@@ -13,6 +13,7 @@ module.exports = {
   inputs: {
 
     array: {
+      friendlyName: 'Array',
       example: ['*'],
       description: 'The array of items to pick from.',
       required: true
@@ -28,14 +29,16 @@ module.exports = {
     },
 
     emptyArray: {
+      friendlyName: 'Empty array',
       description: 'The provided array has no items.'
     },
 
     success: {
-      friendlyName: 'then',
       description: 'Returns a randomly selected item.',
-      variableName: 'randomItem',
-      itemOf: 'array'
+      itemOf: 'array',
+      outputFriendlyName: 'Random item',
+      outputDescription: 'A random item selected from the array.'
+
     }
 
   },
