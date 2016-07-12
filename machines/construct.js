@@ -36,7 +36,7 @@ module.exports = {
 
     success: {
       description: 'Returns new array.',
-      outputFriendlyName: 'New Array',
+      outputFriendlyName: 'New array',
       outputDescription: 'A new array.',
       like: 'array'
     }
