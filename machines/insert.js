@@ -35,7 +35,7 @@ module.exports = {
     value: {
       friendlyName: 'New item',
       description: 'The new item to insert into the array.',
-      example: '*',
+      outputExample: '*',
       required: true
     }
 

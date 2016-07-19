@@ -37,7 +37,7 @@ module.exports = {
       friendlyName: 'End with (index)',
       description: 'The index of the last item to include in the new array.',
       extendedDescription: 'This index should be zero or a positive number. Omitting this input value will include the rest of the array.',
-      example: 5,
+      outputExample: 5,
       min: 0
     }
 

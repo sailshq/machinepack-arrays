@@ -29,7 +29,7 @@ module.exports = {
 
     success: {
       description: 'Returns the number of items in the array.',
-      example: 32,
+      outputExample: 32,
       outputFriendlyName: 'Array length',
       outputDescription: 'The length of the array.'
     }

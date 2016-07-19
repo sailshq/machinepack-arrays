@@ -47,7 +47,7 @@ module.exports = {
       outputFriendlyName: 'Found at index',
       outputDescription: 'The index where the array item is located.',
       description: 'Returns the array index where the item is located (starting with 0)',
-      example: 8
+      outputExample: 8
     }
   },
 
