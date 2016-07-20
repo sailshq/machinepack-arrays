@@ -1,0 +1,33 @@
+{
+  "machine": "sample-subset",
+  "expectations": [
+    {
+      "using": {
+        "array": [],
+        "size": 1
+      },
+      "outcome": "emptyArray"
+    },
+    {
+      "using": {
+        "array": [
+          "a"
+        ],
+        "size": 1
+      },
+      "outcome": "success",
+      "returns": ["a"]
+    },
+    {
+      "using": {
+        "array": [
+          "a","a"
+        ],
+        "size": 2
+      },
+      "outcome": "success",
+      "returns": ["a","a"]
+    }
+
+  ]
+}
