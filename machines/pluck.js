@@ -26,7 +26,8 @@ module.exports = {
       friendlyName: 'Key to pluck',
       description: 'The property to pluck from each dictionary.',
       example: 'id',
-      required: true
+      required: true,
+      constant: true
     }
 
   },
