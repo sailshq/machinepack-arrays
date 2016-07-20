@@ -34,12 +34,7 @@ module.exports = {
 
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.',
-    },
-
     success: {
-      description: 'Done.',
       like: 'array',
       outputFriendlyName: 'Sorted array',
       outputDescription: 'The resulting array after sorting by the specified key.'

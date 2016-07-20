@@ -94,7 +94,6 @@ module.exports = {
   exits: {
 
     success: {
-      description: 'Done.',
       outputFriendlyName: 'Result of reduce',
       outputDescription: 'The accumulated result value.',
       like: 'initialValue'

@@ -46,12 +46,7 @@ module.exports = {
 
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.',
-    },
-
     success: {
-      description: 'Done.',
       like: 'array',
       outputFriendlyName: 'Array slice',
       outputDescription: 'The requested slice of the input array.'

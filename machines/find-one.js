@@ -33,9 +33,6 @@ module.exports = {
 
 
   exits: {
-    error: {
-      description: 'Unexpected error occurred.'
-    },
     notFound: {
       friendlyName: 'Not found',
       description: 'Array does not contain an item matching the specified criteria.'

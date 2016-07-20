@@ -85,7 +85,6 @@ module.exports = {
   exits: {
 
     success: {
-      description: 'Done.',
       outputFriendlyName: 'Mapped array',
       outputDescription: 'A modified copy of the provided array.',
       like: 'resultExemplar'

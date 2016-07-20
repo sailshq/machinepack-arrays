@@ -30,12 +30,7 @@ module.exports = {
 
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.'
-    },
-
     success: {
-      description: 'Returns new array.',
       outputFriendlyName: 'New array',
       outputDescription: 'A new array.',
       like: 'array'

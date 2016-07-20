@@ -27,12 +27,7 @@ module.exports = {
 
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.'
-    },
-
     success: {
-      description: 'Returns duplicate-free version of array.',
       like: 'array',
       outputFriendlyName: 'De-duplicated Array',
       outputDescription: 'The resulting array after removing duplicate items.'

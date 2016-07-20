@@ -27,18 +27,9 @@ module.exports = {
 
   },
 
-
-  defaultExit: 'success',
-
-
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.',
-    },
-
     success: {
-      description: 'Done.',
       like: 'array',
       outputFriendlyName: 'Reversed array',
       outputDescription: 'The result of reversing the input array.'

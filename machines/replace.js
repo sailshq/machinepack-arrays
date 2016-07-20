@@ -47,7 +47,6 @@ module.exports = {
     },
 
     success: {
-      description: 'Returns the new array.',
       like: 'array',
       outputFriendlyName: 'Array with replaced item',
       outputDescription: 'The resulting array after replacing the specified item.'

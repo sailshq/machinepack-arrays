@@ -30,12 +30,7 @@ module.exports = {
 
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.',
-    },
-
     success: {
-      description: 'Returns the sorted array.',
       outputExample: ['Roger Wilco'],
       outputFriendlyName: 'Sorted array',
       outputDescription: 'The resulting array after sorting by ascending value'

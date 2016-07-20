@@ -34,18 +34,9 @@ module.exports = {
 
   },
 
-
-  defaultExit: 'success',
-
-
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.'
-    },
-
     success: {
-      description: 'Returns a new array consisting of the items of both arrays, in order.',
       outputFriendlyName: 'Concatenated Array',
       outputDescription: 'The result of concatenating the input arrays.',
       getExample: function (inputs, env){

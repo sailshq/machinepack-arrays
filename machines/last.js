@@ -27,17 +27,12 @@ module.exports = {
 
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.',
-    },
-
     notFound: {
       friendlyName: 'Not found',
       description: 'The array is empty, so it doesn\'t have any items.',
     },
 
     success: {
-      description: 'Returns the last item in the array.',
       outputFriendlyName: 'Last item',
       outputDescription: 'The last item in the array.',
       itemOf: 'array'

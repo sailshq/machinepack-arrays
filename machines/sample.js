@@ -24,17 +24,12 @@ module.exports = {
 
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.'
-    },
-
     emptyArray: {
       friendlyName: 'Empty array',
       description: 'The provided array has no items.'
     },
 
     success: {
-      description: 'Returns a randomly selected item.',
       itemOf: 'array',
       outputFriendlyName: 'Random item',
       outputDescription: 'A random item selected from the array.'

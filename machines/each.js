@@ -66,16 +66,6 @@ module.exports = {
 
   },
 
-
-  exits: {
-
-    success: {
-      description: 'Done.'
-    }
-
-  },
-
-
   fn: function (inputs,exits) {
     var _ = require('lodash');
     var async = require('async');

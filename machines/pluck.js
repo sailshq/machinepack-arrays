@@ -34,12 +34,7 @@ module.exports = {
 
   exits: {
 
-    error: {
-      description: 'Unexpected error occurred.',
-    },
-
     success: {
-      description: 'Done.',
       getExample: function(inputs, env) {
         var _ = env._;
 
