@@ -7,19 +7,15 @@ module.exports = {
   description: 'Insert or append an item and return the result (a new array).',
 
 
-  extendedDescription: '',
-
-
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     array: {
-      friendlyName: 'Array',
       description: 'The array where the new item should be inserted.',
       example: ['*'],
       required: true
@@ -45,8 +41,13 @@ module.exports = {
   exits: {
 
     notFound: {
-      friendlyName: 'Not found',
-      description: 'The array does not have enough items for anything to exist at the specified index.',
+      friendlyName: 'Index out of bounds',
+      description: 'The specified index was not valid for the given array.',
+      extendedDescription: 'This indicates that the array was smaller than the index.'
+    },
+
+    invalidIndex: {
+      description: 'The specified index was not a non-negative integer.'
     },
 
     success: {

@@ -13,14 +13,14 @@ module.exports = {
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     array: {
       friendlyName: 'In array',
-      description: 'The array to search in (i.e. "haystack")',
+      description: 'The array to search in (i.e. "haystack").',
       example: ['*'],
       required: true
     },
@@ -28,7 +28,7 @@ module.exports = {
     item: {
       example: '*',
       friendlyName: 'Search for',
-      description: 'The value to search for (i.e. "needle")',
+      description: 'The value to search for (i.e. "needle").',
       required: true
     }
 
@@ -37,13 +37,11 @@ module.exports = {
 
   exits: {
     notFound: {
-      friendlyName: 'Not found',
-      description: 'Array does not contain specified item.'
+      description: 'The array did not contain the specified item.'
     },
     success: {
       outputFriendlyName: 'Found at index',
       outputDescription: 'The index where the array item is located.',
-      description: 'Returns the array index where the item is located (starting with 0)',
       outputExample: 8
     }
   },

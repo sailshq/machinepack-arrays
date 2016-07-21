@@ -7,19 +7,15 @@ module.exports = {
   description: 'Copy a sub-array of consecutive items from the specified array.',
 
 
-  extendedDescription: '',
-
-
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     array: {
-      friendlyName: 'Array',
       description: 'The array to slice.',
       example: ['*'],
       required: true

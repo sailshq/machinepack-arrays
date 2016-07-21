@@ -7,19 +7,15 @@ module.exports = {
   description: 'Build a new array which is an exact clone of an existing array, but in reverse order.',
 
 
-  extendedDescription: '',
-
-
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     array: {
-      friendlyName: 'Array',
       description: 'The array to reverse.',
       example: ['*'],
       required: true

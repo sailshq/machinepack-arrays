@@ -13,7 +13,6 @@ module.exports = {
   inputs: {
 
     array: {
-      friendlyName: 'Array',
       example: ['*'],
       description: 'The array of items to pick from.',
       required: true
@@ -25,7 +24,6 @@ module.exports = {
   exits: {
 
     emptyArray: {
-      friendlyName: 'Empty array',
       description: 'The provided array has no items.'
     },
 

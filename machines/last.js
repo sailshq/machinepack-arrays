@@ -10,13 +10,12 @@ module.exports = {
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     array: {
-      friendlyName: 'Array',
       description: 'The array containing the desired item.',
       example: ['*'],
       required: true
@@ -28,8 +27,8 @@ module.exports = {
   exits: {
 
     notFound: {
-      friendlyName: 'Not found',
-      description: 'The array is empty, so it doesn\'t have any items.',
+      friendlyName: 'Empty array',
+      description: 'The array was empty, so it doesn\'t have any items.',
     },
 
     success: {

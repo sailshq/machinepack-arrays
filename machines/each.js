@@ -10,18 +10,16 @@ module.exports = {
   inputs: {
 
     array: {
-      friendlyName: 'Array',
-      description: 'The array to loop over',
+      description: 'The array to loop over.',
       example: ['*'],
       required: true
     },
 
     iteratee: {
-      friendlyName: 'Iteratee',
       description: 'The function to run for each item in the array.',
       example: '->',
       contract: {
-        provides: {
+        inputs: {
           item: {
             friendlyName: 'Current item',
             description: 'The current item in the array.',
@@ -33,16 +31,11 @@ module.exports = {
             example: 3
           },
           lastIndex: {
-            friendlyName: 'Last index',
             description: 'The index of the last item in the array.',
             example: 3
           }
         },
-        expects: {
-          error: {
-            friendlyName: 'Break with error',
-            description: 'Something went wrong- stop iterating and skip over all remaining items.'
-          },
+        exits: {
           halt: {
             friendlyName: 'Break',
             description: 'Everything is ok, but stop iterating and skip over all remaining items.'
@@ -58,8 +51,8 @@ module.exports = {
 
     series: {
       friendlyName: 'One item at a time?',
-      description: 'Whether to run iteratee on one item at a time (in series)',
-      extendedDescription: 'By default, all items are run at the same time (in parallel)',
+      description: 'Whether to run iteratee on one item at a time (in series).',
+      extendedDescription: 'By default, all items are run at the same time (in parallel).',
       example: false,
       defaultsTo: false
     }

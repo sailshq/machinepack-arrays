@@ -4,22 +4,18 @@ module.exports = {
   friendlyName: 'Sort (strings)',
 
 
-  description: 'Sort an array of strings alphabetically (A to Z)',
-
-
-  extendedDescription: '',
+  description: 'Sort an array of strings alphabetically (A to Z).',
 
 
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     array: {
-      friendlyName: 'Array',
       description: 'The array of strings to sort.',
       example: ['Roger Wilco'],
       required: true
@@ -33,7 +29,7 @@ module.exports = {
     success: {
       outputExample: ['Roger Wilco'],
       outputFriendlyName: 'Sorted array',
-      outputDescription: 'The resulting array after sorting by ascending value'
+      outputDescription: 'The resulting array after sorting by ascending value.'
     },
 
   },

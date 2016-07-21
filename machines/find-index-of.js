@@ -10,22 +10,21 @@ module.exports = {
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     array: {
       friendlyName: 'In array',
-      description: 'The array to search in (i.e. "haystack")',
+      description: 'The array to search in (i.e. "haystack").',
       example: ['*'],
       required: true
     },
 
     criteria: {
-      friendlyName: 'Criteria',
       example: {},
-      description: 'The Lodash-style criteria to use (i.e. "metal detector")',
+      description: 'The Lodash-style criteria to use (i.e. "metal detector").',
       required: true
     }
 
@@ -34,8 +33,7 @@ module.exports = {
 
   exits: {
     notFound: {
-      friendlyName: 'Not found',
-      description: 'Array does not contain specified item.'
+      description: 'The array did not contain the specified item.'
     },
     success: {
       outputFriendlyName: 'Found at index',

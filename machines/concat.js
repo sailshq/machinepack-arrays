@@ -7,27 +7,25 @@ module.exports = {
   description: 'Combine (aka concatenate) two arrays into a single array- one in front of the other.',
 
 
-  extendedDescription: 'Warning: Both arrays must be homogeneous, and their items must have matching/compatible types. Also, both arrays must be JSON-compatible.',
+  extendedDescription: 'Both arrays must be homogeneous, and their items must have matching/compatible types. Also, both arrays must be JSON-compatible.',
 
 
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     firstArray: {
-      friendlyName: 'First array',
-      description: 'The first array',
+      description: 'The first array.',
       example: ['*'],
       required: true
     },
 
     secondArray: {
-      friendlyName: 'Second array',
-      description: 'The second array',
+      description: 'The second array.',
       example: ['*'],
       required: true
     }
@@ -37,7 +35,7 @@ module.exports = {
   exits: {
 
     success: {
-      outputFriendlyName: 'Concatenated Array',
+      outputFriendlyName: 'Concatenated array',
       outputDescription: 'The result of concatenating the input arrays.',
       getExample: function (inputs, env){
         var _ = env._;

@@ -10,13 +10,12 @@ module.exports = {
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     array: {
-      friendlyName: 'Array',
       description: 'The array where the new item should be inserted.',
       example: ['*'],
       required: true
@@ -42,7 +41,7 @@ module.exports = {
   exits: {
 
     notFound: {
-      friendlyName: 'Not found',
+      friendlyName: 'Index out of bounds',
       description: 'The array does not have enough items for anything to exist at the specified index.',
     },
 

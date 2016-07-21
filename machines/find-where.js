@@ -10,22 +10,21 @@ module.exports = {
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     array: {
       friendlyName: 'Array of dictionaries',
-      description: 'The array to search in (i.e. "haystack")',
+      description: 'The array to search in (i.e. "haystack").',
       example: [{}],
       required: true
     },
 
     criteria: {
-      friendlyName: 'Criteria',
       example: {},
-      description: 'The Lodash-style criteria to use (i.e. "metal detector")',
+      description: 'The Lodash-style criteria to use (i.e. "metal detector").',
       required: true
     }
 
@@ -36,7 +35,6 @@ module.exports = {
     success: {
       outputFriendlyName: 'Found items',
       outputDescription: 'The array of items matching the criteria.',
-      description: 'Returns the matching dictionaries.',
       like: 'array'
     }
   },

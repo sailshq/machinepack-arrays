@@ -10,22 +10,21 @@ module.exports = {
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     array: {
       friendlyName: 'Array of dictionaries',
-      description: 'The array to search in (i.e. "haystack")',
+      description: 'The array to search in (i.e. "haystack").',
       example: [{}],
       required: true
     },
 
     criteria: {
-      friendlyName: 'Criteria',
       example: {},
-      description: 'The Lodash-style criteria to use (i.e. "metal detector")',
+      description: 'The Lodash-style criteria to use (i.e. "metal detector").',
       required: true
     }
 
@@ -34,13 +33,11 @@ module.exports = {
 
   exits: {
     notFound: {
-      friendlyName: 'Not found',
-      description: 'Array does not contain an item matching the specified criteria.'
+      description: 'The array did not contain an item matching the specified criteria.'
     },
     success: {
       outputFriendlyName: 'Found item',
-      outputDescription: 'The first item in the that matches the criteria.',
-      description: 'Returns the matching dictionary.',
+      outputDescription: 'The first dictionary item in the array that matches the criteria.',
       itemOf: 'array'
     }
   },

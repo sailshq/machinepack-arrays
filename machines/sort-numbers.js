@@ -4,22 +4,18 @@ module.exports = {
   friendlyName: 'Sort (numbers)',
 
 
-  description: 'Sort an array of numbers (ascending)',
-
-
-  extendedDescription: '',
+  description: 'Sort an array of numbers (ascending).',
 
 
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     array: {
-      friendlyName: 'Array',
       description: 'The array of numbers to sort.',
       example: [2],
       required: true,

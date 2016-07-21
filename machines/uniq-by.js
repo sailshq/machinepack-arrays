@@ -7,13 +7,10 @@ module.exports = {
   description: 'Build a duplicate-free version of an array of dictionaries, judging uniqueness based on a particular key.',
 
 
-  extendedDescription: '',
-
-
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {

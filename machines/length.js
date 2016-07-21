@@ -10,7 +10,7 @@ module.exports = {
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
@@ -18,7 +18,7 @@ module.exports = {
     array: {
       friendlyName: 'Array to count',
       example: ['*'],
-      description: 'The array of items to count',
+      description: 'The array of items to count.',
       required: true
     }
 

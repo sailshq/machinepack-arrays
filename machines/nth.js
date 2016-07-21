@@ -7,19 +7,15 @@ module.exports = {
   description: 'Look up an item from the array at the specified index.',
 
 
-  extendedDescription: '',
-
-
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {
 
     array: {
-      friendlyName: 'Array',
       description: 'The array containing the desired item.',
       example: ['*'],
       required: true
@@ -38,7 +34,6 @@ module.exports = {
   exits: {
 
     notFound: {
-      friendlyName: 'Not found',
       description: 'The array doesn\'t have an item at the specified index.'
     },
 

@@ -13,8 +13,7 @@ module.exports = {
   inputs: {
 
     array: {
-      friendlyName: 'Array',
-      description: 'The array to loop over',
+      description: 'The array to loop over.',
       example: ['*'],
       required: true
     },
@@ -23,12 +22,10 @@ module.exports = {
       friendlyName: 'Example result',
       description: 'An example of what the final result array will look like.',
       example: ['*'],
-      constant: true,
       isExemplar: true
     },
 
     iteratee: {
-      friendlyName: 'Iteratee',
       description: 'The transformation to run for each item in the array.',
       example: '->',
       contract: {
@@ -44,16 +41,11 @@ module.exports = {
             example: 3
           },
           lastIndex: {
-            friendlyName: 'Last index',
             description: 'The index of the last item in the array.',
             example: 3
           }
         },
         exits: {
-          error: {
-            friendlyName: 'Break with error',
-            description: 'Something went wrong- stop iterating and skip over all remaining items.'
-          },
           skip: {
             friendlyName: 'Skip item',
             description: 'Skip to next item, or if there are no more items, stop.',
@@ -73,7 +65,7 @@ module.exports = {
 
     series: {
       friendlyName: 'One item at a time?',
-      description: 'Whether to run iteratee on one item at a time (in series)',
+      description: 'Whether to run iteratee on one item at a time (in series).',
       extendedDescription: 'By default, all items are run at the same time (in parallel)',
       example: false,
       defaultsTo: false

@@ -10,14 +10,12 @@ module.exports = {
   inputs: {
 
     array: {
-      friendlyName: 'Array',
-      description: 'The array to loop over',
+      description: 'The array to loop over.',
       example: ['*'],
       required: true
     },
 
     iteratee: {
-      friendlyName: 'Iteratee',
       description: 'The function to run for each item in the array.',
       example: '->',
       contract: {
@@ -33,21 +31,15 @@ module.exports = {
             example: 3
           },
           lastIndex: {
-            friendlyName: 'Last index',
             description: 'The index of the last item in the array.',
             example: 3
           },
           resultSoFar: {
-            friendlyName: 'Result so far',
-            description: 'The result which has been accumulated so far',
+            description: 'The result which has been accumulated so far.',
             like: 'initialValue' // same type as the `initialValue` input of the calling machine
           },
         },
         exits: {
-          error: {
-            friendlyName: 'Break with error',
-            description: 'Something went wrong- stop iterating and skip over all remaining items.'
-          },
           halt: {
             friendlyName: 'Break',
             description: 'Everything is ok, but stop iterating and skip over all remaining items.'
@@ -68,12 +60,12 @@ module.exports = {
       friendlyName: 'Example result',
       description: 'An example of what the final accumulated result will look like.',
       extendedDescription: 'The type of the final result must be compatible with the initial value, as well as the partial result provided to the iteratee during each iteration.',
-      isExemplar: true
+      isExemplar: true,
+      example: '*'
     },
 
     initialValue: {
-      friendlyName: 'Initial value',
-      description: 'The initial value for the accumulated result',
+      description: 'The initial value for the accumulated result.',
       extendedDescription: 'Note that the final accumulated result must have a compatible type!',
       example: '*'
     },
@@ -82,7 +74,7 @@ module.exports = {
     // (consider removing this option)
     series: {
       friendlyName: 'One item at a time?',
-      description: 'Whether to run iteratee on all items in series (one at a time) vs. in parallel (all at the same time)',
+      description: 'Whether to run iteratee on all items in series (one at a time) vs. in parallel (all at the same time).',
       extendedDescription: 'Be careful if you disable this input-- make sure you are actually OK with your iteratee being run on each item of the array in a completely arbitrary order. Also release that consequently, the order that your result will accumulate in is impossible to predict.',
       example: true,
       defaultsTo: true

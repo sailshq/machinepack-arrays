@@ -4,13 +4,10 @@ module.exports = {
   friendlyName: 'Pick random subset',
 
 
-  description: 'Randomly select an unordered subset of the array',
+  description: 'Randomly select an unordered subset of the array.',
 
 
   extendedDescription: 'Note that even if "Subset size" is 1, an array will still be returned (as opposed to the Pick random item" machine which always returns a single value)',
-
-
-  cacheable: false,
 
 
   sync: true,
@@ -19,7 +16,6 @@ module.exports = {
   inputs: {
 
     array: {
-      friendlyName: 'Array',
       example: ['*'],
       description: 'The array of items to pick from.',
       required: true
@@ -28,7 +24,7 @@ module.exports = {
     size: {
       friendlyName: 'Subset size',
       example: 2,
-      description: 'The number of items to pick out of the array',
+      description: 'The number of items to pick out of the array.',
       required: true
     }
 
@@ -38,7 +34,6 @@ module.exports = {
   exits: {
 
     emptyArray: {
-      friendlyName: 'Empty array',
       description: 'The provided array has no items.'
     },
 
