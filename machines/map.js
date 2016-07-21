@@ -56,7 +56,7 @@ module.exports = {
             description: 'Continue to next item, or if there are no more items, stop.',
             itemOf: 'resultExemplar',
             outputFriendlyName: 'Transformed item',
-            outputDescription: 'The result of running the current item through the iteratee machine'
+            outputDescription: 'The result of running the current item through the iteratee machine.'
           }
         },
       },
