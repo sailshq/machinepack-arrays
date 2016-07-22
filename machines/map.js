@@ -46,18 +46,18 @@ module.exports = {
           }
         },
         exits: {
-          skip: {
-            friendlyName: 'Skip item',
-            description: 'Skip to next item, or if there are no more items, stop.',
-            extendedDescription: 'If the `skip` exit is used, then the length of the Map machine\'s output array will be shorter than the length of the input array.'
-          },
           success: {
             friendlyName: 'Next item',
             description: 'Continue to next item, or if there are no more items, stop.',
             itemOf: 'resultExemplar',
             outputFriendlyName: 'Transformed item',
             outputDescription: 'The result of running the current item through the iteratee machine.'
-          }
+          },
+          skip: {
+            friendlyName: 'Skip item',
+            description: 'Skip to next item, or if there are no more items, stop.',
+            extendedDescription: 'If the `skip` exit is used, then the length of the Map machine\'s output array will be shorter than the length of the input array.'
+          },
         },
       },
       required: true

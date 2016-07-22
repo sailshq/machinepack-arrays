@@ -40,6 +40,11 @@ module.exports = {
 
   exits: {
 
+    success: {
+      outputFriendlyName: 'Array with inserted item',
+      outputDescription: 'The resulting array after inserting the new item.',
+      like: 'array'
+    },
     notFound: {
       friendlyName: 'Index out of bounds',
       description: 'The specified index was not valid for the given array.',
@@ -48,12 +53,6 @@ module.exports = {
 
     invalidIndex: {
       description: 'The specified index was not a non-negative integer.'
-    },
-
-    success: {
-      outputFriendlyName: 'Array with inserted item',
-      outputDescription: 'The resulting array after inserting the new item.',
-      like: 'array'
     },
 
   },

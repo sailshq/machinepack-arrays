@@ -36,14 +36,14 @@ module.exports = {
 
 
   exits: {
-    notFound: {
-      description: 'The array did not contain the specified item.'
-    },
     success: {
       outputFriendlyName: 'Found at index',
       outputDescription: 'The index where the array item is located.',
       outputExample: 8
-    }
+    },
+    notFound: {
+      description: 'The array did not contain the specified item.'
+    },
   },
 
 

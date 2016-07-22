@@ -36,13 +36,13 @@ module.exports = {
           }
         },
         exits: {
-          halt: {
-            friendlyName: 'Break',
-            description: 'Everything is ok, but stop iterating and skip over all remaining items.'
-          },
           success: {
             friendlyName: 'Next item',
             description: 'Continue to next item, or if there are no more items, stop.'
+          },
+          halt: {
+            friendlyName: 'Break',
+            description: 'Everything is ok, but stop iterating and skip over all remaining items.'
           }
         },
       },

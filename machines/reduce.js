@@ -40,17 +40,17 @@ module.exports = {
           },
         },
         exits: {
-          halt: {
-            friendlyName: 'Break',
-            description: 'Everything is ok, but stop iterating and skip over all remaining items.'
-          },
           success: {
             friendlyName: 'Next item',
             description: 'Continue to next item, or if there are no more items, stop.',
             like: 'initialValue', // same type as the `initialValue` input of the calling machine
             outputFriendlyName: 'Transformed result',
             outputDescription: 'The accumulated result after running the current item through the iteratee machine.'
-          }
+          },
+          halt: {
+            friendlyName: 'Break',
+            description: 'Everything is ok, but stop iterating and skip over all remaining items.'
+          },
         },
       },
       required: true

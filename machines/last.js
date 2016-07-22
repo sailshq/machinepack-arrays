@@ -26,16 +26,17 @@ module.exports = {
 
   exits: {
 
-    notFound: {
-      friendlyName: 'Empty array',
-      description: 'The array was empty, so it doesn\'t have any items.',
-    },
-
     success: {
       outputFriendlyName: 'Last item',
       outputDescription: 'The last item in the array.',
       itemOf: 'array'
     },
+
+    notFound: {
+      friendlyName: 'Empty array',
+      description: 'The array was empty, so it doesn\'t have any items.',
+    },
+
 
   },
 

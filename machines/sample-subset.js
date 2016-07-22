@@ -33,16 +33,15 @@ module.exports = {
 
   exits: {
 
-    emptyArray: {
-      description: 'The provided array has no items.'
-    },
-
     success: {
       like: 'array',
       outputFriendlyName: 'Random subset',
       outputDescription: 'A random subset selected from the array.'
+    },
 
-    }
+    emptyArray: {
+      description: 'The provided array has no items.'
+    },
 
   },
 

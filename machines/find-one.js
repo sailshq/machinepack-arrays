@@ -32,14 +32,14 @@ module.exports = {
 
 
   exits: {
-    notFound: {
-      description: 'The array did not contain an item matching the specified criteria.'
-    },
     success: {
       outputFriendlyName: 'Found item',
       outputDescription: 'The first dictionary item in the array that matches the criteria.',
       itemOf: 'array'
-    }
+    },
+    notFound: {
+      description: 'The array did not contain an item matching the specified criteria.'
+    },
   },
 
 

@@ -40,16 +40,16 @@ module.exports = {
 
   exits: {
 
-    notFound: {
-      friendlyName: 'Index out of bounds',
-      description: 'The array does not have enough items for anything to exist at the specified index.',
-    },
-
     success: {
       like: 'array',
       outputFriendlyName: 'Array with replaced item',
       outputDescription: 'The resulting array after replacing the specified item.'
 
+    },
+
+    notFound: {
+      friendlyName: 'Index out of bounds',
+      description: 'The array does not have enough items for anything to exist at the specified index.',
     },
 
   },

@@ -23,16 +23,15 @@ module.exports = {
 
   exits: {
 
-    emptyArray: {
-      description: 'The provided array has no items.'
-    },
-
     success: {
       itemOf: 'array',
       outputFriendlyName: 'Random item',
       outputDescription: 'A random item selected from the array.'
+    },
 
-    }
+    emptyArray: {
+      description: 'The provided array has no items.'
+    },
 
   },
 

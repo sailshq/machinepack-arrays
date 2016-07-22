@@ -33,15 +33,16 @@ module.exports = {
 
   exits: {
 
-    notFound: {
-      description: 'The array doesn\'t have an item at the specified index.'
-    },
-
     success: {
       itemOf: 'array',
       outputFriendlyName: 'Nth array item',
       outputDescription: 'The item of the array at the specified index.'
     },
+
+    notFound: {
+      description: 'The array doesn\'t have an item at the specified index.'
+    },
+
 
   },
 
