@@ -62,7 +62,7 @@ module.exports = {
         // used above.
         return ['*'];
       },
-      outputName: 'Plucked array',
+      outputFriendlyName: 'Plucked array',
       outputDescription: 'The array of values gathered by plucking the specified key out of each array item.'
     }
 
