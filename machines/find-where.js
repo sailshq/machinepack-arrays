@@ -4,10 +4,7 @@ module.exports = {
   friendlyName: 'Find collection items',
 
 
-  description: 'Search the array and return all dictionaries that match the specified criteria.',
-
-
-  extendedDescription: 'A _collection_ is an array of dictionaries.',
+  description: 'Search an array of dictionaries and return all items that match the specified criteria.',
 
 
   sync: true,
