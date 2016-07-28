@@ -40,28 +40,24 @@ module.exports = {
       getExample: function (inputs, env){
         var _ = env._;
 
-        // If neither array is avaiable yet, the best we can do is guarantee
-        // that this result will be some sort of homogeneous array of JSON-compatible
-        // values, as per the machine description.
-        if (_.isUndefined(inputs.firstArray) && _.isUndefined(inputs.secondArray)) {
-          return ['*'];
+        // If either array is not avaiable yet, the best we can do is guarantee
+        // that this result will be some sort of array.
+        if (_.isUndefined(inputs.firstArray) || _.isUndefined(inputs.secondArray)) {
+          return ['==='];
         }
 
-        // If at least one array is available, and has at least one item, we can use
-        // it to determine the pattern type. This is possible because this machine makes
-        // it clear in the description that both arrays must share a common pattern type.
-        if (inputs.firstArray&&inputs.firstArray.length>0) {
-          return [inputs.firstArray[0]];
-        }
-        else if (inputs.secondArray&&inputs.secondArray.length>0) {
-          return [inputs.secondArray[0]];
-        }
+        // Otherwise create exemplars out of both of the input arrays, and return their union.
+        // Use "strict" mode for the exemplar, so that [{name:1},{name:'Estelle'}] coerces to
+        // [{name: '*'}] and not [{name: 'string'}]
+        var exemplarRepresenting1stArray = env.rttc.coerceExemplar(inputs.firstArray, false, false, true);
+        var exemplarRepresenting2ndArray = env.rttc.coerceExemplar(inputs.secondArray, false, false, true);
 
-        // If neither array has this information available yet, the best we can
-        // do is return `['*']`, since we know that, barring any weird complications
-        // that would cause a different exit to be traversed, this will be the
-        // result for our machine.
-        return ['*'];
+        // Use "strict" mode for the union (fourth argument) so that
+        // (for example) "number"+"string"="*" instead of "string".
+        var exemplarRepresentingConcatedResult = env.rttc.union(exemplarRepresenting1stArray, exemplarRepresenting2ndArray, true, true);
+
+        // Return the unioned exemplar.
+        return exemplarRepresentingConcatedResult;
       }
     }
 
