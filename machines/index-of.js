@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Get index of item',
+  friendlyName: 'Get array item index',
 
 
   description: 'Look up the first occurrence of the specified item and return its array index.',
@@ -38,7 +38,7 @@ module.exports = {
 
   exits: {
     success: {
-      outputFriendlyName: 'Found at index',
+      outputFriendlyName: 'Array item index',
       outputDescription: 'The index where the array item is located.',
       outputExample: 8
     },
@@ -49,21 +49,16 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
-    var _ = require('lodash');
 
-    var foundAtIndex;
-    _.each(inputs.array, function (item, i){
-      if (!_.isUndefined(foundAtIndex)) {
-        return;
-      }
-      if (_.isEqual(item, inputs.item)) {
-        foundAtIndex = i;
-      }
-    });
-    if (_.isUndefined(foundAtIndex)) {
-      return exits.notFound();
-    }
-    return exits.success(foundAtIndex);
+    // Attempt to find the index of the specified item in the input array.
+    var index = _.indexOf(inputs.array, inputs.item);
+
+    // If no such item is found, return through the `notFound` exit.
+    if (index === -1) {return exits.notFound();}
+
+    // Otherwise return the index of the found item through the `success` exit.
+    return exits.success(index);
+
   }
 
 
