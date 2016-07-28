@@ -1,10 +1,13 @@
 module.exports = {
 
 
-  friendlyName: 'Reduce',
+  friendlyName: 'Reduce array',
 
 
   description: 'Run some logic (the "iteratee") once for each item of an array, accumulating a single result.',
+
+
+  extendedDescription: 'See also the "Each" and "Reduce" machines.',
 
 
   inputs: {
@@ -49,7 +52,10 @@ module.exports = {
           },
           halt: {
             friendlyName: 'Break',
-            description: 'Everything is ok, but stop iterating and skip over all remaining items.'
+            description: 'Everything is ok, but stop iterating and skip over all remaining items.',
+            like: 'initialValue', // same type as the `initialValue` input of the calling machine
+            outputFriendlyName: 'Final result',
+            outputDescription: 'The final result to return.'
           },
         },
       },
