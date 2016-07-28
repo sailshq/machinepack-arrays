@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Get [n]th item',
+  friendlyName: 'Get [n]th item in array',
 
 
   description: 'Look up an item from the array at the specified index.',
@@ -24,6 +24,7 @@ module.exports = {
     index: {
       friendlyName: 'Look up index',
       description: 'The index of the item to be gotten.',
+      extendedDescription: 'Must be a non-negative integer.',
       example: 2,
       required: true
     }
@@ -40,7 +41,8 @@ module.exports = {
     },
 
     notFound: {
-      description: 'The array doesn\'t have an item at the specified index.'
+      description: 'The array doesn\'t have an item at the specified index.',
+      extendedDescription: 'This indicates that the specified index was out of bounds (larger than the array size).'
     },
 
 
@@ -49,11 +51,20 @@ module.exports = {
 
   fn: function (inputs,exits) {
 
-    var foundItem = inputs.array[inputs.index];
-    if (typeof foundItem === 'undefined') {
+    // If an invalid index is given, return through the `error` exit.
+    if (inputs.index < 0 || Math.floor(inputs.index) !== inputs.index) {
+      return exits.error('Index must be a non-negative integer.');
+    }
+
+    // If the index is out of bounds (larger than the array), return
+    // through the `notFound` exit
+    if (inputs.index >= inputs.array.length) {
       return exits.notFound();
     }
-    return exits.success(foundItem);
+
+    // Return the item at the specified index through the `success` exit.
+    return exits.success(inputs.array[inputs.index]);
+
   },
 
 
