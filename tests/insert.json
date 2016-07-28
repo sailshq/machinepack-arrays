@@ -84,6 +84,30 @@
         "value": "\"x\""
       },
       "outcome": "notFound"
+    },
+    {
+      "using": {
+        "array": [
+          "a",
+          "b",
+          "c"
+        ],
+        "index": -1,
+        "value": "\"x\""
+      },
+      "outcome": "error"
+    },
+    {
+      "using": {
+        "array": [
+          "a",
+          "b",
+          "c"
+        ],
+        "index": 1.5,
+        "value": "\"x\""
+      },
+      "outcome": "error"
     }
   ]
 }

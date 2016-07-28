@@ -38,10 +38,73 @@
     },
     {
       "using": {
+        "firstArray": [
+          {
+            "name": 1
+          },
+          {
+            "name": "Estelle"
+          }
+        ],
+        "secondArray": [
+          {
+            "name": 2
+          },
+          {
+            "name": "Ricky"
+          }
+        ]
+      },
+      "outcome": "success",
+      "returns": [
+        {
+          "name": 1
+        },
+        {
+          "name": "Estelle"
+        },
+        {
+          "name": 2
+        },
+        {
+          "name": "Ricky"
+        }
+      ]
+    },
+    {
+      "using": {
+        "firstArray": [
+          1,
+          {
+            "name": "Estelle"
+          }
+        ],
+        "secondArray": [
+          2,
+          {
+            "name": "Ricky"
+          }
+        ]
+      },
+      "outcome": "success",
+      "returns": [
+        1,
+        {
+          "name": "Estelle"
+        },
+        2,
+        {
+          "name": "Ricky"
+        }
+      ]
+    },
+    {
+      "using": {
         "firstArray": [],
         "secondArray": []
       },
-      "outcome": "success"
+      "outcome": "success",
+      "returns": []
     }
   ]
 }

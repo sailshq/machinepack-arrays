@@ -62,7 +62,28 @@
         ],
         "index": -1
       },
-      "outcome": "notFound"
+      "outcome": "error"
+    },
+    {
+      "using": {
+        "array": [
+          {
+            "name": "Lucy"
+          },
+          {
+            "name": "Ricky"
+          },
+          {
+            "name": "Louise"
+          },
+          {
+            "name": "Estelle"
+          }
+        ],
+        "index": 1.5
+      },
+      "outcome": "error"
     }
+
   ]
 }

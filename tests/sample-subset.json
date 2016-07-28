@@ -27,7 +27,27 @@
       },
       "outcome": "success",
       "returns": ["a","a"]
+    },
+    {
+      "using": {
+        "array": [
+          "a","a","a"
+        ],
+        "size": 2
+      },
+      "outcome": "success",
+      "returns": ["a","a"]
+    },
+    {
+      "using": {
+        "array": [
+          "a","a"
+        ],
+        "size": 4
+      },
+      "outcome": "notEnoughItems"
     }
+
 
   ]
 }

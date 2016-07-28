@@ -26,6 +26,29 @@
         "Louise",
         "Estelle"
       ]
+    },
+    {
+      "using": {
+        "array": [
+          {
+            "name": 1
+          },
+          {
+            "name": "Ricky"
+          },
+          {
+            "name": true
+          }
+        ],
+        "key": "name"
+      },
+      "outcome": "success",
+      "returns": [
+        1,
+        "Ricky",
+        true
+      ]
     }
+
   ]
 }
