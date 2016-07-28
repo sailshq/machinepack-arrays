@@ -17,7 +17,7 @@ module.exports = {
 
     array: {
       friendlyName: 'Array to count',
-      example: ['*'],
+      example: ['==='],
       description: 'The array of items to count.',
       required: true
     }

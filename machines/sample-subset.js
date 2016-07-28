@@ -16,7 +16,7 @@ module.exports = {
   inputs: {
 
     array: {
-      example: ['*'],
+      example: ['==='],
       description: 'The array of items to pick from.',
       required: true
     },

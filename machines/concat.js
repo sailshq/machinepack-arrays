@@ -20,13 +20,13 @@ module.exports = {
 
     firstArray: {
       description: 'The first array.',
-      example: ['*'],
+      example: ['==='],
       required: true
     },
 
     secondArray: {
       description: 'The second array.',
-      example: ['*'],
+      example: ['==='],
       required: true
     }
 

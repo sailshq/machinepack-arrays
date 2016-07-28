@@ -11,7 +11,7 @@ module.exports = {
 
     array: {
       description: 'The array to loop over.',
-      example: ['*'],
+      example: ['==='],
       required: true
     },
 

@@ -17,7 +17,7 @@ module.exports = {
 
     array: {
       description: 'The array containing the desired item.',
-      example: ['*'],
+      example: ['==='],
       required: true
     },
 

@@ -17,7 +17,7 @@ module.exports = {
 
     array: {
       description: 'The array to reverse.',
-      example: ['*'],
+      example: ['==='],
       required: true
     }
 

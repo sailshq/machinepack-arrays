@@ -21,15 +21,16 @@ module.exports = {
     array: {
       friendlyName: 'In array',
       description: 'The array to search in (i.e. "haystack").',
-      example: ['*'],
+      example: ['==='],
       required: true
     },
 
     item: {
-      example: '*',
+      example: '===',
       friendlyName: 'Search for',
       description: 'The value to search for (i.e. "needle").',
-      required: true
+      required: true,
+      readOnly: true
     }
 
   },

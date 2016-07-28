@@ -17,7 +17,7 @@ module.exports = {
 
     array: {
       description: 'The array to slice.',
-      example: ['*'],
+      example: ['==='],
       required: true
     },
 

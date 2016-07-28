@@ -17,7 +17,7 @@ module.exports = {
 
     array: {
       description: 'The array to remove duplicates from.',
-      example: ['*'],
+      example: ['==='],
       required: true
     }
 

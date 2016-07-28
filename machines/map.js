@@ -14,14 +14,14 @@ module.exports = {
 
     array: {
       description: 'The array to loop over.',
-      example: ['*'],
+      example: ['==='],
       required: true
     },
 
     resultExemplar: {
       friendlyName: 'Example result',
       description: 'An example of what the final result array will look like.',
-      example: ['*'],
+      example: ['==='],
       isExemplar: true
     },
 

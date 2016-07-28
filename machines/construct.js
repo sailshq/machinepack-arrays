@@ -19,8 +19,8 @@ module.exports = {
   inputs: {
 
     array: {
-      description: 'The homogeneous array to build.',
-      example: ['*'],
+      description: 'The array to build.',
+      example: ['==='],
       required: true
     }
 

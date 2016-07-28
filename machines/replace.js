@@ -17,7 +17,7 @@ module.exports = {
 
     array: {
       description: 'The array where the new item should be inserted.',
-      example: ['*'],
+      example: ['==='],
       required: true
     },
 
@@ -31,7 +31,7 @@ module.exports = {
     value: {
       friendlyName: 'New value',
       description: 'The new value to replace the old one with.',
-      example: '*',
+      example: '===',
       required: true
     }
 

@@ -16,9 +16,9 @@ module.exports = {
   inputs: {
 
     array: {
-      friendlyName: 'In array',
-      description: 'The array to search in (i.e. "haystack").',
-      example: ['*'],
+      friendlyName: 'Array of dictionaries',
+      description: 'The array to search in.',
+      example: ['==='],
       required: true
     },
 
