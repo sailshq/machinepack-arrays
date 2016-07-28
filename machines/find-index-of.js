@@ -1,10 +1,13 @@
 module.exports = {
 
 
-  friendlyName: 'Find index of...',
+  friendlyName: 'Find collection item index',
 
 
   description: 'Look up the first occurrence of the dictionary matching the specified criteria and return its array index.',
+
+
+  extendedDescription: 'A _collection_ is an array of dictionaries.',
 
 
   sync: true,
@@ -24,7 +27,8 @@ module.exports = {
 
     criteria: {
       example: {},
-      description: 'The Lodash-style criteria to use (i.e. "metal detector").',
+      description: 'The Lodash-style criteria to search using.',
+      moreInfoUrl: 'https://github.com/lodash/lodash/blob/3.10.1/doc/README.md#_findcollection-predicate_identity-thisarg',
       required: true
     }
 
@@ -33,7 +37,7 @@ module.exports = {
 
   exits: {
     success: {
-      outputFriendlyName: 'Found at index',
+      outputFriendlyName: 'Array item index',
       outputDescription: 'The zero-based index where the array item is located.',
       outputExample: 8
     },
@@ -44,16 +48,19 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+
+    // Import `lodash`.
     var _ = require('lodash');
-    var item = _.find(inputs.array, inputs.criteria);
-    if (!item) {
-      return exits.notFound();
-    }
-    var index = _.indexOf(inputs.array, item);
-    if (index === -1 ) {
-      return exits.notFound();
-    }
+
+    // Attempt to find the index of the first item in the array that matches the specified criteria.
+    var index = _.findIndex(inputs.array, inputs.criteria);
+
+    // If no such item is found, return through the `notFound` exit.
+    if (index === -1) {return exits.notFound();}
+
+    // Otherwise return the index of the found item through the `success` exit.
     return exits.success(index);
+
   }
 
 
