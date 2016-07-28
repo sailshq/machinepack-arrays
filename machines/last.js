@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Get last item',
+  friendlyName: 'Get last array item',
 
 
   description: 'Look up the last item in an array.',
@@ -27,7 +27,7 @@ module.exports = {
   exits: {
 
     success: {
-      outputFriendlyName: 'Last item',
+      outputFriendlyName: 'Last array item',
       outputDescription: 'The last item in the array.',
       itemOf: 'array'
     },
@@ -43,9 +43,12 @@ module.exports = {
 
   fn: function (inputs,exits) {
 
+    // If the array is empty, return through the `notFound` exit.
     if (inputs.array.length===0) {
       return exits.notFound();
     }
+
+    // Otherwise return the last item in the array through the `success` exit.
     return exits.success(inputs.array[inputs.array.length-1]);
 
   },

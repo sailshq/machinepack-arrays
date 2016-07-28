@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'Slice array',
 
 
-  description: 'Copy a sub-array of consecutive items from the specified array.',
+  description: 'Copy a subset of consecutive items from the specified array.',
 
 
   sync: true,

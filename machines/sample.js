@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Pick random item',
+  friendlyName: 'Pick random array item',
 
 
   description: 'Randomly select one item from an array.',
@@ -25,7 +25,7 @@ module.exports = {
 
     success: {
       itemOf: 'array',
-      outputFriendlyName: 'Random item',
+      outputFriendlyName: 'Random array item',
       outputDescription: 'A random item selected from the array.'
     },
 
@@ -37,10 +37,18 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+
+    // Import `lodash`.
     var _ = require('lodash');
+
+    // If the array is empty, return through the `emptyArray` exit.
     if (inputs.array.length === 0) {
       return exits.emptyArray();
     }
+
+    // Otherwise use the Lodash `_.sample()` function to get a
+    // random item out of the input array and return it through
+    // the `success` exit.
     return exits.success(_.sample(inputs.array));
   }
 

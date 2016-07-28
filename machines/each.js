@@ -1,10 +1,13 @@
 module.exports = {
 
 
-  friendlyName: 'Each',
+  friendlyName: 'For each array item...',
 
 
   description: 'Run some logic (the "iteratee") once for each item of an array.',
+
+
+  extendedDescription: 'This machine does not return any value.  For similar machines that return values, see "Map" and "Reduce".',
 
 
   inputs: {
@@ -60,6 +63,8 @@ module.exports = {
   },
 
   fn: function (inputs,exits) {
+
+    // Import `lodash` and `async`.
     var _ = require('lodash');
     var async = require('async');
 
@@ -74,7 +79,7 @@ module.exports = {
     // which have been at least started being processed by the iteratee.
     var numIterationsStarted = 0;
 
-    // Start iterating...
+    // Start iterating using the selected `async` function...
     iteratorFn(inputs.array, function enumerator(item, next) {
 
       // Increment iterations counter and track current index
@@ -82,45 +87,59 @@ module.exports = {
       numIterationsStarted++;
 
       // If the `each` loop has already been halted, just skip
-      // this iteration (which effectively means skipping all future iterations)
+      // this iteration (which effectively means skipping all future iterations
+      // since haltEarly will never be returned to `false`).
       if (haltEarly) {
         return next();
       }
 
-      // Execute iteratee machine using generic input configuration
+      // Execute iteratee machine using generic input configuration.
       inputs.iteratee({
         index: currentIndex,
         lastIndex: inputs.array.length-1,
         item: item
       }).exec({
 
-        // Catchall (error) exit
-        // (implies that we should stop early and consider
+        // Catchall (error) exit:
+        // Implies that we should stop early and consider
         //  the entire operation a failure, including all iterations
-        //  so far. `each` will call its error exit.)
+        //  so far. `each` will call its error exit.
         error: function (err){
+          // Return an error through the `next` callback for the enumerator.
+          // This will include any output sent by the iteratee through its
+          // call to `exits.error()`, defaulting "Unexpected error occurred while running machine."
           return next(err);
         },
 
-        // Halt exit
-        // (implies that we should stop, performing no further
+        // Halt exit:
+        // Implies that we should stop, performing no further
         //  iterations; but that past iterations are ok.
-        //  `each` will call its success exit)
+        //  `each` will call its success exit.
         halt: function (){
+          // Set the flag indicating that the iteratee request halting `each`.
           haltEarly = true;
+          // Call the `next` callback to continue iterating over the array.
+          // Since the `haltEarly` flag is set, future iterations will just
+          // immediately return.
           return next();
         },
 
-        // Default (success) exit
-        // (implies that we should continue iterating)
+        // Default (success) exit:
+        // Implies that we should continue iterating.
         success: function enumeratee(){
+          // Call the `next` callback to continue iterating over the array.
           return next();
         }
       });
     }, function (err){
+
+      // If the iteratee called its `error` exit, or some other error was thrown,
+      // return through the `error` exit of `each`.
       if (err) {
         return exits.error(err);
       }
+
+      // Otherwise return through the `success` exit.
       return exits.success();
     });
   },

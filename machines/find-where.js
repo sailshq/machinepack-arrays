@@ -1,10 +1,13 @@
 module.exports = {
 
 
-  friendlyName: 'Find all by...',
+  friendlyName: 'Find collection items',
 
 
   description: 'Search the array and return all dictionaries that match the specified criteria.',
+
+
+  extendedDescription: 'A _collection_ is an array of dictionaries.',
 
 
   sync: true,
@@ -17,7 +20,7 @@ module.exports = {
 
     array: {
       friendlyName: 'Array of dictionaries',
-      description: 'The array to search in (i.e. "haystack").',
+      description: 'The array to search in.',
       example: [{}],
       required: true
     },
@@ -33,7 +36,7 @@ module.exports = {
 
   exits: {
     success: {
-      outputFriendlyName: 'Found items',
+      outputFriendlyName: 'Found array items',
       outputDescription: 'The array of items matching the criteria.',
       like: 'array'
     }
@@ -41,8 +44,15 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+
+    // Import `lodash`.
     var _ = require('lodash');
+
+    // Attempt to find items in the array that match the specified criteria.
+    // Note that if no items match, this will return an empty array.
     var foundItems = _.where(inputs.array, inputs.criteria);
+
+    // Return the array of found items (or an empty array) through the `success` exit.
     return exits.success(foundItems);
   }
 

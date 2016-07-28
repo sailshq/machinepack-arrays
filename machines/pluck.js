@@ -72,7 +72,11 @@ module.exports = {
 
 
   fn: function (inputs,exits) {
+
+    // Import `lodash`.
     var _ = require('lodash');
+
+    // Perform the pluckin' and return the result through the `success` exit.
     return exits.success(_.pluck(inputs.array, inputs.key));
   }
 

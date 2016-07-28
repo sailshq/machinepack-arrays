@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Sort (strings)',
+  friendlyName: 'Sort strings',
 
 
   description: 'Sort an array of strings alphabetically (A to Z).',
@@ -28,7 +28,7 @@ module.exports = {
 
     success: {
       outputExample: ['Roger Wilco'],
-      outputFriendlyName: 'Sorted array',
+      outputFriendlyName: 'Sorted strings',
       outputDescription: 'The resulting array after sorting by ascending value.'
     },
 
@@ -36,6 +36,8 @@ module.exports = {
 
 
   fn: function (inputs,exits) {
+
+    // Sort the strings and return the result through the `success` exit.
     return exits.success(inputs.array.sort());
   },
 

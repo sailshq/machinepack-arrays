@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Replace item',
+  friendlyName: 'Replace array item',
 
 
   description: 'Replace the item located at the specified index and return the result (a new array).',

@@ -66,8 +66,7 @@ module.exports = {
       friendlyName: 'Example result',
       description: 'An example of what the final accumulated result will look like.',
       extendedDescription: 'The type of the final result must be compatible with the initial value, as well as the partial result provided to the iteratee during each iteration.',
-      isExemplar: true,
-      example: '*'
+      isExemplar: true
     },
 
     initialValue: {
@@ -76,12 +75,10 @@ module.exports = {
       example: '*'
     },
 
-    // Series should pretty much always be enabled...
-    // (consider removing this option)
     series: {
       friendlyName: 'One item at a time?',
       description: 'Whether to run iteratee on all items in series (one at a time) vs. in parallel (all at the same time).',
-      extendedDescription: 'Be careful if you disable this input-- make sure you are actually OK with your iteratee being run on each item of the array in a completely arbitrary order. Also release that consequently, the order that your result will accumulate in is impossible to predict.',
+      extendedDescription: 'Be careful if you disable this input-- make sure you are actually OK with your iteratee being run on each item of the array in a completely arbitrary order. Also realize that consequently, the order in which your result will accumulate in is impossible to predict.',
       example: true,
       defaultsTo: true
     },
@@ -101,24 +98,35 @@ module.exports = {
 
 
   fn: function (inputs,exits) {
+
+    // Import `lodash` and `async`.
     var _ = require('lodash');
     var async = require('async');
+
+    // Import `rttc`.
     var rttc = require('rttc');
-    var Machine = require('machine');
 
 
     // `initialValue` is the initial value that will be accumulated/folded "into".
     var initialValue;
+
+    // Use the provided input value if available.
     if (!_.isUndefined(inputs.initialValue)) {
       initialValue = inputs.initialValue;
     }
+
+    // Otherwise, try to get a base value from the result exemplat input.
     else {
       // If `resultExemplar` is set, determine base/empty value for its type
-      // and use that for `initialValue`.
+      // and use that for `initialValue`.  For example, if the result exemplar
+      // is [123] (an array of numbers) this will set the initial value to
+      // [] (an empty array).  This provides a convenience for the end user.
       if (!_.isUndefined(inputs.resultExemplar)) {
         initialValue = rttc.getBaseVal(inputs.resultExemplar);
       }
-      // Otherwise, use `null`.
+      // Otherwise, use `null` for the initial value.  Note that other machine inputs
+      // that are "like" initialValue will in this case use `*` as their exemplar,
+      // since it is the example value for the `initialValue` input.
       else {
         initialValue = null;
       }
@@ -144,15 +152,16 @@ module.exports = {
     var numIterationsSuccessful = 0;
 
 
-    // Start iterating...
+    // Start iterating using the selected `async` function.
     iteratorFn(inputs.array, function enumerator(item, next) {
 
       // Increment iterations counter and track current index
       var currentIndex = numIterationsStarted;
       numIterationsStarted++;
 
-      // If the `reduce` loop has already been halted, just skip
-      // all future iterations.
+      // If the `each` loop has already been halted, just skip
+      // this iteration (which effectively means skipping all future iterations
+      // since haltEarly will never be returned to `false`).
       if (haltEarly) {
         return next();
       }
@@ -165,41 +174,57 @@ module.exports = {
         resultSoFar: resultSoFar
       }).exec({
 
-        // Catchall (error) exit
-        // (implies that we should stop early and consider
+        // Catchall (error) exit:
+        // Implies that we should stop early and consider
         //  the entire operation a failure, including all iterations
-        //  so far. `reduce` will call its error exit.)
+        //  so far. `reduce` will call its error exit.
         error: function (err){
+          // Return an error through the `next` callback for the enumerator.
+          // This will include any output sent by the iteratee through its
+          // call to `exits.error()`, defaulting "Unexpected error occurred while running machine."
           return next(err);
         },
 
-        // Halt exit
-        // (implies that we should stop, performing no further
+        // Halt exit:
+        // Implies that we should stop, performing no further
         //  iterations; but that past iterations are ok.
-        //  `reduce` will call its success exit)
-        halt: function (){
+        //  `reduce` will call its success exit.
+        halt: function (_finalResult){
+          // Set the flag indicating that the iteratee request halting `each`.
           haltEarly = true;
+
+          // Set `resultSoFar` to what has been chosen as the final result.
+          resultSoFar = _finalResult;
+
+          // Call the `next` callback to continue iterating over the array.
+          // Since the `haltEarly` flag is set, future iterations will just
+          // immediately return.
           return next();
         },
 
-        // Default (success) exit
-        // (implies that we should continue iterating)
+        // Default (success) exit:
+        // Implies that we should continue iterating.
         success: function enumeratee(_resultSoFar){
 
-          // Track this successful iteration
+          // Track this successful iteration.
           numIterationsSuccessful++;
 
-          // Keep track of accumulated result so far
+          // Keep track of accumulated result so far.
           resultSoFar = _resultSoFar;
 
-          // Next item
+          // Call the `next` callback to continue iterating over the input.
           return next();
         }
       });
     }, function (err){
+
+      // If the iteratee called its `error` exit, or some other error was thrown,
+      // return through the `error` exit of `reduce`.
       if (err) {
         return exits.error(err);
       }
+
+      // Return the final accumulated value through the `success` exit.
       return exits.success(resultSoFar);
     });
   }

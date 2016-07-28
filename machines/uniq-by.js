@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Remove duplicate dictionaries',
+  friendlyName: 'Remove duplicate collection items',
 
 
   description: 'Build a duplicate-free version of an array of dictionaries, judging uniqueness based on a particular key.',
@@ -45,9 +45,17 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+
+    // Import `lodash`.
     var _ = require('lodash');
+
+    // Use `_.uniq()` to get a set of elements from the collection whose
+    // values for the given key are unique.
     var set = _.uniq(inputs.array, false, inputs.key);
+
+    // Return the set through the `success` exit.
     return exits.success(set);
+
   }
 
 };

@@ -65,7 +65,11 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+
+    // Use the native `Array.concat()` method and return the result through
+    // the `success` exit.
     return exits.success(inputs.firstArray.concat(inputs.secondArray));
+
   },
 
 };

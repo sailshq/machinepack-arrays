@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Reverse',
+  friendlyName: 'Reverse array',
 
 
   description: 'Build a new array which is an exact clone of an existing array, but in reverse order.',
@@ -35,6 +35,8 @@ module.exports = {
 
 
   fn: function (inputs,exits) {
+
+    // Reverse the array and send the result through the `success` exit.
     return exits.success(inputs.array.reverse());
   }
 

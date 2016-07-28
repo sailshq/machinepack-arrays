@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Sort (numbers)',
+  friendlyName: 'Sort numbers',
 
 
   description: 'Sort an array of numbers (ascending).',
@@ -28,7 +28,7 @@ module.exports = {
 
     success: {
       outputExample: [2],
-      outputFriendlyName: 'Sorted array',
+      outputFriendlyName: 'Sorted numbers',
       outputDescription: 'The resulting array after sorting by ascending value.'
 
     },
@@ -37,6 +37,9 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+
+    // Sort the array in ascending order and return the result through
+    // the `success` exit.
     return exits.success(inputs.array.sort(function compareNumbers(a, b) {
       return a - b;
     }));

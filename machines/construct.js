@@ -7,9 +7,6 @@ module.exports = {
   description: 'Construct an array.',
 
 
-  extendedDescription: 'This machine is not designed for everyday use-- it is an identity operator for the Array type-- but it can certainly be used in any way you see fit.',
-
-
   sync: true,
 
 
@@ -39,7 +36,10 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+
+    // Simply return the input array through the `success` exit.
     return exits.success(inputs.array);
+
   }
 
 };

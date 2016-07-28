@@ -1,10 +1,13 @@
 module.exports = {
 
 
-  friendlyName: 'Find one by...',
+  friendlyName: 'Find collection item',
 
 
   description: 'Search the array for the first dictionary that matches the specified criteria.',
+
+
+  extendedDescription: 'A _collection_ is an array of dictionaries.',
 
 
   sync: true,
@@ -17,14 +20,15 @@ module.exports = {
 
     array: {
       friendlyName: 'Array of dictionaries',
-      description: 'The array to search in (i.e. "haystack").',
+      description: 'The array to search in.',
       example: [{}],
       required: true
     },
 
     criteria: {
       example: {},
-      description: 'The Lodash-style criteria to use (i.e. "metal detector").',
+      description: 'The Lodash-style criteria to search using.',
+      moreInfoUrl: 'https://github.com/lodash/lodash/blob/3.10.1/doc/README.md#_findcollection-predicate_identity-thisarg',
       required: true
     }
 
@@ -33,7 +37,7 @@ module.exports = {
 
   exits: {
     success: {
-      outputFriendlyName: 'Found item',
+      outputFriendlyName: 'Found array item',
       outputDescription: 'The first dictionary item in the array that matches the criteria.',
       itemOf: 'array'
     },
@@ -44,11 +48,19 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+
+    // Import `lodash`.
     var _ = require('lodash');
+
+    // Attempt to find an item in the array that matches the specified criteria.
     var foundItem = _.find(inputs.array, inputs.criteria);
+
+    // If no such item could be found, return through the `notFound` exit.
     if (!foundItem) {
       return exits.notFound();
     }
+
+    // Otherwise return the found item through the `notFound` exit.
     return exits.success(foundItem);
   }
 

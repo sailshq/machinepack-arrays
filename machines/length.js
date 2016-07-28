@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Count items',
+  friendlyName: 'Count items in array',
 
 
   description: 'Get the length of the provided array.',

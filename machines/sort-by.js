@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Sort by...',
+  friendlyName: 'Sort collection',
 
 
   description: 'Sort an array of dictionaries by a particular key.',
@@ -45,7 +45,12 @@ module.exports = {
 
 
   fn: function (inputs,exits) {
+
+    // Import `Lodash`.
     var _ = require('lodash');
+
+    // Sort the collection by the given key and return the result
+    // through the `success` exit.
     return exits.success(_.sortBy(inputs.array, inputs.key));
   }
 

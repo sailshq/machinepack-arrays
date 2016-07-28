@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Remove duplicates',
+  friendlyName: 'Remove duplicate array items',
 
 
   description: 'Build a duplicate-free version of an array.',
@@ -37,7 +37,12 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+
+    // Import `lodash`.
     var _ = require('lodash');
+
+    // Remove duplicate items from the array and return the result
+    // through the `success` exit.
     return exits.success(_.uniq(inputs.array));
   }
 
