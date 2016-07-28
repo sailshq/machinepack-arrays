@@ -24,6 +24,7 @@ module.exports = {
     index: {
       friendlyName: 'Insert at (index)',
       description: 'The index to insert the new item at.',
+      extendedDescription: 'Must be a non-negative integer.',
       example: 1,
       required: true
     },
@@ -61,16 +62,23 @@ module.exports = {
 
   fn: function (inputs,exits) {
 
-    if (inputs.index < 0) {
-      return exits.error('Index must be least zero.');
+    // If an invalid index is given, return through the `error` exit.
+    if (inputs.index < 0 || Math.floor(inputs.index) !== inputs.index) {
+      return exits.error('Index must be a non-negative integer.');
     }
+
+    // If the array is too small to accomodate the specified index, return
+    // through the `notFound` exit.  Note that it is acceptable to specify
+    // an index at the _end_ of the array; for example an index of 4 for
+    // an array with length 3.
     if (inputs.array.length < inputs.index) {
       return exits.notFound();
     }
 
-    // Insert item
+    // Insert the new item item into the array at the specified index.
     inputs.array.splice(inputs.index, 0, inputs.value);
 
+    // Return the updated array through the `success` exit.
     return exits.success(inputs.array);
 
   },
