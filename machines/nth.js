@@ -41,7 +41,7 @@ module.exports = {
     },
 
     notFound: {
-      description: 'The array doesn\'t have an item at the specified index.',
+      description: 'The input array had no item at the specified index.',
       extendedDescription: 'This indicates that the specified index was out of bounds (larger than the array size).'
     },
 
@@ -53,11 +53,11 @@ module.exports = {
 
     // If an invalid index is given, return through the `error` exit.
     if (inputs.index < 0 || Math.floor(inputs.index) !== inputs.index) {
-      return exits.error('Index must be a non-negative integer.');
+      return exits.error(new Error('Index must be a non-negative integer.'));
     }
 
     // If the index is out of bounds (larger than the array), return
-    // through the `notFound` exit
+    // through the `notFound` exit.
     if (inputs.index >= inputs.array.length) {
       return exits.notFound();
     }

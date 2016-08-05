@@ -32,7 +32,7 @@ module.exports = {
     end: {
       friendlyName: 'End with (index)',
       description: 'The index of the last item to include in the new array.',
-      extendedDescription: 'Must be a non-negative integer.  Omitting this input value will include the rest of the array.',
+      extendedDescription: 'Must be a non-negative integer, greater than or equal to the start index.  Omitting this input value will include the rest of the array.',
       example: 5
     }
 
@@ -59,7 +59,7 @@ module.exports = {
 
     // If an invalid start index is given, return through the `error` exit.
     if (inputs.start < 0 || Math.floor(inputs.start) !== inputs.start) {
-      return exits.error('Starting index must be a non-negative integer.');
+      return exits.error(new Error('Starting index must be a non-negative integer.'));
     }
 
     // If no ending index is give, return the rest of the array (beginning
@@ -70,12 +70,12 @@ module.exports = {
 
     // If an invalid end index is given, return through the `error` exit.
     if (inputs.end < 0 || Math.floor(inputs.end) !== inputs.end) {
-      return exits.error('Ending index must be a non-negative integer.');
+      return exits.error(new Error('Ending index must be a non-negative integer.'));
     }
 
     // If the end index is less than the beginning, return through the `error` exit.
     if (inputs.end < inputs.start) {
-      return exits.error('Ending index must >= starting index.');
+      return exits.error(new Error('Ending index must >= starting index.'));
     }
 
     // Increment `end` by 1 (since the third arg to `_.slice` is exclusive),

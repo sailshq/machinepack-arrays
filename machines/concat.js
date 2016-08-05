@@ -7,9 +7,6 @@ module.exports = {
   description: 'Combine (aka concatenate) two arrays into a single array- one in front of the other.',
 
 
-  extendedDescription: 'Both arrays must be homogeneous, and their items must have matching/compatible types. Also, both arrays must be JSON-compatible.',
-
-
   sync: true,
 
 

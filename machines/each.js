@@ -68,7 +68,7 @@ module.exports = {
     var _ = require('lodash');
     var async = require('async');
 
-    // Use either `async.each` (parallel) or `async.eachSeries` (series)
+    // Use either `async.each` (parallel) or `async.eachSeries` (series).
     var iteratorFn = inputs.series ? async.eachSeries : async.each;
 
     // `haltEarly` is a flag which is used in the iterations
@@ -82,7 +82,7 @@ module.exports = {
     // Start iterating using the selected `async` function...
     iteratorFn(inputs.array, function enumerator(item, next) {
 
-      // Increment iterations counter and track current index
+      // Increment iterations counter and track current index.
       var currentIndex = numIterationsStarted;
       numIterationsStarted++;
 
@@ -107,7 +107,7 @@ module.exports = {
         error: function (err){
           // Return an error through the `next` callback for the enumerator.
           // This will include any output sent by the iteratee through its
-          // call to `exits.error()`, defaulting "Unexpected error occurred while running machine."
+          // call to `exits.error()`, defaulting to "Unexpected error occurred while running machine."
           return next(err);
         },
 

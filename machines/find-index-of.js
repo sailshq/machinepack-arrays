@@ -21,13 +21,13 @@ module.exports = {
     array: {
       friendlyName: 'Array of dictionaries',
       description: 'The array to search in.',
-      example: ['==='],
+      example: [{}],
       required: true
     },
 
     criteria: {
       example: {},
-      description: 'The Lodash-style criteria to search using.',
+      description: 'The Lodash-style criteria used to perform the search.',
       moreInfoUrl: 'https://github.com/lodash/lodash/blob/3.10.1/doc/README.md#_findcollection-predicate_identity-thisarg',
       required: true
     }
@@ -37,12 +37,12 @@ module.exports = {
 
   exits: {
     success: {
-      outputFriendlyName: 'Array item index',
-      outputDescription: 'The zero-based index where the array item is located.',
+      outputFriendlyName: 'Collection item index',
+      outputDescription: 'The zero-based index where the collection item is located.',
       outputExample: 8
     },
     notFound: {
-      description: 'The array did not contain the specified item.'
+      description: 'The collection did not contain the specified item.'
     },
   },
 

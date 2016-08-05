@@ -50,7 +50,7 @@ module.exports = {
 
     notFound: {
       friendlyName: 'Index out of bounds',
-      description: 'The array does not have enough items for anything to exist at the specified index.',
+      description: 'The input array did not an item at the specified index (because the index was larger than the array size).',
     },
 
   },
@@ -60,7 +60,7 @@ module.exports = {
 
     // If an invalid index is given, return through the `error` exit.
     if (inputs.index < 0 || Math.floor(inputs.index) !== inputs.index) {
-      return exits.error('Index must be a non-negative integer.');
+      return exits.error(new Error('Index must be a non-negative integer.'));
     }
 
     // If the array is too small to accomodate the specified index, return

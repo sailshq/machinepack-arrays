@@ -7,6 +7,9 @@ module.exports = {
   description: 'Search an array of dictionaries and return all items that match the specified criteria.',
 
 
+  extendedDescription: 'A _collection_ is an array of dictionaries.',
+
+
   sync: true,
 
 
@@ -24,7 +27,8 @@ module.exports = {
 
     criteria: {
       example: {},
-      description: 'The Lodash-style criteria to use (i.e. "metal detector").',
+      description: 'The Lodash-style criteria used to perform the search.',
+      moreInfoUrl: 'https://github.com/lodash/lodash/blob/3.10.1/doc/README.md#_findcollection-predicate_identity-thisarg',
       required: true
     }
 
@@ -33,7 +37,7 @@ module.exports = {
 
   exits: {
     success: {
-      outputFriendlyName: 'Found array items',
+      outputFriendlyName: 'Found collection items',
       outputDescription: 'The array of items matching the criteria.',
       like: 'array'
     }

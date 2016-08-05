@@ -6,9 +6,12 @@ module.exports = {
 
   description: 'Iterate over each item of an array to build a new transformed array.',
 
+
   extendedDescription: 'Unlike the native Javascript `.map()` function, the Map machine is not guaranteed to return an array with the same length as the input.  This is due to the availability of the `skip` exit in the iteratee, which allows for skipping an array item completely.  See also the "Each" and "Reduce" machines.',
 
+
   moreInfoUrl: 'http://node-machine.org/machinepack-arrays/map',
+
 
   inputs: {
 
@@ -91,7 +94,7 @@ module.exports = {
     var _ = require('lodash');
     var async = require('async');
 
-    // Use either `async.map` (parallel) or `async.mapSeries` (series)
+    // Use either `async.map` (parallel) or `async.mapSeries` (series).
     var iteratorFn = inputs.series ? async.mapSeries : async.map;
 
     // `numIterationsStarted` will track the number of iterations

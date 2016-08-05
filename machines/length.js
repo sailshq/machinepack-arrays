@@ -37,7 +37,10 @@ module.exports = {
 
 
   fn: function (inputs,exits) {
+
+    // Return the array length through the `success` exit.
     return exits.success(inputs.array.length);
+
   },
 
 

@@ -60,7 +60,7 @@ module.exports = {
 
     // If an invalid index is given, return through the `error` exit.
     if (inputs.index < 0 || Math.floor(inputs.index) !== inputs.index) {
-      return exits.error('Index must be a non-negative integer.');
+      return exits.error(new Error('Index must be a non-negative integer.'));
     }
 
     // If the array is too small to accomodate the specified index, return
