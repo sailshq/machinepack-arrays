@@ -137,7 +137,7 @@ module.exports = {
         // Exclude (skip item) exit:
         // Implies that we should exclude this item from the result set,
         // and continue onto the next item.
-        exclude: function (){
+        skip: function (){
           // Make note that we're skipping this index, since we'll have
           // to remove the `undefined` value that will be inserted there
           // when we call `next`.

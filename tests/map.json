@@ -91,7 +91,7 @@
           30
         ],
         "resultExemplar": [1],
-        "iteratee": "if (inputs.index % 2 === 0) { /* exclude even-numbered indices */ return exits.exclude(); } return exits.success(inputs.item+inputs.index);"
+        "iteratee": "if (inputs.index % 2 === 0) { /* exclude even-numbered indices */ return exits.skip(); } return exits.success(inputs.item+inputs.index);"
       },
       "outcome": "success",
       "returns": [
