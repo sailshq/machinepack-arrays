@@ -48,11 +48,6 @@ module.exports = {
 
     },
 
-    invalidIndex: {
-      description: 'The specified index was not a non-negative integer.'
-    },
-
-
     notFound: {
       friendlyName: 'Index out of bounds',
       description: 'The array does not have enough items for anything to exist at the specified index.',

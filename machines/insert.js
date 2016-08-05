@@ -51,11 +51,7 @@ module.exports = {
       friendlyName: 'Index out of bounds',
       description: 'The specified index was not valid for the given array.',
       extendedDescription: 'This indicates that the array was smaller than the index.'
-    },
-
-    invalidIndex: {
-      description: 'The specified index was not a non-negative integer.'
-    },
+    }
 
   },
 
