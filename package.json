@@ -15,7 +15,7 @@
   "dependencies": {
     "async": "^0.9.0",
     "lodash": "^3.7.0",
-    "machine": "^12.3.0",
+    "machine": "^13.0.0-0",
     "rttc": "^8.1.5"
   },
   "devDependencies": {
