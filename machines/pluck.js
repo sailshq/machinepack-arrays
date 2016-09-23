@@ -1,13 +1,10 @@
 module.exports = {
 
 
-  friendlyName: 'Pluck values from collection',
+  friendlyName: 'Pluck by...',
 
 
-  description: 'List the values of a particular key from a collection.',
-
-
-  extendedDescription: 'A _collection_ is an array of dictionaries.',
+  description: 'List the values of a particular key from an array of dictionaries.',
 
 
   sync: true,

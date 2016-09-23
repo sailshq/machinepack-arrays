@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Remove duplicate collection items',
+  friendlyName: 'Dedupe by...',
 
 
   description: 'Build a duplicate-free version of an array of dictionaries, judging uniqueness based on a particular key.',

@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Sort collection',
+  friendlyName: 'Sort by...',
 
 
   description: 'Sort an array of dictionaries by a particular key.',

@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Remove duplicate array items',
+  friendlyName: 'Dedupe',
 
 
   description: 'Build a duplicate-free version of an array.',

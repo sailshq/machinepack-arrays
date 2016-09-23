@@ -1,13 +1,10 @@
 module.exports = {
 
 
-  friendlyName: 'Find collection item',
+  friendlyName: 'Find one where...',
 
 
   description: 'Search an array of dictionaries for the first item that matches the specified criteria.',
-
-
-  extendedDescription: 'A _collection_ is an array of dictionaries.',
 
 
   sync: true,

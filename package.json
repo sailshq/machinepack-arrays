@@ -45,7 +45,6 @@
       "sort-strings",
       "sort-numbers",
       "index-of",
-      "find-index-of",
       "replace",
       "sample-subset"
     ],

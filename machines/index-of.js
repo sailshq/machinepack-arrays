@@ -1,10 +1,10 @@
 module.exports = {
 
 
-  friendlyName: 'Get array item index',
+  friendlyName: 'Index of',
 
 
-  description: 'Look up the first occurrence of the specified item and return its array index.',
+  description: 'Look up the array index of the first item which exactly matches the specified value.',
 
 
   extendedDescription: 'This machine uses deep equality (`_.isEqual()`) for comparison.',
