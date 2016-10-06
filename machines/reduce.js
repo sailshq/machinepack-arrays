@@ -62,6 +62,21 @@ module.exports = {
       required: true
     },
 
+    /******* WHY WE NEED BOTH `initialValue` and `resultExemplar` ******/
+    /*******  (since we always forget and think we can drop one)  ******/
+    //
+    // Sometimes, you want to start with an initial value, e.g. the
+    // number 99.  Obviously you can't use `resultExemplar` for that.
+    // But sometimes, you want to start with an empty array, and you
+    // want the _end result_ to be an array of numbers.  You can't set
+    // `initialValue` to an array with a number in it, since you want
+    // to start with an empty array.  You need `resultExemplar` in that
+    // case.  The confusion comes from the fact that you rarely (maybe
+    // never?) need to actually use _both_ of these inputs at the same
+    // time.  But you almost always need one or the other.
+    //
+    /////////////////////////////////////////////////////////////////////
+
     resultExemplar: {
       friendlyName: 'Example result',
       description: 'An example of what the final accumulated result will look like.',
