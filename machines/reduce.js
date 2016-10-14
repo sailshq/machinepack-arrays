@@ -39,21 +39,21 @@ module.exports = {
           },
           resultSoFar: {
             description: 'The result which has been accumulated so far.',
-            like: 'initialValue' // same type as the `initialValue` input of the calling machine
+            like: 'resultExemplar' // same type as the `resultExemplar` input of the calling machine
           },
         },
         exits: {
           success: {
             friendlyName: 'Next item',
             description: 'Continue to next item, or if there are no more items, stop.',
-            like: 'initialValue', // same type as the `initialValue` input of the calling machine
+            like: 'resultExemplar', // same type as the `resultExemplar` input of the calling machine
             outputFriendlyName: 'Transformed result',
             outputDescription: 'The accumulated result after running the current item through the iteratee machine.'
           },
           halt: {
             friendlyName: 'Break',
             description: 'Everything is ok, but stop iterating and skip over all remaining items.',
-            like: 'initialValue', // same type as the `initialValue` input of the calling machine
+            like: 'resultExemplar', // same type as the `resultExemplar` input of the calling machine
             outputFriendlyName: 'Final result',
             outputDescription: 'The final result to return.'
           },
@@ -81,21 +81,15 @@ module.exports = {
       friendlyName: 'Example result',
       description: 'An example of what the final accumulated result will look like.',
       extendedDescription: 'The type of the final result must be compatible with the initial value, as well as the partial result provided to the iteratee during each iteration.',
-      isExemplar: true
+      isExemplar: true,
+      defaultsTo: '*'
     },
 
     initialValue: {
       description: 'The initial value for the accumulated result.',
       extendedDescription: 'Note that the final accumulated result must have a compatible type!',
-      example: '*'
-    },
-
-    series: {
-      friendlyName: 'One item at a time?',
-      description: 'Whether to run iteratee on all items in series (one at a time) vs. in parallel (all at the same time).',
-      extendedDescription: 'Be careful if you disable this input-- make sure you are actually OK with your iteratee being run on each item of the array in a completely arbitrary order. Also realize that consequently, the order in which your result will accumulate in is impossible to predict.',
-      example: true,
-      defaultsTo: true
+      example: '*',
+      required: true
     },
 
   },
@@ -106,53 +100,60 @@ module.exports = {
     success: {
       outputFriendlyName: 'Result of reduce',
       outputDescription: 'The accumulated result value.',
-      like: 'initialValue'
+      like: 'resultExemplar'
     }
 
   },
 
 
-  fn: function (inputs,exits) {
+  fn: function (inputs,exits,env) {
 
     // Import `lodash` and `async`.
     var _ = require('lodash');
     var async = require('async');
 
-    // Import `rttc`.
+    // Import `rttc` and `util`.
     var rttc = require('rttc');
+    var util = require('util');
 
 
     // `initialValue` is the initial value that will be accumulated/folded "into".
-    var initialValue;
+    var initialValue = inputs.initialValue;
 
-    // Use the provided input value if available.
-    if (!_.isUndefined(inputs.initialValue)) {
-      initialValue = inputs.initialValue;
-    }
+    // `resultExemplar` is the expected type of the accumulated value after each
+    // iteration, as well as the final accumulated value.
+    var resultExemplar = inputs.resultExemplar;
 
-    // Otherwise, try to get a base value from the result exemplat input.
-    else {
-      // If `resultExemplar` is set, determine base/empty value for its type
-      // and use that for `initialValue`.  For example, if the result exemplar
-      // is [123] (an array of numbers) this will set the initial value to
-      // [] (an empty array).  This provides a convenience for the end user.
-      if (!_.isUndefined(inputs.resultExemplar)) {
-        initialValue = rttc.getBaseVal(inputs.resultExemplar);
-      }
-      // Otherwise, use `null` for the initial value.  Note that other machine inputs
-      // that are "like" initialValue will in this case use `*` as their exemplar,
-      // since it is the example value for the `initialValue` input.
-      else {
-        initialValue = null;
-      }
-    }
+    // Ensure that the provided initial value validates (loosely) against the
+    // provided result exemplar-- or, if left unspecified, against the default
+    // result exemplar: '*'.
+    // > Note that this also lightly coerces the initial value if necessary.
+    var lightlyCoercedInitialValue;
+    try {
+      lightlyCoercedInitialValue = rttc.validate(rttc.infer(resultExemplar), initialValue);
+    } catch (e) {
+      switch (e.code) {
+        case 'E_INVALID':
+          return exits.error(
+            new Error(
+              'In order to use "Arrays > Reduce", the "Initial value" must validate vs. the specified '+
+              '"Example result" (an RTTC exemplar).  But this is not the case here, since the "Initial value" '+
+              '('+rttc.getNounPhrase(rttc.inferDisplayType(rttc.coerceExemplar(initialValue)))+') is not valid vs. the provided '+
+              rttc.inferDisplayType(resultExemplar)+' exemplar:\n'+
+              util.inspect(resultExemplar, {depth:null})+'\n'+
+              '\n'+
+              'For more about RTTC data types, visit:\n'+
+              'https://github.com/node-machine/rttc#types--exemplars'
+            )
+          );
+        default:
+          return exits.error(e);
+      }//</switch>
+    }//</catch :: error thrown from rttc.validate()>
 
     // `resultSoFar` will hold the result accumulated across
     // multiple calls to `inputs.iteratee`.
     var resultSoFar = initialValue;
-
-    // Use either `async.each` (parallel) or `async.eachSeries` (series)
-    var iteratorFn = inputs.series ? async.eachSeries : async.each;
 
     // `haltEarly` is a flag which is used in the iterations
     // below to indicate that all future iterations should be skipped.
@@ -168,7 +169,7 @@ module.exports = {
 
 
     // Start iterating using the selected `async` function.
-    iteratorFn(inputs.array, function enumerator(item, next) {
+    async.eachSeries(inputs.array, function enumerator(item, next) {
 
       // Increment iterations counter and track current index
       var currentIndex = numIterationsStarted;
@@ -224,11 +225,13 @@ module.exports = {
           // Track this successful iteration.
           numIterationsSuccessful++;
 
-          // Keep track of accumulated result so far.
-          resultSoFar = _resultSoFar;
+          // Keep track of accumulated result so far, and make sure it validates
+          // against the `resultExemplar`
+          resultSoFar = rttc.coerce(rttc.infer(resultExemplar), _resultSoFar);
 
           // Call the `next` callback to continue iterating over the input.
           return next();
+
         }
       });
     }, function (err){
@@ -245,4 +248,3 @@ module.exports = {
   }
 
 };
-

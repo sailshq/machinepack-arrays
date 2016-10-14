@@ -52,26 +52,6 @@
           }
         ],
         "iteratee": "return exits.success(inputs.resultSoFar+(inputs.index>0?\" \":\"\")+inputs.item.name);",
-        "resultExemplar": "bob rob"
-      },
-      "outcome": "success",
-      "returns": "jon arya rob"
-    },
-    {
-      "using": {
-        "array": [
-          {
-            "name": "jon",
-            "wolf": "Ghost"
-          },
-          {
-            "name": "arya"
-          },
-          {
-            "name": "rob"
-          }
-        ],
-        "iteratee": "return exits.success(inputs.resultSoFar+(inputs.index>0?\" \":\"\")+inputs.item.name);",
         "initialValue": "louie ",
         "resultExemplar": "bob rob"
       },
@@ -96,6 +76,83 @@
       },
       "outcome": "success",
       "returns": "stopped at ---> 5"
+    },
+    {
+      "using": {
+        "array": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          -1,
+          6,
+          7,
+          8
+        ],
+        "iteratee": "if (inputs.item < 0) { return exits.halt(inputs.resultSoFar); }  return exits.success('stopped at ---> '+inputs.item);",
+        "initialValue": "3a",
+        "resultExemplar": {}
+      },
+      "outcome": "error"
+    },
+    {
+      "using": {
+        "array": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          -1,
+          6,
+          7,
+          8
+        ],
+        "iteratee": "return exits.success(null);",
+        "resultExemplar": 123,
+        "initialValue": 5
+      },
+      "outcome": "success",
+      "output": 0
+    },
+    {
+      "using": {
+        "array": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          -1,
+          6,
+          7,
+          8
+        ],
+        "iteratee": "return exits.success(null);",
+        "initialValue": 5
+      },
+      "outcome": "success",
+      "output": null
+    },
+    {
+      "using": {
+        "array": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          -1,
+          6,
+          7,
+          8
+        ],
+        "iteratee": "return exits.success(inputs.item);",
+        "initialValue": 5
+      },
+      "outcome": "success",
+      "output": 8
     }
   ]
 }
