@@ -34,7 +34,7 @@ module.exports = {
 
   exits: {
     success: {
-      outputFriendlyName: 'Found collection items',
+      outputFriendlyName: 'Filtered array items',
       outputDescription: 'The array of items matching the criteria.',
       like: 'array'
     }

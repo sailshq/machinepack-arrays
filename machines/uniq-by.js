@@ -49,7 +49,7 @@ module.exports = {
     // Import `lodash`.
     var _ = require('lodash');
 
-    // Use `_.uniq()` to get a set of elements from the collection whose
+    // Use `_.uniq()` to get a set of elements from the array of dictionaries whose
     // values for the given key are unique.
     var set = _.uniq(inputs.array, false, inputs.key);
 

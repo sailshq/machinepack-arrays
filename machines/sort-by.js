@@ -49,7 +49,7 @@ module.exports = {
     // Import `Lodash`.
     var _ = require('lodash');
 
-    // Sort the collection by the given key and return the result
+    // Sort the array of dictionaries by the given key and return the result
     // through the `success` exit.
     return exits.success(_.sortBy(inputs.array, inputs.key));
   }
