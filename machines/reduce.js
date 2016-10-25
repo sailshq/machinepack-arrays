@@ -47,7 +47,7 @@ module.exports = {
             friendlyName: 'Next item',
             description: 'Continue to next item, or if there are no more items, stop.',
             like: 'resultExemplar', // same type as the `resultExemplar` input of the calling machine
-            outputFriendlyName: 'Transformed result',
+            outputFriendlyName: 'Result',
             outputDescription: 'The accumulated result after running the current item through the iteratee machine.'
           },
           halt: {
