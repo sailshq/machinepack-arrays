@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Get [n]th item in array',
+  friendlyName: 'Get item in array',
 
 
   description: 'Look up an item from the array at the specified index.',
