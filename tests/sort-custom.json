@@ -1,0 +1,31 @@
+{
+  "machine": "sort-custom",
+  "expectations": [
+    {
+      "using": {
+        "array": [
+          "z",
+          "def",
+          "abc",
+          "qr",
+          "A",
+          "foobar",
+          "moo",
+          "J"
+        ],
+        "iteratee": "function(inputs, exits) {return exits.success(inputs.item.length);}"
+      },
+      "outcome": "success",
+      "returns": [
+        "z",
+        "A",
+        "J",
+        "qr",
+        "def",
+        "abc",
+        "moo",
+        "foobar"
+      ]
+    }
+  ]
+}

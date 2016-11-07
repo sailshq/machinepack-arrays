@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Sort by...',
+  friendlyName: 'Sort dictionaries by key',
 
 
   description: 'Sort an array of dictionaries by a particular key.',
@@ -36,7 +36,7 @@ module.exports = {
 
     success: {
       like: 'array',
-      outputFriendlyName: 'Sorted array',
+      outputFriendlyName: 'Sorted dictionaries',
       outputDescription: 'The resulting array after sorting by the specified key.'
 
     }
