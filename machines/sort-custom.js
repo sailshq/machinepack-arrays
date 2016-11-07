@@ -20,7 +20,7 @@ module.exports = {
 
     iteratee: {
       friendlyName: 'Sorting machine',
-      description: 'The anonymous machine used to calculate the sorting rank for an item',
+      description: 'The anonymous machine used to calculate the sorting rank for an item.',
       example: '->',
       contract: {
         inputs: {
