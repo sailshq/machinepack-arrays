@@ -1,0 +1,21 @@
+{
+  "machine": "first",
+  "expectations": [
+    {
+      "using": {
+        "array": [
+          {
+            "name": "Lucy"
+          },
+          {
+            "name": "Ricky"
+          }
+        ]
+      },
+      "outcome": "success",
+      "returns": {
+        "name": "Lucy"
+      }
+    }
+  ]
+}
